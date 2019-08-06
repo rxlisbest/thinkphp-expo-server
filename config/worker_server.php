@@ -1,5 +1,5 @@
 <?php
 return [
     'count' => 4,
-    'worker_class' => 'app\http\Worker',
+    'worker_class' => ['app\http\Worker'],
 ];
