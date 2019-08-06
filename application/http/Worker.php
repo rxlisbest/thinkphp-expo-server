@@ -4,6 +4,7 @@ namespace app\http;
 
 use think\Db;
 use think\worker\Server;
+use Pheanstalk\Pheanstalk;
 
 class Worker extends Server
 {
@@ -32,21 +33,30 @@ class Worker extends Server
 
     public function onMessage($connection, $data)
     {
-        $result = $connection->send('insert');
-        Db::table('role')->insert(['name' => json_encode($result)]);
-        $i = 0;
+//        $result = $connection->send('insert');
+//        Db::table('role')->insert(['name' => json_encode($result)]);
+        $pheanstalk = Pheanstalk::create('127.0.0.1');
+//        $i = 0;
         while (true) {
+            $job = $pheanstalk
+                ->watch('testtube')
+                ->ignore('default')
+                ->reserveWithTimeout(3);  // 设置过期时间
+            if ($job) {
+                $data = $job->getData();
+                $pheanstalk->delete($job);
+            } else { // 发送心跳包
+                $data = "heart";
+            }
 //            $connection->send($i);
-            $result = $connection->send($i);
-            Db::table('role')->insert(['name' => json_encode($result)]);
-            $i++;
+            $result = $connection->send($data);
+//            Db::table('role')->insert(['name' => json_encode($result)]);
+//            $i++;
             if ($result === null) {
                 $connection->close();
                 break;
             }
-            sleep(2);
         }
-        $connection->send($data);
     }
 
     public function onClose($connection)
