@@ -2,6 +2,7 @@
 
 namespace app\index\controller;
 
+use app\common\Message;
 use Pheanstalk\Pheanstalk;
 
 class Index
@@ -13,11 +14,8 @@ class Index
 
     public function hello($name = 'ThinkPHP5')
     {
-        $pheanstalk = Pheanstalk::create('127.0.0.1');
         $r = 'test' . rand(1000, 9999);
-        $pheanstalk
-            ->useTube('testtube')
-            ->put($r);
+        Message::receive(1, $r);
         return 'hello,' . $name;
     }
 }
