@@ -17,7 +17,7 @@ class Message extends Facade
      * @author: Roy<ruixl@soocedu.com>
      * @time: 2019-08-06 13:36
      */
-    public static function send($no, $callback)
+    public static function send($no, \Closure $callback)
     {
         $beanstalkd = Config::get('beanstalkd.');
         $pheanstalk = BeansTalkd::getInstance(); // 连接队列服务
