@@ -7,7 +7,7 @@ use think\worker\Server;
 
 class Worker extends Server
 {
-    protected $socket = 'tcp://0.0.0.0:8888';
+    protected $socket = 'tcp://0.0.0.0:2345';
     protected $option = ['count' => 1];
 
     public function onConnect($connection)
