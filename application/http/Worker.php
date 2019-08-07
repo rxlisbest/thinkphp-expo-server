@@ -28,7 +28,7 @@ class Worker extends Server
                 }
             });
         } else { // 无法确认设备身份则断开连接
-//            $connection->close();
+            $connection->close();
         }
     }
 
