@@ -17,15 +17,19 @@ class Message extends Facade
      * @author: Roy<ruixl@soocedu.com>
      * @time: 2019-08-06 13:36
      */
-    public static function send($no, \Closure $callback)
+    public static function send($no, \Closure $callback, $protocol = 'TCP')
     {
         $beanstalkd = Config::get('beanstalkd.');
         $pheanstalk = BeansTalkd::getInstance(); // 连接队列服务
         while (true) {
-            $job = $pheanstalk
+            $watch = $pheanstalk
                 ->watch($beanstalkd['tube_prefix'] . $no)
-                ->ignore('default')
-                ->reserveWithTimeout(3);  // 设置过期时间
+                ->ignore('default');
+            if ($protocol === 'TCP') {
+                $job = $watch->reserveWithTimeout(3);  // 设置过期时间
+            } else {
+                $job = $watch->reserve();  // 设置过期时间
+            }
             if ($job) { // 队列中有消息，发送消息
                 $data = $job->getData();
                 $pheanstalk->delete($job);
