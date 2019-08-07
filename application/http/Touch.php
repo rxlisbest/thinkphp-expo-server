@@ -7,8 +7,9 @@ use think\worker\Server;
 
 class Touch extends Server
 {
-    protected $protocol = 'udp';
-    protected $port = '2347';
+    protected $socket = 'udp://0.0.0.0:2347';
+//    protected $protocol = 'udp';
+//    protected $port = '2347';
     protected $option = ['count' => 1];
 
     public function onConnect($connection)
@@ -22,7 +23,7 @@ class Touch extends Server
         if ($data) {
             $post = [
                 'no' => 12,
-                'value' => $data
+                'value' => 8
             ];
             Message::receive(12, json_encode($post));
         }
