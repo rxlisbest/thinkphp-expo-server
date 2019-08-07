@@ -22,7 +22,7 @@ class Worker extends Server
         if ($data == 1) {
             Message::send(1, function ($data) use ($connection) {
                 $result = $connection->send($data);
-                if ($result === null) {
+                if ($result == null) {
                     $connection->close();
                     return false;
                 }
