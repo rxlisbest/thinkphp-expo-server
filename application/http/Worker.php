@@ -20,7 +20,7 @@ class Worker extends Server
     public function onMessage($connection, $data)
     {
         if (true) {
-            Message::send(1, function ($data) use ($connection) {
+            Message::send(99, function ($data) use ($connection) {
                 $result = $connection->send($data);
                 if ($result == null) {
                     $connection->close();

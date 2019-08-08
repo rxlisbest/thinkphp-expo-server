@@ -81,7 +81,7 @@ function init(joystick, eee) {
 						}
 
 						let d = {
-							no: 1,
+							no: 99,
 							command: eee,
 							param: {
 								x: 0,
@@ -119,7 +119,7 @@ function init(joystick, eee) {
 							}
 							//move();
 							let d = {
-								no: 1,
+								no: 99,
 								command: eee,
 								param: {
 									x: jx / (centerY - jisize / 2),
