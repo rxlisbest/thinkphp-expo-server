@@ -35,10 +35,10 @@
     data() {
       return {
         moduleData: [
-          // {
-          //   router: 'electric-automation-index',
-          //   name: '电力自动化'
-          // },
+          {
+            router: 'electric-automation-index',
+            name: '电力自动化'
+          },
           {
             router: 'wisdom-water-index',
             name: '智慧水务'

@@ -15,10 +15,6 @@ class Worker extends Server
     public function onConnect($connection)
     {
         $connection->send('哈哈');
-    }
-
-    public function onMessage($connection, $data)
-    {
         if (true) {
             Message::send(99, function ($data) use ($connection) {
                 $result = $connection->send($data);
@@ -30,6 +26,11 @@ class Worker extends Server
         } else { // 无法确认设备身份则断开连接
             $connection->close();
         }
+    }
+
+    public function onMessage($connection, $data)
+    {
+        $connection->send('哈哈1');
     }
 
     public function onClose($connection)
