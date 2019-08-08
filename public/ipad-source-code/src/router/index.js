@@ -7,22 +7,24 @@ export default new Router({
     routes: [
         {
             path: '*',
-            redirect: '/'
+            redirect: '/set-up'
         },
         {
-            path: '/',
-            name: 'index',
-            component: require('@/components/HelloWorld').default
-        },
-        {
-            path: '/test',
-            name: 'test',
+            path: '/set-up',
+            name: 'set-up-index',
             component: require('@/views/set-up/index').default
         },
+        // 电气自动化
         {
-            path: '/electric-automation/index',
+            path: '/electric-automation',
             name: 'electric-automation-index',
             component: require('@/views/electric-automation/index').default
+        },
+        // 智慧水务
+        {
+            path: '/wisdom-water',
+            name: 'wisdom-water-index',
+            component: require('@/views/wisdom-water/index').default
         }
     ]
 })

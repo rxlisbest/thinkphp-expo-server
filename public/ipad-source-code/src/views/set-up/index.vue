@@ -1,19 +1,30 @@
 <template>
-  <div class="app-container">
-    <el-row :gutter="20">
-      <el-col :span="6">
-        <div class="grid-content bg-purple">1</div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content bg-purple">2</div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content bg-purple">3</div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content bg-purple">4</div>
+  <div class="container">
+    <el-row>
+      <el-col :span="24">
+        <h1>主菜单</h1>
       </el-col>
     </el-row>
+    <el-table
+      :data="moduleData"
+      stripe
+      style="width: 100%">
+      <el-table-column
+        prop="date"
+        label="模块名称">
+        <template slot-scope="scope">
+          <router-link :to="{'name': scope.row.router}">{{scope.row.name}}</router-link>
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="name"
+        label="设置权限">
+        <template slot-scope="scope">
+          <el-button @click="setUp(scope)" type="danger" circle icon="el-icon-link
+"></el-button>
+        </template>
+      </el-table-column>
+    </el-table>
   </div>
 </template>
 
@@ -22,11 +33,40 @@
     name: 'set-up-index',
     components: {},
     data() {
-      return {}
+      return {
+        moduleData: [
+          // {
+          //   router: 'electric-automation-index',
+          //   name: '电力自动化'
+          // },
+          {
+            router: 'wisdom-water-index',
+            name: '智慧水务'
+          }
+        ]
+      }
     },
     created() {
     },
-    methods: {}
+    methods: {
+      setUp(data) {
+        this.$confirm('设置后将不能返回主菜单, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'error',
+            message: '暂不支持此功能'
+          })
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消操作'
+          })
+        })
+      }
+    }
   }
 </script>
 <style scoped>
