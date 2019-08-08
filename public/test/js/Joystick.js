@@ -6,7 +6,7 @@ var ws = new WebSocket("ws://39.96.71.175:2346");
 // 	ws.send('{"no": 8, "command": "666", "param": {}}');
 // };
 
-function init(joystick, n) {
+function init(joystick, eee) {
 	var ji = new Image(); //内摇杆图片
 	var jo = new Image(); //外摇杆图片
 	var josize = joystick.height; //外摇杆大小
@@ -79,10 +79,10 @@ function init(joystick, n) {
 							jx = 0;
 							jy = 0;
 						}
-						
+
 						let d = {
 							no: 1,
-							command: "move",
+							command: eee,
 							param: {
 								x: 0,
 								y: 0
@@ -94,48 +94,51 @@ function init(joystick, n) {
 					break;
 				case "touchmove": //手指移动的时候：
 					//是否触摸点在摇杆上
-					if(effectiveFinger != -1)
-						if(Math.sqrt(Math.pow(event.touches[effectiveFinger].clientX - centerX - touchX, 2) +
+					if(effectiveFinger != -1){
+						if (event.touches[effectiveFinger] != undefined) {
+							if(Math.sqrt(Math.pow(event.touches[effectiveFinger].clientX - centerX - touchX, 2) +
 								Math.pow(event.touches[effectiveFinger].clientY - centerY - touchY, 2)) <=
-							josize / 2 - jisize / 2) {
-							jx = event.touches[effectiveFinger].clientX - centerX - touchX;
-							jy = event.touches[effectiveFinger].clientY - centerY - touchY;
-						} else
-						//否则计算摇杆最接近的位置
-						{
-							// var x = event.touches[effectiveFinger].clientX - touchX,
-							// 	y = event.touches[effectiveFinger].clientY - touchY,
-							// 	r = josize / 2 - jisize / 2;
-							// var ans = GetPoint(centerX, centerY, r, centerX, centerY, x, y);
-							// //圆与直线有两个交点，计算出离手指最近的交点
-							// if(Math.sqrt((ans[0] - x) * (ans[0] - x) + (ans[1] - y) * (ans[1] - y)) < Math.sqrt((ans[2] - x) * (ans[2] - x) + (ans[3] - y) * (ans[3] - y))) {
-							// 	jx = ans[0] - centerX;
-							// 	jy = ans[1] - centerY;
-							// } else {
-							// 	jx = ans[2] - centerX;
-							// 	jy = ans[3] - centerY;
-							// }
-						}
-						//move();
-						let d = {
-							no: 1,
-							command: "move",
-							param: {
-								x: jx / (centerY - jisize / 2),
-								y: jy / (centerY - jisize / 2)
+								josize / 2 - jisize / 2) {
+								jx = event.touches[effectiveFinger].clientX - centerX - touchX;
+								jy = event.touches[effectiveFinger].clientY - centerY - touchY;
+							} else
+							//否则计算摇杆最接近的位置
+							{
+								// var x = event.touches[effectiveFinger].clientX - touchX,
+								// 	y = event.touches[effectiveFinger].clientY - touchY,
+								// 	r = josize / 2 - jisize / 2;
+								// var ans = GetPoint(centerX, centerY, r, centerX, centerY, x, y);
+								// //圆与直线有两个交点，计算出离手指最近的交点
+								// if(Math.sqrt((ans[0] - x) * (ans[0] - x) + (ans[1] - y) * (ans[1] - y)) < Math.sqrt((ans[2] - x) * (ans[2] - x) + (ans[3] - y) * (ans[3] - y))) {
+								// 	jx = ans[0] - centerX;
+								// 	jy = ans[1] - centerY;
+								// } else {
+								// 	jx = ans[2] - centerX;
+								// 	jy = ans[3] - centerY;
+								// }
 							}
+							//move();
+							let d = {
+								no: 1,
+								command: eee,
+								param: {
+									x: jx / (centerY - jisize / 2),
+									y: jy / (centerY - jisize / 2)
+								}
+							}
+							ws.send(JSON.stringify(d));
+							// console.log(jx / (centerY - jisize / 2), jy / (centerY - jisize / 2))
+							event.preventDefault(); //防止页面滑动，取消掉默认的事件
 						}
-						ws.send(JSON.stringify(d));
-								// console.log(jx / (centerY - jisize / 2), jy / (centerY - jisize / 2))
-					event.preventDefault(); //防止页面滑动，取消掉默认的事件
+					}
 					break;
 			}
 		}
 		requestAnimationFrame(move); //开始绘图
 	}
 }
-init(joystick, 1)
-init(joystick2, 2)
+init(joystick, 'leftMove')
+init(joystick2, 'rightMove,')
 
 
 //计算圆于直线的交点（这一块好难啊）
