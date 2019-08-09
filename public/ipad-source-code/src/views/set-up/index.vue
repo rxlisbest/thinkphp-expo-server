@@ -42,6 +42,10 @@
           {
             router: 'wisdom-water-index',
             name: '智慧水务'
+          },
+          {
+            router: 'low-voltage-index',
+            name: '低压智能配电'
           }
         ]
       }

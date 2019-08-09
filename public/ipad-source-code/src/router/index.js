@@ -40,6 +40,22 @@ export default new Router({
             path: '/wisdom-water',
             name: 'wisdom-water-index',
             component: require('@/views/wisdom-water/index').default
+        },
+        // 低压智能配电
+        {
+            path: '/low-voltage',
+            name: 'low-voltage-index',
+            component: require('@/views/low-voltage/index').default
+        },
+        {
+            path: '/low-voltage/product',
+            name: 'low-voltage-product',
+            component: require('@/views/low-voltage/product').default
+        },
+        {
+            path: '/low-voltage/productDetail',
+            name: 'low-voltage-productDetail',
+            component: require('@/views/low-voltage/productDetail').default
         }
     ]
 })
