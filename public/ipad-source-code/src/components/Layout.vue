@@ -12,17 +12,31 @@
 </template>
 
 <script>
+  import {send} from '@/api/send'
+
+  const backCommandDefault = function () {
+    return {}
+  }
+
   export default {
     name: 'layout',
     components: {},
     data() {
       return {}
     },
-    props: [],
+    props: {
+      backCommand: {
+        type: Object,
+        default: backCommandDefault
+      }
+    },
     mounted() {
     },
     methods: {
-      back() {
+      async back() {
+        if (this.backCommand.no != undefined) {
+          let res = await send(this.backCommand)
+        }
         this.$router.go(-1)
       }
     }

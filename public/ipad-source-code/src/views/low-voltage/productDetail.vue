@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <layout :backCommand="{'no': no, 'command': 'product'}">
     <template slot="body">
       <el-row :gutter="20">
         <el-col :span="8" v-for="(v, k) in info.video.small">
