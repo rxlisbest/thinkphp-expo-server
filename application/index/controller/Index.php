@@ -32,7 +32,7 @@ class Index extends Controller
         Message::send($get['no'], function ($data) use ($o) {
             $o->success('success', null, json_decode($data, true));
             return false;
-        }, 'HTTP');
+        });
     }
 
     /**
