@@ -15,6 +15,7 @@ var HOST_URL = function () {
 // create an axios instance
 const service = axios.create({
   baseURL: HOST_URL, // url = base url + request url
+  // baseURL: 'http://localhost/chint/expo/public', // url = base url + request url
   timeout: 5000 // request timeout
 })
 

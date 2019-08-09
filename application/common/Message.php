@@ -34,7 +34,12 @@ class Message extends Facade
                 $data = $job->getData();
                 $pheanstalk->delete($job);
             } else { // 队列中无消息，发送心跳包
-                $data = "heart";
+                $data = [
+                    'command' => 'heart',
+                    'param' => (object)[],
+                ];
+                $data['no'] = $no;
+                $data = json_encode($data);
             }
             $result = $callback($data); // 调用回调函数
             if ($result === false) { // 如果返回值是false，则退出循环

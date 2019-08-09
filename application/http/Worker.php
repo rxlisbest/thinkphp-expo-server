@@ -16,7 +16,7 @@ class Worker extends Server
     {
         $connection->send('哈哈');
         if (true) {
-            Message::send(99, function ($data) use ($connection) {
+            Message::send(2, function ($data) use ($connection) {
                 $result = $connection->send($data);
                 if ($result == null) {
                     $connection->close();

@@ -20,6 +20,11 @@ export default new Router({
             name: 'electric-automation-index',
             component: require('@/views/electric-automation/index').default
         },
+        {
+            path: '/electric-automation/220kv',
+            name: 'electric-automation-220kv',
+            component: require('@/views/electric-automation/220kv').default
+        },
         // 智慧水务
         {
             path: '/wisdom-water',

@@ -9,6 +9,10 @@ use think\Request;
 
 class Index extends Controller
 {
+    protected $middleware = [
+        'Cors'
+    ];
+
     /**
      * 接收消息
      * @name: receive
