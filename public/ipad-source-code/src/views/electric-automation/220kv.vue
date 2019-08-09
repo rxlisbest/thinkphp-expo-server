@@ -90,6 +90,7 @@
       var ef = []
 
       function init(joystick, eee) {
+        console.log(2)
         var ji = new Image(); //内摇杆图片
         var jo = new Image(); //外摇杆图片
         var josize = joystick.height; //外摇杆大小
@@ -100,7 +101,9 @@
           touchY = joystick.getBoundingClientRect().top;
         // console.log(touchX)
         // console.log(joystick.getBoundingClientRect().top)
+        console.log(window)
         window.addEventListener('load', load, false);
+        // setTimeout('load', 2000)
         var jc = joystick.getContext('2d'); //画布
 
         //摇杆头应当移动到的位置
@@ -117,10 +120,11 @@
 
         //绘图函数（绘制图形的时候就是用户观察到摇杆动了，所以取名是move）
         function move() {
+          console.log(4)
           jc.clearRect(centerX - josize / 2, centerY - josize / 2, josize, josize); //清空画板
           jc.drawImage(jo, centerX - josize / 2, centerY - josize / 2, josize, josize); //画底座
           jc.drawImage(ji, centerX - jisize / 2 + jx, centerY - jisize / 2 + jy, jisize, jisize); //画摇杆头
-          requestAnimationFrame(move); //下一次绘图
+          window.requestAnimationFrame(move); //下一次绘图
         }
 
         ji.src = inImgUrl //加载图片
@@ -128,6 +132,7 @@
 
         //页面加载时执行该函数
         function load() {
+          console.log(3)
           document.addEventListener('touchstart', touch, false);
           document.addEventListener('touchmove', touch, false);
           document.addEventListener('touchend', touch, false);
@@ -138,6 +143,7 @@
 
           //触摸事件触发函数
           function touch(event) {
+            console.log(5)
             var event = event || window.event;
             // console.log(centerX)
             // console.log(centerY)
@@ -253,7 +259,7 @@
             }
           }
 
-          requestAnimationFrame(move); //开始绘图
+          window.requestAnimationFrame(move); //开始绘图
         }
       }
 
@@ -284,6 +290,9 @@
         y2 = k * x2 + b;
         return [x1, y1, x2, y2];
       }
+    },
+    destroyed() {
+
     },
     methods: {
       send(command, param) {

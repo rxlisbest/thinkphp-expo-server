@@ -4,7 +4,7 @@
       <el-row :gutter="20">
         <el-col :span="24">
           <div class="grid-content bg-purple">
-            <router-link :to="{'name': ''}">产品</router-link>
+            <router-link :to="{'name': 'electric-automation-product'}">产品</router-link>
           </div>
         </el-col>
       </el-row>
