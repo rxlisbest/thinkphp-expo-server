@@ -48,6 +48,10 @@
             name: '低压智能配电'
           },
           {
+            router: 'wisdom-energy-index',
+            name: '智慧能效'
+          },
+          {
             router: 'new-china-index',
             name: '新华'
           }

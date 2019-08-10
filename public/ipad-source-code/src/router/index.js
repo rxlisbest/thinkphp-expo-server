@@ -67,11 +67,22 @@ export default new Router({
             name: 'low-voltage-solutionDetail',
             component: require('@/views/low-voltage/solutionDetail').default
         },
-        // 智慧水务
+        // 新华
         {
             path: '/new-china',
             name: 'new-china-index',
             component: require('@/views/new-china/index').default
+        },
+        // 智慧能效
+        {
+            path: '/wisdom-energy',
+            name: 'wisdom-energy-index',
+            component: require('@/views/wisdom-energy/index').default
+        },
+        {
+            path: '/wisdom-energy/detail',
+            name: 'wisdom-energy-detail',
+            component: require('@/views/wisdom-energy/detail').default
         }
     ]
 })
