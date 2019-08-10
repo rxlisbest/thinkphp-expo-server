@@ -8,6 +8,13 @@
           </div>
         </el-col>
       </el-row>
+      <el-row :gutter="20">
+        <el-col :span="24">
+          <div class="grid-content bg-purple">
+            <router-link :to="{'name': 'low-voltage-solution'}">解决方案</router-link>
+          </div>
+        </el-col>
+      </el-row>
     </template>
   </layout>
 </template>
