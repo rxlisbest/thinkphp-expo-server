@@ -56,6 +56,12 @@ export default new Router({
             path: '/low-voltage/productDetail',
             name: 'low-voltage-productDetail',
             component: require('@/views/low-voltage/productDetail').default
+        },
+        // 智慧水务
+        {
+            path: '/new-china',
+            name: 'new-china-index',
+            component: require('@/views/new-china/index').default
         }
     ]
 })

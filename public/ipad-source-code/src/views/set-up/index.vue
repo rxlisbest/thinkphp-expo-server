@@ -46,6 +46,10 @@
           {
             router: 'low-voltage-index',
             name: '低压智能配电'
+          },
+          {
+            router: 'new-china-index',
+            name: '新华'
           }
         ]
       }
