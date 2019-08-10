@@ -79,6 +79,7 @@
     created() {
     },
     mounted() {
+      window['moveNo'] = 1
       var no = this.no
       var leftMove = document.getElementById('leftMove'); //画板
       var rightMove = document.getElementById('rightMove'); //画板
@@ -101,8 +102,10 @@
           touchY = joystick.getBoundingClientRect().top;
         // console.log(touchX)
         // console.log(joystick.getBoundingClientRect().top)
-        console.log(window)
-        window.addEventListener('load', load, false);
+        // window.addEventListener('load', load, false);
+        setTimeout(function () {
+          load()
+        }, 1000)
         // setTimeout('load', 2000)
         var jc = joystick.getContext('2d'); //画布
 
@@ -124,7 +127,9 @@
           jc.clearRect(centerX - josize / 2, centerY - josize / 2, josize, josize); //清空画板
           jc.drawImage(jo, centerX - josize / 2, centerY - josize / 2, josize, josize); //画底座
           jc.drawImage(ji, centerX - jisize / 2 + jx, centerY - jisize / 2 + jy, jisize, jisize); //画摇杆头
-          window.requestAnimationFrame(move); //下一次绘图
+          if (window['moveNo']) {
+            window.requestAnimationFrame(move); //下一次绘图
+          }
         }
 
         ji.src = inImgUrl //加载图片
@@ -132,10 +137,11 @@
 
         //页面加载时执行该函数
         function load() {
-          console.log(3)
-          document.addEventListener('touchstart', touch, false);
-          document.addEventListener('touchmove', touch, false);
-          document.addEventListener('touchend', touch, false);
+          let t = 'touch_' + eee
+          window[t] = touch
+          document.addEventListener('touchstart', eval(t), false);
+          document.addEventListener('touchmove', eval(t), false);
+          document.addEventListener('touchend', eval(t), false);
 
           //加载的时候先把摇杆绘制出来再说
           move();
@@ -143,7 +149,6 @@
 
           //触摸事件触发函数
           function touch(event) {
-            console.log(5)
             var event = event || window.event;
             // console.log(centerX)
             // console.log(centerY)
@@ -292,7 +297,13 @@
       }
     },
     destroyed() {
-
+      window['moveNo'] = 0
+      document.removeEventListener('touchmove', touch_leftMove, false)
+      document.removeEventListener('touchmove', touch_rightMove, false)
+      document.removeEventListener('touchstart', touch_leftMove, false)
+      document.removeEventListener('touchstart', touch_rightMove, false)
+      document.removeEventListener('touchend', touch_leftMove, false)
+      document.removeEventListener('touchend', touch_rightMove, false)
     },
     methods: {
       send(command, param) {
