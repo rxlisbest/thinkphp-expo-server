@@ -30,30 +30,24 @@
         </el-col>
       </el-row>
       <el-row :gutter="20">
-        <el-col :span="4" :offset="8">
-          <el-button type="primary" plain icon="el-icon-minus" @click="send('size', {'value':-0.1})"></el-button>
-        </el-col>
-        <el-col :span="4">
-          <el-button type="primary" plain icon="el-icon-plus" @click="send('size', {'value':+0.1})"></el-button>
-        </el-col>
-      </el-row>
-      <el-row :gutter="20">
         <el-col :span="8">
-          <canvas id="leftMove" width="200" height="200"></canvas>
-        </el-col>
-        <el-col :span="8">
-          <el-row :gutter="20">
-            <el-button type="primary" plain @click="send('location', {'value':1})">一次设备</el-button>
+          <el-row>
+            <el-col :span="24">
+              <el-button type="primary" plain icon="el-icon-minus" @click="send('size', {'value':-0.1})"></el-button>
+            </el-col>
           </el-row>
-          <el-row :gutter="20">
-            <el-button type="primary" plain @click="send('location', {'value':2})">二次设备</el-button>
-          </el-row>
-          <el-row :gutter="20">
-            <el-button type="primary" plain @click="send('location', {'value':3})">监控室</el-button>
+          <el-row>
+            <el-col :span="24">
+              <el-button type="primary" plain icon="el-icon-plus" @click="send('size', {'value':+0.1})"></el-button>
+            </el-col>
           </el-row>
         </el-col>
-        <el-col :span="8">
-          <canvas id="rightMove" width="200" height="200"></canvas>
+        <el-col :span="8" :offset="8">
+          <el-row :gutter="20">
+            <el-col :span="8">
+              <canvas id="move" width="200" height="200"></canvas>
+            </el-col>
+          </el-row>
         </el-col>
       </el-row>
     </template>
@@ -67,13 +61,13 @@
   import outImgUrl from '@/assets/out.png'
 
   export default {
-    name: 'electric-automation-220kv',
+    name: 'electric-automation-wisdomTown',
     components: {
       Layout
     },
     data() {
       return {
-        no: 2
+        no: 3
       }
     },
     created() {
@@ -81,8 +75,7 @@
     mounted() {
       window['moveNo'] = 1
       var no = this.no
-      var leftMove = document.getElementById('leftMove'); //画板
-      var rightMove = document.getElementById('rightMove'); //画板
+      var rightMove = document.getElementById('move'); //画板
 
       var ws = new WebSocket("ws://" + location.hostname + ":2346");
 // ws.onopen = function () {
@@ -91,7 +84,6 @@
       var ef = []
 
       function init(joystick, eee) {
-        console.log(2)
         var ji = new Image(); //内摇杆图片
         var jo = new Image(); //外摇杆图片
         var josize = joystick.height; //外摇杆大小
@@ -123,7 +115,6 @@
 
         //绘图函数（绘制图形的时候就是用户观察到摇杆动了，所以取名是move）
         function move() {
-          console.log(4)
           jc.clearRect(centerX - josize / 2, centerY - josize / 2, josize, josize); //清空画板
           jc.drawImage(jo, centerX - josize / 2, centerY - josize / 2, josize, josize); //画底座
           jc.drawImage(ji, centerX - jisize / 2 + jx, centerY - jisize / 2 + jy, jisize, jisize); //画摇杆头
@@ -149,6 +140,7 @@
 
           //触摸事件触发函数
           function touch(event) {
+            console.log(3)
             var event = event || window.event;
             // console.log(centerX)
             // console.log(centerY)
@@ -268,8 +260,7 @@
         }
       }
 
-      init(leftMove, "leftMove")
-      init(rightMove, 'rightMove')
+      init(rightMove, "rightMove")
 
 
 //计算圆于直线的交点（这一块好难啊）
@@ -298,11 +289,8 @@
     },
     destroyed() {
       window['moveNo'] = 0
-      document.removeEventListener('touchmove', touch_leftMove, false)
       document.removeEventListener('touchmove', touch_rightMove, false)
-      document.removeEventListener('touchstart', touch_leftMove, false)
       document.removeEventListener('touchstart', touch_rightMove, false)
-      document.removeEventListener('touchend', touch_leftMove, false)
       document.removeEventListener('touchend', touch_rightMove, false)
     },
     methods: {

@@ -3,20 +3,18 @@
 namespace app\http;
 
 use app\common\Message;
-use think\Db;
 use think\worker\Server;
-use Pheanstalk\Pheanstalk;
 
-class Worker extends Server
+class EnergyStorage extends Server
 {
-    protected $socket = 'tcp://0.0.0.0:2345';
+    protected $socket = 'tcp://0.0.0.0:2349';
     protected $option = ['count' => 1];
 
     public function onConnect($connection)
     {
-        $connection->send('哈哈');
+        $connection->send('success');
         if (true) {
-            Message::send(2, function ($data) use ($connection) {
+            Message::send(15, function ($data) use ($connection) {
                 $result = $connection->send($data);
                 if ($result == null) {
                     $connection->close();
@@ -30,11 +28,10 @@ class Worker extends Server
 
     public function onMessage($connection, $data)
     {
-        $connection->send('哈哈1');
     }
 
     public function onClose($connection)
     {
-        $connection->send('哈哈1');
+        $connection->send('close');
     }
 }

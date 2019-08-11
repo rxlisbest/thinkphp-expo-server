@@ -2,31 +2,20 @@
   <layout>
     <template slot="body">
       <el-row :gutter="20">
-        <el-col :span="6">
+        <el-col :span="4">
           <el-button type="primary" plain @click="send('video', {'value':1})">视频1</el-button>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="4">
           <el-button type="primary" plain @click="send('video', {'value':2})">视频2</el-button>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="4">
           <el-button type="primary" plain @click="send('video', {'value':3})">视频3</el-button>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="4">
           <el-button type="primary" plain @click="send('video', {'value':4})">视频4</el-button>
         </el-col>
-      </el-row>
-      <el-row :gutter="20">
-        <el-col :span="6">
+        <el-col :span="4">
           <el-button type="primary" plain @click="send('video', {'value':5})">视频5</el-button>
-        </el-col>
-        <el-col :span="6">
-          <el-button type="primary" plain @click="send('video', {'value':6})">视频6</el-button>
-        </el-col>
-        <el-col :span="6">
-          <el-button type="primary" plain @click="send('video', {'value':7})">视频7</el-button>
-        </el-col>
-        <el-col :span="6">
-          <el-button type="primary" plain @click="send('video', {'value':8})">视频8</el-button>
         </el-col>
       </el-row>
       <el-row :gutter="20">
@@ -67,13 +56,13 @@
   import outImgUrl from '@/assets/out.png'
 
   export default {
-    name: 'electric-automation-220kv',
+    name: 'energy-storage-index',
     components: {
       Layout
     },
     data() {
       return {
-        no: 2
+        no: 15
       }
     },
     created() {
@@ -91,7 +80,6 @@
       var ef = []
 
       function init(joystick, eee) {
-        console.log(2)
         var ji = new Image(); //内摇杆图片
         var jo = new Image(); //外摇杆图片
         var josize = joystick.height; //外摇杆大小
@@ -123,7 +111,7 @@
 
         //绘图函数（绘制图形的时候就是用户观察到摇杆动了，所以取名是move）
         function move() {
-          console.log(4)
+          // console.log(4)
           jc.clearRect(centerX - josize / 2, centerY - josize / 2, josize, josize); //清空画板
           jc.drawImage(jo, centerX - josize / 2, centerY - josize / 2, josize, josize); //画底座
           jc.drawImage(ji, centerX - jisize / 2 + jx, centerY - jisize / 2 + jy, jisize, jisize); //画摇杆头

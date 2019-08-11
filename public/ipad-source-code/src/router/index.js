@@ -35,6 +35,16 @@ export default new Router({
             name: 'electric-automation-220kv',
             component: require('@/views/electric-automation/220kv').default
         },
+        {
+            path: '/electric-automation/ar',
+            name: 'electric-automation-ar',
+            component: require('@/views/electric-automation/ar').default
+        },
+        {
+            path: '/electric-automation/wisdomTown',
+            name: 'electric-automation-wisdomTown',
+            component: require('@/views/electric-automation/wisdomTown').default
+        },
         // 智慧水务
         {
             path: '/wisdom-water',
@@ -66,6 +76,11 @@ export default new Router({
             path: '/low-voltage/solutionDetail',
             name: 'low-voltage-solutionDetail',
             component: require('@/views/low-voltage/solutionDetail').default
+        },
+        {
+            path: '/low-voltage/ar',
+            name: 'low-voltage-ar',
+            component: require('@/views/low-voltage/ar').default
         },
         // 新华
         {
@@ -109,6 +124,12 @@ export default new Router({
             path: '/new-energy/synthetical',
             name: 'new-energy-synthetical',
             component: require('@/views/new-energy/synthetical').default
+        },
+        // 储能系统
+        {
+            path: '/energy-storage',
+            name: 'energy-storage-index',
+            component: require('@/views/energy-storage/index').default
         }
     ]
 })

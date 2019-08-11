@@ -40,12 +40,20 @@
             name: '电力自动化'
           },
           {
+            router: 'electric-automation-ar',
+            name: '电力自动化AR识别'
+          },
+          {
             router: 'wisdom-water-index',
             name: '智慧水务'
           },
           {
             router: 'low-voltage-index',
             name: '低压智能配电'
+          },
+          {
+            router: 'low-voltage-ar',
+            name: '低压智能配电AR识别'
           },
           {
             router: 'wisdom-energy-index',
@@ -58,6 +66,10 @@
           {
             router: 'new-china-index',
             name: '新华'
+          },
+          {
+            router: 'energy-storage-index',
+            name: '储能系统'
           }
         ]
       }

@@ -8,11 +8,11 @@ use think\worker\Server;
 class Receive extends Server
 {
     protected $protocol = 'websocket';
-    protected $option = ['count' => 1];
+    protected $option = ['count' => 4];
 
     public function onWebSocketConnect($connection)
     {
-        $connection->send('接收');
+        $connection->send('success');
     }
 
     public function onMessage($connection, $data)
@@ -25,6 +25,6 @@ class Receive extends Server
 
     public function onClose($connection)
     {
-        $connection->send('哈哈1');
+        $connection->send('close');
     }
 }

@@ -18,7 +18,7 @@
       <el-row :gutter="20">
         <el-col :span="24">
           <div class="grid-content bg-purple">
-            <router-link :to="{'name': ''}">智慧小镇</router-link>
+            <router-link :to="{'name': 'electric-automation-wisdomTown'}">智慧小镇</router-link>
           </div>
         </el-col>
       </el-row>
