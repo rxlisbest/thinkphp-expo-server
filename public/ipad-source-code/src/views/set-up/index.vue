@@ -52,6 +52,10 @@
             name: '智慧能效'
           },
           {
+            router: 'new-energy-index',
+            name: '新能源'
+          },
+          {
             router: 'new-china-index',
             name: '新华'
           }

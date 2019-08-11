@@ -83,6 +83,32 @@ export default new Router({
             path: '/wisdom-energy/detail',
             name: 'wisdom-energy-detail',
             component: require('@/views/wisdom-energy/detail').default
+        },
+        // 智慧能效
+        {
+            path: '/new-energy',
+            name: 'new-energy-index',
+            component: require('@/views/new-energy/index').default
+        },
+        {
+            path: '/new-energy/one',
+            name: 'new-energy-one',
+            component: require('@/views/new-energy/one').default
+        },
+        {
+            path: '/new-energy/digitalize',
+            name: 'new-energy-digitalize',
+            component: require('@/views/new-energy/digitalize').default
+        },
+        {
+            path: '/new-energy/process',
+            name: 'new-energy-process',
+            component: require('@/views/new-energy/process').default
+        },
+        {
+            path: '/new-energy/synthetical',
+            name: 'new-energy-synthetical',
+            component: require('@/views/new-energy/synthetical').default
         }
     ]
 })
