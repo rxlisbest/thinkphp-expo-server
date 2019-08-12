@@ -30,7 +30,8 @@
       }
     },
     created() {
-      let key = this.key = this.$route.query.key
+      let key = this.$route.query.key
+      this.key = key
       this.info = LowVoltage[key]
       this.send('product', key)
     },

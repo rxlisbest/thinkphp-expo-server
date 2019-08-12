@@ -31,6 +31,7 @@
     },
     created() {
       let key = this.$route.query.key
+      this.key = key
       this.info = LowVoltageSolution[key]
       this.send('product', key)
     },
