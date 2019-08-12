@@ -30,7 +30,7 @@
       }
     },
     created() {
-      let key = this.$route.query.key
+      let key = this.key = this.$route.query.key
       this.info = ElectricAutomation[key]
       this.send('product', key)
     },
