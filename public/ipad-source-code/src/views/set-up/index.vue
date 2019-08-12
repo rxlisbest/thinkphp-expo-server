@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <el-row>
-      <el-col :span="24">
-        <h1>主菜单</h1>
+    <el-row class="title-row">
+      <el-col :span="24" style="height: 100%;">
+        <div class="title"></div>
       </el-col>
     </el-row>
     <el-table
@@ -98,4 +98,18 @@
   }
 </script>
 <style scoped>
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+  .title-row {
+    margin-top: 30px;
+  }
+  .title {
+    width: 400px;
+    height: 25px;
+    margin: 0px auto;
+    background: url(../../assets/set-up/title.png) no-repeat;
+    background-size: 100% 100%;
+  }
 </style>

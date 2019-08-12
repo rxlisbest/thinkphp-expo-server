@@ -1,5 +1,5 @@
 module.exports = {
     outputDir: "../ipad/",
-    publicPath: "./",
+    publicPath: "../../",
     assetsDir: "./"
 }

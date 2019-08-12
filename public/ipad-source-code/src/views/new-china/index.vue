@@ -24,6 +24,7 @@
     },
     data() {
       return {
+        no: 14,
         list: NewChina
       }
     },
