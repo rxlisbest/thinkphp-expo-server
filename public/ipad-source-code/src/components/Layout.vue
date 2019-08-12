@@ -1,9 +1,14 @@
 <template>
   <el-container>
     <el-header>
-      <div>
-        <el-button icon="el-icon-arrow-left" circle @click="back"></el-button>
-      </div>
+      <el-row>
+        <el-col :span="7">
+          <div class="back" @click="back"></div>
+        </el-col>
+        <el-col :span="8">
+          <div class="title"></div>
+        </el-col>
+      </el-row>
     </el-header>
     <el-main>
       <slot name="body"></slot>
@@ -46,7 +51,25 @@
 <style scoped>
   .el-header {
     border-bottom: 1px solid #eee;
-    padding-top: 8px;
+    padding-top: 40px;
+    padding-left: 44px;
     text-align: left;
+    height: 80px !important;
+    border: 0px;
+  }
+
+  .back {
+    height: 25px;
+    width: 80px;
+    background: url(../assets/back.png) no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .title {
+    width: 400px;
+    height: 25px;
+    margin: 0px auto;
+    background: url(../assets/set-up/title.png) no-repeat;
+    background-size: 100% 100%;
   }
 </style>

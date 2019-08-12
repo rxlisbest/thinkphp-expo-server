@@ -8,6 +8,13 @@
           </div>
         </el-col>
       </el-row>
+      <el-row :gutter="20">
+        <el-col :span="24">
+          <div class="grid-content bg-purple">
+            <router-link :to="{'name': 'wisdom-energy-meter'}">仪表多媒体</router-link>
+          </div>
+        </el-col>
+      </el-row>
     </template>
   </layout>
 </template>

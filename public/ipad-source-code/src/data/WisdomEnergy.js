@@ -6,9 +6,5 @@ export default [
   {
     "no": 8,
     "name": "公共建筑合同能源"
-  },
-  {
-    "no": 9,
-    "name": "仪表多媒体"
   }
 ]

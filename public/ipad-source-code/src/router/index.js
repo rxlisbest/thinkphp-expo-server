@@ -99,7 +99,17 @@ export default new Router({
             name: 'wisdom-energy-detail',
             component: require('@/views/wisdom-energy/detail').default
         },
-        // 智慧能效
+        {
+            path: '/wisdom-energy/meter',
+            name: 'wisdom-energy-meter',
+            component: require('@/views/wisdom-energy/meter').default
+        },
+        {
+            path: '/wisdom-energy/meterDetail',
+            name: 'wisdom-energy-meterDetail',
+            component: require('@/views/wisdom-energy/meterDetail').default
+        },
+        // 新能源
         {
             path: '/new-energy',
             name: 'new-energy-index',
