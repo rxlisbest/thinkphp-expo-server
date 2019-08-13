@@ -1,27 +1,15 @@
 <template>
-  <layout>
-    <template slot="body">
-      <el-row :gutter="20">
-        <el-col :span="8" v-for="(v, k) in list">
-          <div class="grid-content bg-purple">
-            <router-link :to="{'name': 'electric-automation-productDetail', 'query': {'key': k}}">
-              <el-button type="primary">{{ v.name }}</el-button>
-            </router-link>
-          </div>
-        </el-col>
-      </el-row>
-    </template>
-  </layout>
+  <product :view="'electric-automation'" :list="list"></product>
 </template>
 
 <script>
-  import Layout from '@/components/Layout'
+  import Product from '@/components/Product'
   import ElectricAutomation from "@/data/ElectricAutomation";
 
   export default {
     name: 'electric-automation-product',
     components: {
-      Layout
+      Product
     },
     data() {
       return {
@@ -30,11 +18,9 @@
     },
     created() {
     },
-    methods: {}
+    methods: {
+    }
   }
 </script>
 <style scoped>
-  .el-col {
-    padding-top: 30px;
-}
 </style>

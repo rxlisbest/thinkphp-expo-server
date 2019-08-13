@@ -24,7 +24,7 @@
   }
 
   export default {
-    name: 'layout',
+    name: 'Layout',
     components: {},
     data() {
       return {}

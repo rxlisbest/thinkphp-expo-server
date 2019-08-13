@@ -1,13 +1,13 @@
 <template>
   <layout :backCommand="{'no': no, 'command': 'product'}">
     <template slot="body">
-      <el-row :gutter="20">
-        <el-col :span="8" v-for="(v, k) in info.video.small">
-          <div class="grid-content bg-purple">
-            <el-button type="primary" @click="send('product', key, {'video': k})">{{v}}</el-button>
-          </div>
-        </el-col>
-      </el-row>
+      <div class="button-container">
+        <el-row :gutter="20">
+          <el-col :span="12" v-for="(v, k) in info.video.small">
+            <div class="button" @click="send('product', key, {'video': k})">{{v}}</div>
+          </el-col>
+        </el-row>
+      </div>
     </template>
   </layout>
 </template>
@@ -15,7 +15,7 @@
 <script>
   import Layout from '@/components/Layout'
   import ElectricAutomation from "@/data/ElectricAutomation"
-  import { send } from '@/api/send'
+  import {send} from '@/api/send'
 
   export default {
     name: 'electric-automation-productDetail',
@@ -52,5 +52,24 @@
 <style scoped>
   .grid-content bg-purple {
     margin-top: 30px;
+  }
+
+  .button-container {
+    margin: 30px;
+    padding-top: 150px;
+    padding-bottom: 200px;
+    background: url(../../assets/wisdom-water/border.png) no-repeat;
+    background-size: 100% 100%;
+    height: 100%;
+  }
+
+  .button {
+    margin: 0px auto;
+    width: 60%;
+    height: 0;
+    padding-bottom: 20%;
+    background: url(../../assets/button.png) no-repeat;
+    background-size: 100% 100%;
+    color: #FFFFFF;
   }
 </style>

@@ -1,7 +1,7 @@
 export default [
   {
-    "name": "145kVGIS",
-    "img": "",
+    "name": "145kVGIS145kVGIS145kVGIS145kVGIS145kVGIS145kVGIS",
+    "img": "../../assets/electric-automation/product.png",
     "video": {
       "main": "145kVGIS.mp4",
       "small": ["视频1", "视频2", "视频3"]
@@ -9,7 +9,7 @@ export default [
   },
   {
     "name": "252kVGIS",
-    "img": "",
+    "img": "../../assets/electric-automation/product.png",
     "video": {
       "main": "145kVGIS.mp4",
       "small": ["视频1", "视频2", "视频3"]
@@ -17,7 +17,7 @@ export default [
   },
   {
     "name": "145kVPASS",
-    "img": "",
+    "img": "../../assets/electric-automation/product.png",
     "video": {
       "main": "145kVGIS.mp4",
       "small": ["视频1", "视频2", "视频3"]
@@ -25,7 +25,7 @@ export default [
   },
   {
     "name": "220kV变压器",
-    "img": "",
+    "img": "../../assets/electric-automation/product.png",
     "video": {
       "main": "145kVGIS.mp4",
       "small": ["视频1", "视频2", "视频3"]
@@ -33,7 +33,7 @@ export default [
   },
   {
     "name": "500kV变压器",
-    "img": "",
+    "img": "../../assets/electric-automation/product.png",
     "video": {
       "main": "145kVGIS.mp4",
       "small": ["视频1", "视频2", "视频3"]
