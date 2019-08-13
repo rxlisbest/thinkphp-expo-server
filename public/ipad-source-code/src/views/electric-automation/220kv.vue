@@ -1,75 +1,81 @@
 <template>
   <layout>
     <template slot="body">
-      <el-row :gutter="20">
+      <el-row :gutter="10">
         <el-col :span="6">
-          <el-button type="primary" plain @click="send('video', {'value':1})">视频1</el-button>
+          <expo-button :name="'视频一'" class="button" @click="send('video', {'value':1})"></expo-button>
         </el-col>
         <el-col :span="6">
-          <el-button type="primary" plain @click="send('video', {'value':2})">视频2</el-button>
+          <expo-button :name="'视频二'" class="button" @click="send('video', {'value':2})"></expo-button>
         </el-col>
         <el-col :span="6">
-          <el-button type="primary" plain @click="send('video', {'value':3})">视频3</el-button>
+          <expo-button :name="'视频三'" class="button" @click="send('video', {'value':3})"></expo-button>
         </el-col>
         <el-col :span="6">
-          <el-button type="primary" plain @click="send('video', {'value':4})">视频4</el-button>
+          <expo-button :name="'视频四'" class="button" @click="send('video', {'value':4})"></expo-button>
         </el-col>
       </el-row>
-      <el-row :gutter="20">
+      <el-row :gutter="10">
         <el-col :span="6">
-          <el-button type="primary" plain @click="send('video', {'value':5})">视频5</el-button>
+          <expo-button :name="'视频五'" class="button" @click="send('video', {'value':5})"></expo-button>
         </el-col>
         <el-col :span="6">
-          <el-button type="primary" plain @click="send('video', {'value':6})">视频6</el-button>
+          <expo-button :name="'视频六'" class="button" @click="send('video', {'value':6})"></expo-button>
         </el-col>
         <el-col :span="6">
-          <el-button type="primary" plain @click="send('video', {'value':7})">视频7</el-button>
+          <expo-button :name="'视频七'" class="button" @click="send('video', {'value':7})"></expo-button>
         </el-col>
         <el-col :span="6">
-          <el-button type="primary" plain @click="send('video', {'value':8})">视频8</el-button>
+          <expo-button :name="'视频八'" class="button" @click="send('video', {'value':8})"></expo-button>
         </el-col>
       </el-row>
-      <el-row :gutter="20">
-        <el-col :span="4" :offset="8">
-          <el-button type="primary" plain icon="el-icon-minus" @click="send('size', {'value':-0.1})"></el-button>
-        </el-col>
-        <el-col :span="4">
-          <el-button type="primary" plain icon="el-icon-plus" @click="send('size', {'value':+0.1})"></el-button>
-        </el-col>
-      </el-row>
-      <el-row :gutter="20">
-        <el-col :span="8">
-          <canvas id="leftMove" width="200" height="200"></canvas>
-        </el-col>
-        <el-col :span="8">
-          <el-row :gutter="20">
-            <el-button type="primary" plain @click="send('location', {'value':1})">一次设备</el-button>
-          </el-row>
-          <el-row :gutter="20">
-            <el-button type="primary" plain @click="send('location', {'value':2})">二次设备</el-button>
-          </el-row>
-          <el-row :gutter="20">
-            <el-button type="primary" plain @click="send('location', {'value':3})">监控室</el-button>
-          </el-row>
-        </el-col>
-        <el-col :span="8">
-          <canvas id="rightMove" width="200" height="200"></canvas>
-        </el-col>
-      </el-row>
+      <div class="roam">
+        <el-row :gutter="10">
+          <el-col :span="6" :offset="3">
+            <expo-button :name="'一次设备'" class="button" @click="send('location', {'value':1})"></expo-button>
+          </el-col>
+          <el-col :span="6">
+            <expo-button :name="'二次设备'" class="button" @click="send('location', {'value':2})"></expo-button>
+          </el-col>
+          <el-col :span="6">
+            <expo-button :name="'监控室'" class="button" @click="send('location', {'value':3})"></expo-button>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20">
+          <el-col :span="8">
+            <canvas id="leftMove" width="200" height="200"></canvas>
+          </el-col>
+          <el-col :span="4">
+            <small-button class="square-button" @click="send('size', {'value':-0.1})"></small-button>
+          </el-col>
+          <el-col :span="4">
+            <big-button class="square-button" @click="send('size', {'value':+0.1})"></big-button>
+          </el-col>
+          <el-col :span="8">
+            <canvas id="rightMove" width="200" height="200"></canvas>
+          </el-col>
+        </el-row>
+      </div>
     </template>
   </layout>
 </template>
 
 <script>
   import Layout from '../../components/Layout'
+  import SmallButton from '../../components/SmallButton'
+  import BigButton from '../../components/BigButton'
+  import ExpoButton from '../../components/ExpoButton'
   import {send} from '@/api/send'
-  import inImgUrl from '@/assets/in.png'
-  import outImgUrl from '@/assets/out.png'
+  import inImgUrl from '@/assets/electric-automation/small-dish.png'
+  import outImgUrl from '@/assets/electric-automation/big-dish.png'
 
   export default {
     name: 'electric-automation-220kv',
     components: {
-      Layout
+      Layout,
+      SmallButton,
+      BigButton,
+      ExpoButton
     },
     data() {
       return {
@@ -91,7 +97,6 @@
       var ef = []
 
       function init(joystick, eee) {
-        console.log(2)
         var ji = new Image(); //内摇杆图片
         var jo = new Image(); //外摇杆图片
         var josize = joystick.height; //外摇杆大小
@@ -100,8 +105,6 @@
         var centerY = josize / 2; //摇杆中心y坐标
         var touchX = joystick.getBoundingClientRect().left,
           touchY = joystick.getBoundingClientRect().top;
-        // console.log(touchX)
-        // console.log(joystick.getBoundingClientRect().top)
         // window.addEventListener('load', load, false);
         setTimeout(function () {
           load()
@@ -123,7 +126,6 @@
 
         //绘图函数（绘制图形的时候就是用户观察到摇杆动了，所以取名是move）
         function move() {
-          console.log(4)
           jc.clearRect(centerX - josize / 2, centerY - josize / 2, josize, josize); //清空画板
           jc.drawImage(jo, centerX - josize / 2, centerY - josize / 2, josize, josize); //画底座
           jc.drawImage(ji, centerX - jisize / 2 + jx, centerY - jisize / 2 + jy, jisize, jisize); //画摇杆头
@@ -320,6 +322,29 @@
 </script>
 <style scoped>
   .el-row {
-    margin-top: 30px;
+    margin-top: 10px;
+  }
+
+  .square-button {
+    margin: 50px auto;
+    width: 80px;
+    height: 80px;
+  }
+
+  .button {
+    font-size: x-large;
+    margin: 0 auto;
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  .roam {
+    margin: 15px;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    background: url(../../assets/electric-automation/roam-bg.png) no-repeat;
+    background-size: 100% 100%;
+    height: 100%;
   }
 </style>
