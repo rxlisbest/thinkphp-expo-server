@@ -4,11 +4,13 @@
       <div class="button-container">
         <el-row>
           <el-col :span="24">
-            <div class="body-title"></div>
+            <div class="body-title">
+              <img width="100%" :src="require('@/' + title)">
+            </div>
           </el-col>
         </el-row>
         <el-row :gutter="20">
-          <el-col class="small-col" :span="4" offset="2">
+          <el-col class="small-col" :span="4" :offset="2">
             <div :class="stopClass" @click="send('stop', 0)">
             </div>
           </el-col>
@@ -47,6 +49,10 @@
       no: {
         type: Number,
         default: 0
+      },
+      title: {
+        type: String,
+        default: ''
       }
     },
     data() {
@@ -100,8 +106,6 @@
     margin-bottom: 50px;
     height: 30px;
     width: 130px;
-    background: url(../assets/wisdom-water/title.png) no-repeat;
-    background-size: 100% 100%;
   }
 
   .small-col {

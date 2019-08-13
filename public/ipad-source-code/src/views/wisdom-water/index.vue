@@ -1,5 +1,5 @@
 <template>
-  <video-play :no="no"></video-play>
+  <video-play :no="no" :title="title"></video-play>
 </template>
 
 <script>
@@ -13,6 +13,7 @@
     data() {
       return {
         no: 4,
+        title: 'assets/wisdom-water/title.png'
       }
     },
     created() {

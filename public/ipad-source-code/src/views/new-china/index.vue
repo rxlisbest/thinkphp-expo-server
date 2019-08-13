@@ -2,10 +2,14 @@
   <layout>
     <template slot="body">
       <el-row :gutter="20">
-        <el-col :span="6" v-for="(v, k) in list">
-          <div class="grid-content bg-purple">
-            <el-button type="primary" @click="send('video', k)">{{v.name}}</el-button>
-          </div>
+        <el-col :span="22" :offset="1">
+          <div class="map"></div>
+        </el-col>
+      </el-row>
+      <el-row class="button-row" :gutter="20">
+        <el-col :span="2">&nbsp;</el-col>
+        <el-col :span="4" v-for="(v, k) in list">
+          <expo-button class="button" :name="v.name" @click="send('video', k)"></expo-button>
         </el-col>
       </el-row>
     </template>
@@ -14,13 +18,15 @@
 
 <script>
   import Layout from '@/components/Layout'
+  import ExpoButton from '@/components/ExpoButton'
   import NewChina from "@/data/NewChina"
-  import { send } from '@/api/send'
+  import {send} from '@/api/send'
 
   export default {
     name: 'new-china-index',
     components: {
-      Layout
+      Layout,
+      ExpoButton
     },
     data() {
       return {
@@ -46,6 +52,22 @@
 </script>
 <style scoped>
   .grid-content bg-purple {
+    margin-top: 30px;
+  }
+  .map {
+    width: 100%;
+    padding-bottom: 55%;
+    height: 0;
+    background: url(../../assets/new-china/map.png) no-repeat;
+    background-size: 100% 100%;
+  }
+  .button {
+    margin: 0 auto;
+    width: 70%;
+    padding: 20px 30px;
+    color: #d2fcff;
+  }
+  .button-row {
     margin-top: 30px;
   }
 </style>
