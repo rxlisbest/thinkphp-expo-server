@@ -2,6 +2,16 @@
   <layout :backCommand="{'no': no, 'command': 'product'}">
     <template slot="body">
       <div class="button-container">
+        <el-row>
+          <el-col :span="12" :offset="6">
+            <img class="product-img" :src="info.img">
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12" :offset="6">
+            <div class="product-name">{{ info.name }}</div>
+          </el-col>
+        </el-row>
         <el-row :gutter="0">
           <el-col :span="12" v-for="(v, k) in info.video.small">
             <expo-button class="button" :name="v" @click="send('product', index, {'video': k})"></expo-button>
@@ -42,6 +52,9 @@
     },
     created() {
       this.send('product', this.key)
+      console.log(this.info.img)
+      this.info.img = require('@/' + this.info.img)
+      // this.info.img = require(this.info.img)
     },
     methods: {
       async send(command, value, param) {
@@ -53,9 +66,6 @@
           sendData.param = param
         }
         let res = await send(sendData)
-      },
-      clickButton() {
-
       }
     }
   }
@@ -65,14 +75,24 @@
     margin-top: 30px;
   }
 
+  .product-name {
+    color: #FFFFFF;
+    font-size: xx-large;
+    background: linear-gradient(to bottom, white, #baecff);
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+  }
+
   .el-col {
     text-align: center;
   }
 
   .button-container {
     margin: 30px;
-    padding-top: 150px;
-    padding-bottom: 200px;
+    padding-top: 80px;
+    padding-bottom: 50px;
     background: url(../assets/wisdom-water/border.png) no-repeat;
     background-size: 100% 100%;
     height: 100%;
@@ -84,5 +104,10 @@
     width: 70%;
     padding-top: 25px;
     padding-bottom: 25px;
+  }
+
+  .product-img {
+    width: 100%;
+    max-height: 300px;
   }
 </style>
