@@ -87,14 +87,12 @@
       this.ws = new WebSocket("ws://" + location.hostname + ":2346");
     },
     methods: {
-      send(command, param) {
+      async send(command, param) {
         let sendData = {}
         sendData.no = this.no
         sendData.command = command
         sendData.param = param
-        send(sendData).then(response => {
-
-        })
+        let res = await send(sendData)
       }
     }
   }
