@@ -4,7 +4,6 @@
 
 <script>
   import VideoPlay from '../../components/VideoPlay'
-  import {send} from '@/api/send'
 
   export default {
     name: 'wisdom-water-index',

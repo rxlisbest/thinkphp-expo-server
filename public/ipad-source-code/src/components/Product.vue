@@ -3,7 +3,7 @@
     <template slot="body">
       <el-row :gutter="20">
         <el-col :span="6" v-for="(v, k) in list">
-          <router-link :to="{'name': name + '-productDetail', 'query': {'key': k}}">
+          <router-link :to="{'name': view + '-productDetail', 'query': {'key': k}}">
             <div class="module">
               <div class="module-logo"></div>
               <div class="module-name">
