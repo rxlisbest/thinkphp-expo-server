@@ -2,23 +2,22 @@
   <layout>
     <template slot="body">
       <el-row :gutter="20">
-        <el-col :span="24">
-          <div class="grid-content bg-purple">
-            <router-link :to="{'name': 'electric-automation-product'}">产品</router-link>
+        <el-col :span="8">
+          <div class="module" @click="to('electric-automation-product')">
+            <div class="module-electric-automation module-logo"></div>
+            <div class="module-name">产品</div>
           </div>
         </el-col>
-      </el-row>
-      <el-row :gutter="20">
-        <el-col :span="24">
-          <div class="grid-content bg-purple">
-            <router-link :to="{'name': 'electric-automation-220kv'}">220kv可视化系统</router-link>
+        <el-col :span="8">
+          <div class="module" @click="to('electric-automation-220kv')">
+            <div class="module-electric-automation module-logo"></div>
+            <div class="module-name">220kv可视化系统</div>
           </div>
         </el-col>
-      </el-row>
-      <el-row :gutter="20">
-        <el-col :span="24">
-          <div class="grid-content bg-purple">
-            <router-link :to="{'name': 'electric-automation-wisdomTown'}">智慧小镇</router-link>
+        <el-col :span="8">
+          <div class="module" @click="to('electric-automation-wisdomTown')">
+            <div class="module-electric-automation module-logo"></div>
+            <div class="module-name">智慧小镇</div>
           </div>
         </el-col>
       </el-row>
@@ -39,11 +38,30 @@
     },
     created() {
     },
-    methods: {}
+    methods: {
+      to(name) {
+        this.$router.push({name: name})
+      }
+    }
   }
 </script>
 <style scoped>
   .el-row {
     margin-top: 30px;
+  }
+
+  .module {
+    text-align: center;
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    background: url(../../assets/set-up/module-bg.png) no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .module-name {
+    padding-top: 40px;
+    font-size: large;
+    color: #FFFFFF;
   }
 </style>

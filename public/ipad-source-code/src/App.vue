@@ -37,5 +37,7 @@
     pading: 0px;
     background: url(./assets/bg.png) no-repeat;
     background-size: 100% 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 </style>
