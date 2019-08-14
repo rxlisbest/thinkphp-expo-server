@@ -31,13 +31,13 @@
           </el-col>
         </el-row>
         <el-row :gutter="20">
-          <el-col :span="8">
+          <el-col :span="4" :offset="4">
             <small-button class="square-button" @click="send('size', {'value':-0.1})"></small-button>
           </el-col>
-          <el-col :span="8">
+          <el-col :span="4">
             <big-button class="square-button" @click="send('size', {'value':+0.1})"></big-button>
           </el-col>
-          <el-col :span="8">
+          <el-col :span="8" :offset="4">
             <dish :moveId="'move'" :ws="ws"></dish>
           </el-col>
         </el-row>
@@ -89,6 +89,7 @@
   }
 
   .square-button {
+    margin: 60px auto;
     width: 80px;
     height: 80px;
   }

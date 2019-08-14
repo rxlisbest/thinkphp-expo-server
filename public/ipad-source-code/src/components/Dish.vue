@@ -79,9 +79,9 @@
         function load() {
           let t = 'touch_' + eee
           window[t] = touch
-          document.addEventListener('touchstart', eval(t), false);
-          document.addEventListener('touchmove', eval(t), false);
-          document.addEventListener('touchend', eval(t), false);
+          document.addEventListener('touchstart', window[t], false);
+          document.addEventListener('touchmove', window[t], false);
+          document.addEventListener('touchend', window[t], false);
 
           //加载的时候先把摇杆绘制出来再说
           move();
@@ -235,6 +235,10 @@
     },
     destroyed() {
       window['moveNo'] = 0
+      let t = 'touch_' + this.moveId
+      document.removeEventListener('touchstart', window[t], false);
+      document.removeEventListener('touchmove', window[t], false);
+      document.removeEventListener('touchend', window[t], false);
     },
     data() {
       return {}

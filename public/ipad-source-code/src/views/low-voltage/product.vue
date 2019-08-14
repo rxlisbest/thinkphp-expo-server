@@ -1,27 +1,15 @@
 <template>
-  <layout>
-    <template slot="body">
-      <el-row :gutter="20">
-        <el-col :span="8" v-for="(v, k) in list">
-          <div class="grid-content bg-purple">
-            <router-link :to="{'name': 'low-voltage-productDetail', 'query': {'key': k}}">
-              <el-button type="primary">{{ v.name }}</el-button>
-            </router-link>
-          </div>
-        </el-col>
-      </el-row>
-    </template>
-  </layout>
+  <product :view="'low-voltage'" :list="list"></product>
 </template>
 
 <script>
-  import Layout from '@/components/Layout'
+  import Product from '@/components/Product'
   import LowVoltage from "@/data/LowVoltage";
 
   export default {
     name: 'low-voltage-product',
     components: {
-      Layout
+      Product
     },
     data() {
       return {

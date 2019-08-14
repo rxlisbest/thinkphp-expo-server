@@ -1,10 +1,10 @@
 export default [
   {
     "name": "正泰未来概念柜",
-    "img": "",
+    "img": "images/electric-automation/test.jpeg",
     "video": {
       "main": "145kVGIS.mp4",
-      "small": ["视频1", "视频2", "视频3"]
+      "small": ["视频1", "视频2"]
     }
   },
   {
