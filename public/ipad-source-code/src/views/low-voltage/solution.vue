@@ -5,7 +5,7 @@
         <el-col :span="8" v-for="(v, k) in list">
           <div class="grid-content bg-purple">
             <router-link :to="{'name': 'low-voltage-solutionDetail', 'query': {'key': k}}">
-              <el-button type="primary">{{ v.name }}</el-button>
+              <module :title-part1="v.name" :image="'assets/electric-automation/product.png'"></module>
             </router-link>
           </div>
         </el-col>
@@ -16,12 +16,14 @@
 
 <script>
   import Layout from '@/components/Layout'
+  import Module from '@/components/Module'
   import LowVoltageSolution from "@/data/LowVoltageSolution";
 
   export default {
     name: 'low-voltage-product',
     components: {
-      Layout
+      Layout,
+      Module
     },
     data() {
       return {

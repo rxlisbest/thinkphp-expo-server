@@ -33,6 +33,10 @@
       backCommand: {
         type: Object,
         default: backCommandDefault
+      },
+      backName: {
+        type: String,
+        default: undefined
       }
     },
     mounted() {
@@ -42,7 +46,11 @@
         if (this.backCommand.no != undefined) {
           let res = await send(this.backCommand)
         }
-        this.$router.go(-1)
+        if (this.backName !== undefined) {
+          this.$router.push({name: this.backName})
+        } else {
+          this.$router.go(-1)
+        }
       }
     }
   }

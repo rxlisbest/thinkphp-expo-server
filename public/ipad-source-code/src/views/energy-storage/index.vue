@@ -2,23 +2,44 @@
   <layout>
     <template slot="body">
       <el-row :gutter="20">
-        <el-col :span="4">
-          <el-button type="primary" plain @click="send('video', {'value':1})">视频1</el-button>
-        </el-col>
-        <el-col :span="4">
-          <el-button type="primary" plain @click="send('video', {'value':2})">视频2</el-button>
-        </el-col>
-        <el-col :span="4">
-          <el-button type="primary" plain @click="send('video', {'value':3})">视频3</el-button>
-        </el-col>
-        <el-col :span="4">
-          <el-button type="primary" plain @click="send('video', {'value':4})">视频4</el-button>
-        </el-col>
-        <el-col :span="4">
-          <el-button type="primary" plain @click="send('video', {'value':5})">视频5</el-button>
+        <el-col :span="22" :offset="1">
+          <div class="map">
+            <el-row :gutter="20">
+              <el-col :span="6" offset="1">
+                <expo-button :name="'正泰用户储能电池RESS'" class="button" @click="send('video', {'value':1})"></expo-button>
+              </el-col>
+            </el-row>
+            <el-row :gutter="20">
+              <el-col :span="6" offset="1">
+                <expo-button :name="'正泰商用储能系统'" class="button" @click="send('video', {'value':1})"></expo-button>
+              </el-col>
+            </el-row>
+            <el-row :gutter="20">
+              <el-col :span="6" offset="1">
+                <expo-button :name="'正泰MW储能系统'" class="button" @click="send('video', {'value':1})"></expo-button>
+              </el-col>
+            </el-row>
+            <el-row :gutter="20">
+              <el-col :span="6" offset="1">
+                <expo-button :name="'退出'" class="button height-button-line" @click="send('video', {'value':1})"></expo-button>
+              </el-col>
+              <el-col :span="4">
+                <expo-button :name="'发电侧辅助解决方案'" class="height-button" @click="send('video', {'value':1})"></expo-button>
+              </el-col>
+              <el-col :span="4">
+                <expo-button :name="'微电网解决方案'" class="height-button height-button-line" @click="send('video', {'value':1})"></expo-button>
+              </el-col>
+              <el-col :span="4">
+                <expo-button :name="'发电侧新能源消纳解决方案'" class="height-button" @click="send('video', {'value':1})"></expo-button>
+              </el-col>
+              <el-col :span="4">
+                <expo-button :name="'电网侧解决方案'" class="height-button height-button-line" @click="send('video', {'value':1})"></expo-button>
+              </el-col>
+            </el-row>
+          </div>
         </el-col>
       </el-row>
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="button-row">
         <el-col :span="4" :offset="4">
           <small-button class="square-button" @click="send('size', {'value':-0.1})"></small-button>
         </el-col>
@@ -71,13 +92,47 @@
   }
 </script>
 <style scoped>
-  .el-row {
-    margin-top: 30px;
+
+  .button {
+    /*font-size: large;*/
+    margin: 0 auto;
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: #d2fcff;
+  }
+
+  .height-button-line {
+    padding-top: 37px !important;
+    padding-bottom: 36px !important;
+  }
+
+  .height-button {
+    /*font-size: large;*/
+    margin: 0 auto;
+    width: 85%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left:20px;
+    padding-right:20px;
+    color: #d2fcff;
   }
 
   .square-button {
     margin: 60px auto;
     width: 80px;
     height: 80px;
+  }
+
+  .map {
+    padding-top: 80px;
+    padding-bottom: 20px;
+    width: 100%;
+    background: url(../../assets/energy-storage/map.png) no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .button-row {
+    margin-top: 20px;
   }
 </style>

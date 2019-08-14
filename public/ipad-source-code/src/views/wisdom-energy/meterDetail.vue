@@ -1,26 +1,18 @@
 <template>
-  <layout :backCommand="{'no': no, 'command': 'product'}">
-    <template slot="body">
-      <el-row :gutter="20">
-        <el-col :span="8" v-for="(v, k) in info.video.small">
-          <div class="grid-content bg-purple">
-            <el-button type="primary" @click="send('product', key, {'video': k})">{{v}}</el-button>
-          </div>
-        </el-col>
-      </el-row>
-    </template>
-  </layout>
+  <solution-detail :no="no" :index="key" :info="info"></solution-detail>
 </template>
 
 <script>
   import Layout from '@/components/Layout'
+  import SolutionDetail from '@/components/SolutionDetail'
   import WisdomEnergyMeter from "@/data/WisdomEnergyMeter"
   import {send} from '@/api/send'
 
   export default {
     name: 'wisdom-energy-meterDetail',
     components: {
-      Layout
+      Layout,
+      SolutionDetail
     },
     data() {
       return {
@@ -33,20 +25,8 @@
       let key = this.$route.query.key
       this.key = key
       this.info = WisdomEnergyMeter[key]
-      this.send('product', key)
     },
-    methods: {
-      async send(command, value, param) {
-        let sendData = {}
-        sendData.no = this.no
-        sendData.command = command
-        sendData.value = value
-        if (param != undefined) {
-          sendData.param = param
-        }
-        let res = await send(sendData)
-      }
-    }
+    methods: {}
   }
 </script>
 <style scoped>

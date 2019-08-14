@@ -207,6 +207,7 @@
           window.requestAnimationFrame(move); //开始绘图
         }
       }
+
       init(move, this.moveId)
 
 //计算圆于直线的交点（这一块好难啊）

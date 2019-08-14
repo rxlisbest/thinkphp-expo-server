@@ -32,35 +32,21 @@
       <div class="roam">
         <el-row>
           <el-col :span="12">
-            <div class="roam-tab" @click="to('electric-automation-220kvTop')"></div>
-          </el-col>
-          <el-col :span="12">
             <div class="roam-tab"></div>
           </el-col>
-        </el-row>
-        <el-row :gutter="10">
-          <el-col :span="6" :offset="3">
-            <expo-button :name="'一次设备'" class="button" @click="send('location', {'value':1})"></expo-button>
-          </el-col>
-          <el-col :span="6">
-            <expo-button :name="'二次设备'" class="button" @click="send('location', {'value':2})"></expo-button>
-          </el-col>
-          <el-col :span="6">
-            <expo-button :name="'监控室'" class="button" @click="send('location', {'value':3})"></expo-button>
+          <el-col :span="12">
+            <div class="roam-tab" @click="to('electric-automation-220kv')"></div>
           </el-col>
         </el-row>
         <el-row :gutter="20">
-          <el-col :span="8">
+          <el-col :span="8" :offset="2">
             <dish :moveId="'leftMove'" :ws="ws"></dish>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="4" :offset="4">
             <small-button class="square-button" @click="send('size', {'value':-0.1})"></small-button>
           </el-col>
           <el-col :span="4">
             <big-button class="square-button" @click="send('size', {'value':+0.1})"></big-button>
-          </el-col>
-          <el-col :span="8">
-            <dish :moveId="'rightMove'" :ws="ws"></dish>
           </el-col>
         </el-row>
       </div>
@@ -77,7 +63,7 @@
   import {send} from '@/api/send'
 
   export default {
-    name: 'electric-automation-220kv',
+    name: 'electric-automation-220kvTop',
     components: {
       Layout,
       SmallButton,
@@ -130,8 +116,8 @@
   .roam {
     margin: 15px;
     /*padding-top: 80px;*/
-    padding-bottom: 30px;
-    background: url(../../assets/electric-automation/roam-bg.png) no-repeat;
+    padding-bottom: 95px;
+    background: url(../../assets/electric-automation/roam-top-bg.png) no-repeat;
     background-size: 100% 100%;
     height: 100%;
   }
@@ -139,6 +125,6 @@
   .roam-tab {
     width: 100%;
     height: 60px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
   }
 </style>

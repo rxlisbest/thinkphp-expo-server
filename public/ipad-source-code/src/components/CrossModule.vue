@@ -1,33 +1,28 @@
 <template>
-  <div class="module" @click="to(path)">
-    <div class="module-logo">
-      <img :src="require('@/' + image)">
-    </div>
-    <div class="module-name">
-      <p>&nbsp;{{ titlePart1 }}&nbsp;</p>
-      <p>&nbsp;{{ titlePart2 }}&nbsp;</p>
-    </div>
+  <div class="module">
+    <el-row :gutter="20">
+      <el-col :span="10" :offset="2">
+        <div class="module-logo">
+          <img :src="require('@/' + image)">
+        </div>
+      </el-col>
+      <el-col :span="10">
+        <div class="module-name">{{ title }}</div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'Module',
+    name: 'CrossModule',
     components: {},
     props: {
       image: {
         type: String,
         default: ''
       },
-      path: {
-        type: String,
-        default: ''
-      },
-      titlePart1: {
-        type: String,
-        default: ''
-      },
-      titlePart2: {
+      title: {
         type: String,
         default: ''
       }
@@ -38,11 +33,6 @@
     created() {
     },
     methods: {
-      to(name) {
-        if (this.path) {
-          this.$router.push({name: name})
-        }
-      }
     }
   }
 </script>
@@ -50,15 +40,15 @@
   .module {
     text-align: center;
     width: 100%;
-    padding-top: 100px;
-    padding-bottom: 50px;
-    background: url(../assets/set-up/module-bg.png) no-repeat;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: url(../assets/components/cross-module-bg.png) no-repeat;
     background-size: 100% 100%;
   }
 
   .module-name {
-    padding-top: 40px;
-    font-size: x-large;
+    /*font-size: large;*/
+    padding-top: 20px;
     color: #FFFFFF;
   }
 
