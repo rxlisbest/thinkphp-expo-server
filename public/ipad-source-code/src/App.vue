@@ -9,6 +9,11 @@
     name: 'app',
     components: {},
     create() {
+      alert(2)
+      addEventListener('touchstart', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+      }, false);
       var overscroll = function (el) {
         el.addEventListener('touchstart', function () {
           var top = el.scrollTop
