@@ -2,10 +2,15 @@
   <layout>
     <template slot="body">
       <el-row :gutter="20">
-        <el-col :span="6" v-for="(v, k) in list">
-          <div class="grid-content bg-purple">
-            <el-button type="primary" @click="send('video', k)">{{v.name}}</el-button>
-          </div>
+        <el-col :span="22" :offset="1">
+          <div class="map"></div>
+        </el-col>
+      </el-row>
+      <el-row class="button-row" :gutter="20">
+        <el-col :span="4" v-for="(v, k) in list" :offset="k%5 == 0 ? 2 : 0">
+          <expo-button class="button" :name="v.name" :english-name="v.englishName"
+                       @click="send('video', k)"></expo-button>
+          <br v-if="k%5 == 4"/>
         </el-col>
       </el-row>
     </template>
@@ -14,13 +19,15 @@
 
 <script>
   import Layout from '@/components/Layout'
+  import ExpoButton from '@/components/ExpoButton'
   import NewEnergyOne from "@/data/NewEnergyOne"
-  import { send } from '@/api/send'
+  import {send} from '@/api/send'
 
   export default {
     name: 'new-energy-one',
     components: {
-      Layout
+      Layout,
+      ExpoButton
     },
     data() {
       return {
@@ -45,7 +52,23 @@
   }
 </script>
 <style scoped>
-  .grid-content bg-purple {
+  .map {
+    width: 100%;
+    padding-bottom: 40%;
+    height: 0;
+    background: url(../../assets/new-energy/one-bg.png) no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .button {
+    height: 65px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 20px 10px;
+    color: #d2fcff;
+  }
+
+  .button-row {
     margin-top: 30px;
   }
 </style>

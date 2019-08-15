@@ -1,5 +1,8 @@
 <template>
-  <div :class="expoButtonClass" @click="clickExpoButton">{{ name }}</div>
+  <div :class="expoButtonClass" @click="clickExpoButton">
+    <p>{{ name }}</p>
+    <p>{{ englishName }}</p>
+  </div>
 </template>
 
 <script>
@@ -8,6 +11,10 @@
     components: {},
     props: {
       name: {
+        type: String,
+        default: ''
+      },
+      englishName: {
         type: String,
         default: ''
       }
@@ -40,6 +47,11 @@
     color: #FFFFFF;
   }
 
+  .expo-button p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
   .expo-button-hover {
     text-align: center;
     width: 100%;
@@ -47,5 +59,10 @@
     background: url(../assets/button-hover.png) no-repeat;
     background-size: 100% 100%;
     color: #FFFFFF;
+  }
+
+  .expo-button-hover p {
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
 </style>
