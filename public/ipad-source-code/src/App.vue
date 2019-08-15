@@ -8,9 +8,9 @@
   export default {
     name: 'app',
     components: {},
-    create() {
+    mounted() {
       alert(2)
-      addEventListener('touchstart', function(e){
+      addEventListener('touchstart', function (e) {
         e.preventDefault();
         e.stopPropagation();
       }, false);
