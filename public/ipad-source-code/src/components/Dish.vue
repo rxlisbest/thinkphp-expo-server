@@ -24,6 +24,11 @@
       }
     },
     mounted() {
+      window['body_' + this.moveId] = function (e) {
+        e.preventDefault() // 阻止默认的处理方式(阻止下拉滑动的效果)
+      }
+      document.body.addEventListener('touchmove', window['body_' + this.moveId], {passive: false}) // passive 参数不能省略，用来兼容ios和android
+
       window['moveNo'] = 1
       var no = this.no
       var move = document.getElementById(this.moveId); //画板
@@ -240,6 +245,8 @@
       document.removeEventListener('touchstart', window[t], false);
       document.removeEventListener('touchmove', window[t], false);
       document.removeEventListener('touchend', window[t], false);
+
+      document.body.removeEventListener('touchmove', window['body_' + this.moveId], {passive: false}) // passive 参数不能省略，用来兼容ios和android
     },
     data() {
       return {}
