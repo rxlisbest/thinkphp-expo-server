@@ -2,9 +2,9 @@
   <layout>
     <template slot="body">
       <el-row :gutter="20">
-        <el-col :span="24">
+        <el-col :span="6" :offset="9">
           <div class="grid-content bg-purple">
-            <router-link :to="{'name': ''}">AR识别</router-link>
+            <expo-button class="button" :name="'开始识别'" @click="goOut()"></expo-button>
           </div>
         </el-col>
       </el-row>
@@ -14,22 +14,41 @@
 
 <script>
   import Layout from '../../components/Layout'
+  import ExpoButton from '../../components/ExpoButton'
+  import ArConfig from '../../config/ar'
+  import {Base64} from 'js-base64'
 
   export default {
     name: 'low-voltage-ar',
     components: {
-      Layout
+      Layout,
+      ExpoButton
     },
     data() {
-      return {}
+      return {
+        domain: ''
+      }
     },
     created() {
+      this.domain = window.location.href.replace('ar', 'productDetail')
     },
-    methods: {}
+    methods: {
+      goOut() {
+        window.location.href = ArConfig.url + '?serviceUrl=' + Base64.encode(this.domain) + '&module=LowVoltage'
+      }
+    }
   }
 </script>
 <style scoped>
   .el-row {
     margin-top: 30px;
+  }
+
+  .button {
+    font-size: x-large;
+    margin: 0 auto;
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
   }
 </style>
