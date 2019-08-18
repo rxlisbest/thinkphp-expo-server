@@ -102,8 +102,7 @@
         let res = await send(sendData)
       },
       playVideo(video) {
-        let videoValue = this.solution + '-' + video
-        this.send('playVideo', {'video': videoValue})
+        this.send('playVideo', {'type': this.solution, 'video': video})
       },
       clickSolution(solution) {
         this.solution = solution
