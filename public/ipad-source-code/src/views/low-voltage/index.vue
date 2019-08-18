@@ -1,5 +1,5 @@
 <template>
-  <layout :title="'低压智能配电'">
+  <layout :title="'低压智能配电'" :back-name="'set-up-index'">
     <template slot="body">
       <el-row :gutter="20">
         <el-col :span="8" :offset="4">

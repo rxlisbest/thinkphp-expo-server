@@ -1,5 +1,5 @@
 <template>
-  <layout :backCommand="{'no': no, 'command': 'product'}">
+  <layout :back-name="backName" :backCommand="{'no': no, 'command': 'product'}">
     <template slot="body">
       <div class="button-container">
         <el-row>
@@ -37,6 +37,10 @@
       ExpoButton
     },
     props: {
+      backName: {
+        type: String,
+        default: undefined
+      },
       no: {
         type: Number,
         default: 0

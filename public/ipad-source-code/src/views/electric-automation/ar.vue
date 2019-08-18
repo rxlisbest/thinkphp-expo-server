@@ -1,5 +1,5 @@
 <template>
-  <layout :title="'电力自动化AR'">
+  <layout :title="'电力自动化AR'" :back-name="'set-up-index'">
     <template slot="body">
       <el-row :gutter="20">
         <el-col :span="6" :offset="9">

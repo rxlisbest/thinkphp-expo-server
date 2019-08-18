@@ -1,5 +1,5 @@
 <template>
-  <product-detail :no="no" :index="key" :info="info"></product-detail>
+  <product-detail :back-name="'low-voltage-product'" :no="no" :index="key" :info="info"></product-detail>
 </template>
 
 <script>

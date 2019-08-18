@@ -1,5 +1,5 @@
 <template>
-  <product :view="'electric-automation'" :list="list"></product>
+  <product :back-name="'electric-automation-index'" :view="'electric-automation'" :list="list"></product>
 </template>
 
 <script>

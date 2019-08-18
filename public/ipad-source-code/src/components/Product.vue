@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <layout :back-name="backName">
     <template slot="body">
       <el-row :gutter="20">
         <el-col :span="6" v-for="(v, k) in list">
@@ -26,6 +26,10 @@
       Layout
     },
     props: {
+      backName: {
+        type: String,
+        default: undefined
+      },
       view: {
         type: String,
         default: ''

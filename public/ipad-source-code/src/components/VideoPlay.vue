@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <layout :back-name="backName">
     <template slot="body">
       <div class="button-container">
         <el-row>
@@ -47,6 +47,10 @@
       Layout
     },
     props: {
+      backName: {
+        type: String,
+        default: undefined
+      },
       no: {
         type: Number,
         default: 0

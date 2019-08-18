@@ -1,5 +1,5 @@
 <template>
-  <solution-detail :no="no" :index="key" :info="info"></solution-detail>
+  <solution-detail :back-name="'wisdom-energy-meter'" :no="no" :index="key" :info="info"></solution-detail>
 </template>
 
 <script>

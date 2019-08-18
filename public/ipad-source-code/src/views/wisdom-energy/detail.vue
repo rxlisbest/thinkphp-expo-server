@@ -1,5 +1,5 @@
 <template>
-  <video-play :no="no" :title="title"></video-play>
+  <video-play :back-name="'wisdom-energy-index'" :no="no" :title="title"></video-play>
 </template>
 
 <script>

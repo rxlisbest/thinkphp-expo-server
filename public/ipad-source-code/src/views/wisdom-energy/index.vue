@@ -1,5 +1,5 @@
 <template>
-  <layout :title="'智慧能效'">
+  <layout :title="'智慧能效'" :back-name="'set-up-index'">
     <template slot="body">
       <el-row :gutter="20">
         <el-col :span="8">

@@ -1,5 +1,5 @@
 <template>
-  <layout :title="'新能源'">
+  <layout :back-name="'set-up-index'" :title="'新能源'">
     <template slot="body">
       <el-row :gutter="30">
         <el-col :span="10" :offset="2">

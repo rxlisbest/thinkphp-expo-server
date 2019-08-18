@@ -1,5 +1,5 @@
 <template>
-  <layout :title="'数字化触控系统'">
+  <layout :back-name="'new-energy-index'" :title="'数字化触控系统'">
     <template slot="body">
       <el-row :gutter="20">
         <el-col :span="22" :offset="1">

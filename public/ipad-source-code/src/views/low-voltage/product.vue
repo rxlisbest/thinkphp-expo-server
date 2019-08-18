@@ -1,5 +1,5 @@
 <template>
-  <product :view="'low-voltage'" :list="list"></product>
+  <product :back-name="'low-voltage-index'" :view="'low-voltage'" :list="list"></product>
 </template>
 
 <script>
