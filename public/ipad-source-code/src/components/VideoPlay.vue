@@ -5,7 +5,8 @@
         <el-row>
           <el-col :span="24">
             <div class="body-title">
-              <img width="100%" :src="require('@/' + title)">
+              {{ title }}
+<!--              <img width="100%" :src="require('@/' + title)">-->
             </div>
           </el-col>
         </el-row>
@@ -100,9 +101,17 @@
   }
 
   .body-title {
+    font-weight: bold;
     margin: 0 auto;
     margin-top: 22%;
-    width: 16%;
+    width: 80%;
+    color: #FFFFFF;
+    font-size: 4em;
+    background: linear-gradient(to bottom, white, #98e0fc);
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
   }
 
   .small-col {

@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <layout :title="'工艺流程'">
     <template slot="body">
       <div class="process-container">
         <el-row :gutter="20">

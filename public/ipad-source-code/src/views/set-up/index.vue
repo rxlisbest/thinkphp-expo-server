@@ -2,7 +2,9 @@
   <div class="container">
     <el-row class="title-row">
       <el-col :span="24" style="height: 100%;">
-        <div class="title"></div>
+        <div class="title">
+          国际工业与能源物联网创新发展大会
+        </div>
       </el-col>
     </el-row>
     <el-row class="module-row">
@@ -170,12 +172,21 @@
   }
 
   .title {
+    font-size: 3vw;
+    font-weight: bold;
+    color: white;
     width: 50%;
     height: 0;
-    padding-bottom: 3%;
+    padding-bottom: 4%;
     margin: 0px auto;
-    background: url(../../assets/set-up/title.png) no-repeat;
-    background-size: 100% 100%;
+    /*background: url(../../assets/set-up/title.png) no-repeat;*/
+    /*background-size: 100% 100%;*/
+
+    background: linear-gradient(to bottom, #3defff, #4497ff);
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
   }
 
   .module-row {

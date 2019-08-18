@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <layout :title="'电力自动化'">
     <template slot="body">
       <el-row :gutter="20">
         <el-col :span="8">

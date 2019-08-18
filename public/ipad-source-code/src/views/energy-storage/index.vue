@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <layout :title="'储能'">
     <template slot="body">
       <el-row :gutter="20" class="map-row">
         <el-col :span="22" :offset="1" class="map-col">

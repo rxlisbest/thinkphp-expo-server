@@ -13,7 +13,7 @@
     data() {
       return {
         no: 4,
-        title: 'assets/wisdom-water/title.png'
+        title: '智慧水务'
       }
     },
     created() {

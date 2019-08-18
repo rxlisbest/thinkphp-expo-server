@@ -1,5 +1,5 @@
 <template>
-  <layout :back-name="'electric-automation-index'">
+  <layout :back-name="'electric-automation-index'" :title="'220kv变电站仿真系统'">
     <template slot="body">
       <el-row :gutter="10">
         <el-col :span="6">

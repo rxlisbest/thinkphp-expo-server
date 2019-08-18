@@ -13,11 +13,12 @@
     data() {
       return {
         no: 0,
-        title: 'assets/wisdom-water/title.png'
+        title: ''
       }
     },
     created() {
       this.no = this.$route.query.no
+      this.title = this.$route.query.title
     },
     methods: {}
   }

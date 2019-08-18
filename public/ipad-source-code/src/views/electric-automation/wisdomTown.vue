@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <layout :title="'配电自动化智慧小镇'">
     <template slot="body">
       <div class="button-container">
         <el-row :gutter="10">

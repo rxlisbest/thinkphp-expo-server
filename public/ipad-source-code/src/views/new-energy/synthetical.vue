@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <layout :title="'综合能源服务'">
     <template slot="body">
       <el-row :gutter="20">
         <el-col :span="22" :offset="1">

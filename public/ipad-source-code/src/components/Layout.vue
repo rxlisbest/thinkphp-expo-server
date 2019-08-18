@@ -5,9 +5,10 @@
         <el-col :span="5">
           <div class="back" @click="back"></div>
         </el-col>
-        <el-col :span="8">
+        <el-col :span="13">
           <div class="title">
-            <img :src="require('../assets/set-up/title.png')">
+            {{ title }}
+<!--            <img :src="require('../assets/set-up/title.png')">-->
           </div>
         </el-col>
       </el-row>
@@ -39,6 +40,10 @@
       backName: {
         type: String,
         default: undefined
+      },
+      title: {
+        type: String,
+        default: '国际工业与能源物联网创新发展大会'
       }
     },
     mounted() {
@@ -97,10 +102,18 @@
   }
 
   .title {
-    height: 68%;
+    text-align: center;
+    height: 100%;
+    font-size: 3vw;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #3defff, #4497ff);
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
   }
 
   .title img {
-    height: 100%;
+    /*height: 100%;*/
   }
 </style>
