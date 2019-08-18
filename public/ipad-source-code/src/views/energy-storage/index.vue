@@ -176,14 +176,14 @@
   .map {
     width: 100%;
     height: 80%;
-    padding-top: 2%;
+    padding-top: 1%;
     padding-bottom: 10%;
     background: url(../../assets/energy-storage/map.png) no-repeat;
     background-size: 100% 100%;
   }
 
   .button-row {
-    margin-top: 5%;
+    margin-top: 3%;
   }
 
   .video-row {

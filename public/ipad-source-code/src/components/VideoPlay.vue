@@ -108,9 +108,9 @@
     font-weight: bold;
     margin: 0 auto;
     margin-top: 22%;
-    width: 80%;
+    width: 100%;
     color: #FFFFFF;
-    font-size: 4em;
+    font-size: 3vw;
     background: linear-gradient(to bottom, white, #98e0fc);
     -webkit-background-clip: text;
     color: transparent;
