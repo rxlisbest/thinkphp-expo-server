@@ -38,7 +38,7 @@
             <big-button class="square-button" @click="send('size', {'value':+0.1})"></big-button>
           </el-col>
           <el-col :span="8" :offset="4">
-            <dish :moveId="'move'" :ws="ws"></dish>
+            <dish :no="no"  :moveId="'move'" :ws="ws"></dish>
           </el-col>
         </el-row>
       </div>

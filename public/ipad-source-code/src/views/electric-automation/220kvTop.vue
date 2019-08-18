@@ -40,7 +40,7 @@
         </el-row>
         <el-row :gutter="20">
           <el-col :span="8" :offset="2">
-            <dish :moveId="'leftMove'" :ws="ws"></dish>
+            <dish :no="no" :moveId="'leftMove'" :ws="ws"></dish>
           </el-col>
           <el-col :span="4" :offset="4">
             <small-button class="square-button" @click="send('size', {'value':-0.1})"></small-button>

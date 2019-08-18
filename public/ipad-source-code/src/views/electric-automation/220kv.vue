@@ -51,7 +51,7 @@
         </el-row>
         <el-row :gutter="20">
           <el-col :span="8">
-            <dish :moveId="'leftMove'" :ws="ws"></dish>
+            <dish :no="no" :moveId="'leftMove'" :ws="ws"></dish>
           </el-col>
           <el-col :span="4">
             <small-button class="square-button" @click="send('size', {'value':-0.1})"></small-button>
@@ -60,7 +60,7 @@
             <big-button class="square-button" @click="send('size', {'value':+0.1})"></big-button>
           </el-col>
           <el-col :span="8">
-            <dish :moveId="'rightMove'" :ws="ws"></dish>
+            <dish :no="no" :moveId="'rightMove'" :ws="ws"></dish>
           </el-col>
         </el-row>
       </div>
