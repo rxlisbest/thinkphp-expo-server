@@ -1,5 +1,5 @@
 <template>
-  <div :class="expoButtonClass" @click="clickExpoButton">
+  <div :class="hover ? 'expo-button-hover' : expoButtonClass" @click="clickExpoButton">
     <p>{{ name }}</p>
     <p>{{ englishName }}</p>
   </div>
@@ -10,6 +10,10 @@
     name: 'ExpoButton',
     components: {},
     props: {
+      hover: {
+        type: Boolean,
+        default: false
+      },
       name: {
         type: String,
         default: ''
