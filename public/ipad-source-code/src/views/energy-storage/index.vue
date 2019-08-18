@@ -20,6 +20,17 @@
               </el-col>
             </el-row>
             <el-row :gutter="20" class="video-row">
+              <el-col :span="2" offset="1" v-if="solution">
+                <play-button class="play-button" @click="send('play')"></play-button>
+              </el-col>
+              <el-col :span="2" v-if="solution">
+                <pause-button class="play-button" @click="send('pause')"></pause-button>
+              </el-col>
+              <el-col :span="2" v-if="solution">
+                <x-button class="play-button" @click="send('close')"></x-button>
+              </el-col>
+            </el-row>
+            <el-row :gutter="20" class="video-row">
               <el-col :span="6" offset="1" v-if="solution">
                 <expo-button :name="'返回'" class="button" @click="send('back')"></expo-button>
               </el-col>
@@ -29,22 +40,27 @@
                 <expo-button :name="'退出'" class="button height-button-line" @click="send('exit')"></expo-button>
               </el-col>
               <el-col :span="3">
-                <expo-button :hover="solution == 'generation-assist' ? true : false" :name="'发电侧辅助解决方案'" class="height-button"
+                <expo-button :hover="solution == 'generation-assist' ? true : false" :name="'发电侧辅助解决方案'"
+                             class="height-button"
                              @click="clickSolution('generation-assist')"></expo-button>
               </el-col>
               <el-col :span="3">
-                <expo-button :hover="solution == 'micro-power-grid' ? true : false" :name="'微电网解决方案'" class="height-button"
+                <expo-button :hover="solution == 'micro-power-grid' ? true : false" :name="'微电网解决方案'"
+                             class="height-button"
                              @click="clickSolution('micro-power-grid')"></expo-button>
               </el-col>
               <el-col :span="4">
-                <expo-button :hover="solution == 'generation-new-energy' ? true : false" :name="'发电侧新能源消纳解决方案'" class="height-button"
+                <expo-button :hover="solution == 'generation-new-energy' ? true : false" :name="'发电侧新能源消纳解决方案'"
+                             class="height-button"
                              @click="clickSolution('generation-new-energy')"></expo-button>
               </el-col>
               <el-col :span="3">
-                <expo-button :hover="solution == 'power-grid' ? true : false" :name="'电网侧解决方案'" class="height-button" @click="clickSolution('power-grid')"></expo-button>
+                <expo-button :hover="solution == 'power-grid' ? true : false" :name="'电网侧解决方案'" class="height-button"
+                             @click="clickSolution('power-grid')"></expo-button>
               </el-col>
               <el-col :span="3">
-                <expo-button :hover="solution == 'peak-valley' ? true : false" :name="'用户侧削峰填谷解决方案'" class="height-button"
+                <expo-button :hover="solution == 'peak-valley' ? true : false" :name="'用户侧削峰填谷解决方案'"
+                             class="height-button"
                              @click="clickSolution('peak-valley')"></expo-button>
               </el-col>
             </el-row>
@@ -71,6 +87,9 @@
   import SmallButton from '../../components/SmallButton'
   import BigButton from '../../components/BigButton'
   import ExpoButton from '../../components/ExpoButton'
+  import PlayButton from '../../components/PlayButton'
+  import PauseButton from '../../components/PauseButton'
+  import XButton from '../../components/XButton'
   import Dish from '../../components/Dish'
   import {send} from '@/api/send'
 
@@ -81,6 +100,9 @@
       SmallButton,
       BigButton,
       ExpoButton,
+      PlayButton,
+      PauseButton,
+      XButton,
       Dish
     },
     data() {
@@ -154,8 +176,8 @@
   .map {
     width: 100%;
     height: 80%;
-    padding-top: 8%;
-    padding-bottom: 3%;
+    padding-top: 2%;
+    padding-bottom: 10%;
     background: url(../../assets/energy-storage/map.png) no-repeat;
     background-size: 100% 100%;
   }
@@ -166,5 +188,10 @@
 
   .video-row {
     height: 7.2vh;
+  }
+
+  .play-button {
+    width: 5.2vw;
+    height: 5.2vw;
   }
 </style>
