@@ -31,6 +31,6 @@
 </script>
 <style scoped>
   .grid-content bg-purple {
-    margin-top: 30px;
+    margin-top: 2%;
   }
 </style>

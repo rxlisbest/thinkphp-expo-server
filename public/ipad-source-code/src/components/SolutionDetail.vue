@@ -3,7 +3,7 @@
     <template slot="body">
       <div class="button-container">
         <el-row>
-          <el-col :span="12" :offset="6">
+          <el-col :span="24">
             <div class="product-name">{{ info.name }}</div>
           </el-col>
         </el-row>
@@ -74,21 +74,17 @@
   }
 </script>
 <style scoped>
-  .grid-content bg-purple {
-    margin-top: 30px;
-  }
-
   .row-img {
-    margin-top: 10px;
+    margin-top: 1%;
   }
 
   .row-button {
-    margin-top: 10px;
+    margin-top: 1%;
   }
 
   .product-name {
     color: #FFFFFF;
-    font-size: xx-large;
+    font-size: 3vw;
     background: linear-gradient(to bottom, white, #baecff);
     -webkit-background-clip: text;
     color: transparent;
@@ -101,23 +97,21 @@
   }
 
   .button-container {
-    margin: 30px;
-    padding-top: 40px;
-    padding-bottom: 50px;
+    padding-top: 5%;
+    padding-bottom: 5%;
     background: url(../assets/wisdom-water/border.png) no-repeat;
     background-size: 100% 100%;
-    height: 100%;
   }
 
   .button {
-    font-size: x-large;
+    font-size: 2vw;
     margin: 0 auto;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 5%;
+    padding-bottom: 5%;
   }
 
   .product-img {
     width: 100%;
-    max-height: 350px;
+    max-height: 10%;
   }
 </style>

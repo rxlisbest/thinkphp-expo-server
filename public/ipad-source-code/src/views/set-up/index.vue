@@ -165,98 +165,117 @@
   }
 
   .title-row {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 3%;
+    padding-bottom: 3%;
   }
 
   .title {
-    width: 400px;
-    height: 25px;
+    width: 50%;
+    height: 0;
+    padding-bottom: 3%;
     margin: 0px auto;
     background: url(../../assets/set-up/title.png) no-repeat;
     background-size: 100% 100%;
   }
 
+  .module-row {
+    height: 42%;
+  }
+
+  .el-col {
+    height: 100%;
+  }
+
   .module {
     text-align: center;
     width: 100%;
-    padding-top: 100px;
-    padding-bottom: 50px;
+    height: 38%;
+    padding-top: 60%;
+    padding-bottom: 60%;
     background: url(../../assets/set-up/module-bg.png) no-repeat;
     background-size: 100% 100%;
   }
   .module-hover {
     text-align: center;
     width: 100%;
-    padding-top: 100px;
-    padding-bottom: 50px;
+    padding-top: 60%;
+    padding-bottom: 60%;
     background: url(../../assets/set-up/module-hover-bg.png) no-repeat;
     background-size: 100% 100%;
   }
 
   .module-row {
-    padding-bottom: 30px;
+    padding-bottom: 2%;
   }
 
   .module-electric-automation {
     margin: 0px auto;
-    width: 80px;
-    height: 80px;
+    width: 40%;
+    height: 0;
+    padding-bottom: 40%;
     background: url(../../assets/set-up/electric-automation.png) no-repeat;
     background-size: 100%;
   }
 
   .module-wisdom-water {
     margin: 0px auto;
-    width: 80px;
-    height: 80px;
+    width: 40%;
+    height: 0;
+    padding-bottom: 40%;
     background: url(../../assets/set-up/wisdom-water.png) no-repeat;
     background-size: 100% 100%;
   }
 
   .module-low-voltage {
     margin: 0px auto;
-    width: 80px;
-    height: 80px;
+    width: 40%;
+    height: 0;
+    padding-bottom: 40%;
     background: url(../../assets/set-up/low-voltage.png) no-repeat;
     background-size: 100%;
   }
 
   .module-wisdom-energy {
     margin: 0px auto;
-    width: 80px;
-    height: 80px;
+    width: 40%;
+    height: 0;
+    padding-bottom: 40%;
     background: url(../../assets/set-up/wisdom-energy.png) no-repeat;
     background-size: 100%;
   }
 
   .module-new-energy {
     margin: 0px auto;
-    width: 80px;
-    height: 80px;
+    width: 40%;
+    height: 0;
+    padding-bottom: 40%;
     background: url(../../assets/set-up/new-energy.png) no-repeat;
     background-size: 100%;
   }
 
   .module-new-china {
     margin: 0px auto;
-    width: 80px;
-    height: 80px;
+    width: 40%;
+    height: 0;
+    padding-bottom: 40%;
     background: url(../../assets/set-up/new-china.png) no-repeat;
     background-size: 100%;
   }
 
   .module-energy-storage {
     margin: 0px auto;
-    width: 80px;
-    height: 80px;
+    width: 40%;
+    height: 0;
+    padding-bottom: 40%;
     background: url(../../assets/set-up/energy-storage.png) no-repeat;
     background-size: 100%;
   }
 
   .module-name {
-    padding-top: 40px;
-    font-size: large;
+    width: 100%;
+    padding-top: 10%;
+    height: 20%;
+    font-size: 2vw;
     color: #FFFFFF;
   }
 </style>

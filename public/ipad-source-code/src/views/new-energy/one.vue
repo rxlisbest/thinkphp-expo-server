@@ -61,14 +61,18 @@
   }
 
   .button {
-    height: 65px;
+    font-size: 1.6vw;
+    height: 100%;
     margin: 0 auto;
     width: 100%;
-    padding: 20px 10px;
+    padding: 2% 3%;
     color: #d2fcff;
   }
-
+  .el-col {
+    height: 50%;
+  }
   .button-row {
-    margin-top: 30px;
+    margin-top: 3%;
+    height: 30%;
   }
 </style>

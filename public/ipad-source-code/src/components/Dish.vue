@@ -1,5 +1,5 @@
 <template>
-  <canvas :id="moveId" width="200" height="200"></canvas>
+  <canvas :id="moveId" width="400" height="400"></canvas>
 </template>
 
 <script>

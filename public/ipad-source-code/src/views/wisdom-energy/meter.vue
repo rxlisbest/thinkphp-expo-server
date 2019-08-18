@@ -37,6 +37,6 @@
 </script>
 <style scoped>
   .el-col {
-    padding-top: 30px;
+    padding-top: 2%;
   }
 </style>

@@ -39,7 +39,4 @@
   }
 </script>
 <style scoped>
-  .el-row {
-    margin-top: 30px;
-  }
 </style>

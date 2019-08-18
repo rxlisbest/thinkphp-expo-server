@@ -23,17 +23,21 @@
               <el-col :span="6" offset="1">
                 <expo-button :name="'退出'" class="button height-button-line" @click="send('exit')"></expo-button>
               </el-col>
-              <el-col :span="4">
+              <el-col :span="3">
                 <expo-button :name="'发电侧辅助解决方案'" class="height-button" @click="send('generation-assist')"></expo-button>
               </el-col>
-              <el-col :span="4">
-                <expo-button :name="'微电网解决方案'" class="height-button height-button-line" @click="send('micro-power-grid')"></expo-button>
+              <el-col :span="3">
+                <expo-button :name="'微电网解决方案'" class="height-button" @click="send('micro-power-grid')"></expo-button>
               </el-col>
               <el-col :span="4">
-                <expo-button :name="'发电侧新能源消纳解决方案'" class="height-button" @click="send('generation-new-energy')"></expo-button>
+                <expo-button :name="'发电侧新能源消纳解决方案'" class="height-button"
+                             @click="send('generation-new-energy')"></expo-button>
               </el-col>
-              <el-col :span="4">
-                <expo-button :name="'电网侧解决方案'" class="height-button height-button-line" @click="send('power-grid')"></expo-button>
+              <el-col :span="3">
+                <expo-button :name="'电网侧解决方案'" class="height-button" @click="send('power-grid')"></expo-button>
+              </el-col>
+              <el-col :span="3">
+                <expo-button :name="'发电侧辅助解决方案'" class="height-button" @click="send('generation-assist')"></expo-button>
               </el-col>
             </el-row>
           </div>
@@ -94,40 +98,38 @@
 <style scoped>
 
   .button {
-    /*font-size: large;*/
+    font-size: 1.5vw;
     margin: 0 auto;
     width: 100%;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 8%;
+    padding-bottom: 8%;
     color: #d2fcff;
   }
 
   .height-button-line {
-    padding-top: 37px !important;
-    padding-bottom: 36px !important;
+    padding-top: 8% !important;
+    padding-bottom: 8% !important;
   }
 
   .height-button {
-    /*font-size: large;*/
+    font-size: 1.5vw;
     margin: 0 auto;
     width: 85%;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    padding-left:20px;
-    padding-right:20px;
+    padding-left: 20%;
+    padding-right: 20%;
     color: #d2fcff;
   }
 
   .square-button {
-    margin: 60px auto;
-    width: 80px;
-    height: 80px;
+    margin: 30% auto;
+    width: 60%;
   }
 
   .map {
-    padding-top: 80px;
-    padding-bottom: 20px;
     width: 100%;
+    height: 60%;
+    padding-top: 8%;
+    padding-bottom: 2%;
     background: url(../../assets/energy-storage/map.png) no-repeat;
     background-size: 100% 100%;
   }

@@ -51,23 +51,23 @@
   }
 </script>
 <style scoped>
-  .grid-content bg-purple {
-    margin-top: 30px;
-  }
   .map {
     width: 100%;
-    padding-bottom: 55%;
+    padding-bottom: 53%;
     height: 0;
     background: url(../../assets/new-china/map.png) no-repeat;
     background-size: 100% 100%;
   }
+
   .button {
+    font-size: 1.5vw;
     margin: 0 auto;
     width: 70%;
-    padding: 20px 30px;
+    padding: 20% 18%;
     color: #d2fcff;
   }
+
   .button-row {
-    margin-top: 30px;
+    margin-top: 3%;
   }
 </style>

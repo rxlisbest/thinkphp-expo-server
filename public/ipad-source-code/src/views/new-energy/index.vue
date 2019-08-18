@@ -54,10 +54,7 @@
   }
 </script>
 <style scoped>
-  .el-row {
-  }
-
   .el-col {
-    margin-top: 50px;
+    margin-top: 2%;
   }
 </style>

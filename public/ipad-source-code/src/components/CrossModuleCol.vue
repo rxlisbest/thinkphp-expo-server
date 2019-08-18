@@ -38,20 +38,20 @@
   .module {
     text-align: center;
     width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 4%;
+    padding-bottom: 4%;
     background: url(../assets/components/cross-module-bg.png) no-repeat;
     background-size: 100% 100%;
   }
 
   .module-name {
-    font-size: x-large;
-    padding-top: 20px;
+    font-size: 2.5vw;
+    padding-top: 2%;
     color: #FFFFFF;
   }
 
   .module-name p {
-    margin: 0px;
+    margin: 0;
     background: linear-gradient(to bottom, white, #baecff);
     -webkit-background-clip: text;
     color: transparent;
@@ -62,11 +62,9 @@
   .module-logo {
     margin: 0px auto;
     width: 50%;
-    max-height: 130px;
   }
 
   .module-logo img {
     width: 100%;
-    max-height: 130px;
   }
 </style>

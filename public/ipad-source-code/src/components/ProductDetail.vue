@@ -71,13 +71,9 @@
   }
 </script>
 <style scoped>
-  .grid-content bg-purple {
-    margin-top: 30px;
-  }
-
   .product-name {
     color: #FFFFFF;
-    font-size: xx-large;
+    font-size: 5em;
     background: linear-gradient(to bottom, white, #baecff);
     -webkit-background-clip: text;
     color: transparent;
@@ -90,24 +86,22 @@
   }
 
   .button-container {
-    margin: 30px;
-    padding-top: 80px;
-    padding-bottom: 50px;
+    padding-top: 5%;
+    padding-bottom: 5%;
     background: url(../assets/wisdom-water/border.png) no-repeat;
     background-size: 100% 100%;
-    height: 100%;
   }
 
   .button {
     font-size: x-large;
     margin: 0 auto;
     width: 70%;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 5%;
+    padding-bottom: 5%;
   }
 
   .product-img {
     width: 100%;
-    max-height: 300px;
+    max-height: 30%;
   }
 </style>

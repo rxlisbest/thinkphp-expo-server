@@ -93,9 +93,7 @@
 </script>
 <style scoped>
   .button-container {
-    margin: 30px;
-    padding-top: 150px;
-    padding-bottom: 200px;
+    margin: 0 auto;
     background: url(../assets/wisdom-water/border.png) no-repeat;
     background-size: 100% 100%;
     height: 100%;
@@ -103,9 +101,8 @@
 
   .body-title {
     margin: 0 auto;
-    margin-bottom: 50px;
-    height: 30px;
-    width: 130px;
+    margin-top: 22%;
+    width: 16%;
   }
 
   .small-col {
@@ -113,71 +110,81 @@
   }
 
   .pause {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
     background: url(../assets/wisdom-water/pause.png) no-repeat;
     background-size: 100%;
   }
 
   .pause-hover {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
     background: url(../assets/wisdom-water/pause-hover.png) no-repeat;
     background-size: 100%;
   }
 
   .play {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
     background: url(../assets/wisdom-water/play.png) no-repeat;
     background-size: 100%;
   }
 
   .play-hover {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
     background: url(../assets/wisdom-water/play-hover.png) no-repeat;
     background-size: 100%;
   }
 
   .stop {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
     background: url(../assets/wisdom-water/stop.png) no-repeat;
     background-size: 100%;
   }
 
   .stop-hover {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
     background: url(../assets/wisdom-water/stop-hover.png) no-repeat;
     background-size: 100%;
   }
 
   .volume0 {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
     background: url(../assets/wisdom-water/volumn-0.png) no-repeat;
     background-size: 100%;
   }
 
   .volume0-hover {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
     background: url(../assets/wisdom-water/volumn-0-hover.png) no-repeat;
     background-size: 100%;
   }
 
   .volume100 {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
     background: url(../assets/wisdom-water/volumn-100.png) no-repeat;
     background-size: 100%;
   }
 
   .volume100-hover {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
     background: url(../assets/wisdom-water/volumn-100-hover.png) no-repeat;
     background-size: 100%;
   }

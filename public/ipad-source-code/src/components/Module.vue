@@ -50,15 +50,17 @@
   .module {
     text-align: center;
     width: 100%;
-    padding-top: 100px;
-    padding-bottom: 50px;
+    padding-top: 20%;
+    padding-bottom: 20%;
     background: url(../assets/set-up/module-bg.png) no-repeat;
     background-size: 100% 100%;
   }
 
   .module-name {
-    padding-top: 40px;
-    font-size: x-large;
+    margin: 0 auto;
+    width: 80%;
+    padding-top: 5%;
+    font-size: 3vw;
     color: #FFFFFF;
   }
 

@@ -34,7 +34,9 @@
   .small-button {
     text-align: center;
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
+    height: 0;
+    padding-bottom: 60%;
     background: url(../assets/small.png) no-repeat;
     background-size: 100% 100%;
     color: #FFFFFF;
@@ -43,7 +45,9 @@
   .small-button-hover {
     text-align: center;
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
+    height: 0;
+    padding-bottom: 60%;
     background: url(../assets/small-hover.png) no-repeat;
     background-size: 100% 100%;
     color: #FFFFFF;

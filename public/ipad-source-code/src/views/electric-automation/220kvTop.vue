@@ -96,35 +96,33 @@
 </script>
 <style scoped>
   .el-row {
-    margin-top: 10px;
+    margin-top: 1%;
   }
 
   .square-button {
-    margin: 50px auto;
-    width: 80px;
-    height: 80px;
+    margin: 30% auto;
+    width: 60%;
   }
 
   .button {
-    font-size: x-large;
+    font-size: 2.5vw;
     margin: 0 auto;
     width: 100%;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 8%;
+    padding-bottom: 8%;
   }
 
   .roam {
-    margin: 15px;
+    width: 100%;
+    height: 70%;
     /*padding-top: 80px;*/
-    padding-bottom: 95px;
-    background: url(../../assets/electric-automation/roam-top-bg.png) no-repeat;
+    background: url(../../assets/electric-automation/roam-bg.png) no-repeat;
     background-size: 100% 100%;
-    height: 100%;
   }
 
   .roam-tab {
     width: 100%;
-    height: 60px;
-    margin-bottom: 50px;
+    height: 100%;
+    margin-bottom: 15%;
   }
 </style>

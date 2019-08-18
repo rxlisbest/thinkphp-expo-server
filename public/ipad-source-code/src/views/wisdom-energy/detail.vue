@@ -1,177 +1,27 @@
 <template>
-  <layout>
-    <template slot="body">
-      <div class="button-container">
-        <el-row>
-          <el-col :span="24">
-            <div class="body-title"></div>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col class="small-col" :span="4" offset="2">
-            <div :class="stopClass" @click="send('stop', 0)">
-            </div>
-          </el-col>
-          <el-col class="small-col" :span="4">
-            <div :class="pauseClass" @click="send('pause', 0)">
-            </div>
-          </el-col>
-          <el-col :span="4">
-            <div :class="playClass" @click="send('play', 0)">
-            </div>
-          </el-col>
-          <el-col class="small-col" :span="4">
-            <div :class="volume0Class" @click="send('volume', 0)">
-            </div>
-          </el-col>
-          <el-col class="small-col" :span="4">
-            <div :class="volume100Class" @click="send('volume', 100)">
-            </div>
-          </el-col>
-        </el-row>
-      </div>
-    </template>
-  </layout>
+  <video-play :no="no" :title="title"></video-play>
 </template>
 
 <script>
-  import Layout from '../../components/Layout'
-  import {send} from '@/api/send'
+  import VideoPlay from '../../components/VideoPlay'
 
   export default {
     name: 'wisdom-energy-detail',
     components: {
-      Layout
+      VideoPlay
     },
     data() {
       return {
         no: 0,
-        pauseClass: 'pause',
-        playClass: 'play',
-        stopClass: 'stop',
-        volume0Class: 'volume0',
-        volume100Class: 'volume100'
+        title: 'assets/wisdom-water/title.png'
       }
     },
     created() {
       this.no = this.$route.query.no
     },
-    methods: {
-      async send(command, value) {
-        if (command == 'volume') {
-          this[command + value + 'Class'] = command + value + '-hover'
-        } else {
-          this[command + 'Class'] = command + '-hover'
-        }
-        setTimeout(() => {
-          if (command == 'volume') {
-            this[command + value + 'Class'] = command + value
-          } else {
-            this[command + 'Class'] = command
-          }
-        }, 300)
-        let sendData = {}
-        sendData.no = this.no
-        sendData.command = command
-        if (value > 0) {
-          sendData.value = value
-        }
-        let res = await send(sendData)
-      }
-    }
+    methods: {}
   }
 </script>
 <style scoped>
-  .button-container {
-    margin: 30px;
-    padding-top: 150px;
-    padding-bottom: 200px;
-    background: url(../../assets/wisdom-water/border.png) no-repeat;
-    background-size: 100% 100%;
-    height: 100%;
-  }
-
-  .body-title {
-    margin: 0 auto;
-    margin-bottom: 50px;
-    height: 30px;
-    width: 130px;
-    background: url(../../assets/wisdom-water/title.png) no-repeat;
-    background-size: 100% 100%;
-  }
-
-  .small-col {
-    /*padding: 45px 45px !important;*/
-  }
-
-  .pause {
-    width: 150px;
-    height: 150px;
-    background: url(../../assets/wisdom-water/pause.png) no-repeat;
-    background-size: 100%;
-  }
-
-  .pause-hover {
-    width: 150px;
-    height: 150px;
-    background: url(../../assets/wisdom-water/pause-hover.png) no-repeat;
-    background-size: 100%;
-  }
-
-  .play {
-    width: 150px;
-    height: 150px;
-    background: url(../../assets/wisdom-water/play.png) no-repeat;
-    background-size: 100%;
-  }
-
-  .play-hover {
-    width: 150px;
-    height: 150px;
-    background: url(../../assets/wisdom-water/play-hover.png) no-repeat;
-    background-size: 100%;
-  }
-
-  .stop {
-    width: 150px;
-    height: 150px;
-    background: url(../../assets/wisdom-water/stop.png) no-repeat;
-    background-size: 100%;
-  }
-
-  .stop-hover {
-    width: 150px;
-    height: 150px;
-    background: url(../../assets/wisdom-water/stop-hover.png) no-repeat;
-    background-size: 100%;
-  }
-
-  .volume0 {
-    width: 150px;
-    height: 150px;
-    background: url(../../assets/wisdom-water/volumn-0.png) no-repeat;
-    background-size: 100%;
-  }
-
-  .volume0-hover {
-    width: 150px;
-    height: 150px;
-    background: url(../../assets/wisdom-water/volumn-0-hover.png) no-repeat;
-    background-size: 100%;
-  }
-
-  .volume100 {
-    width: 150px;
-    height: 150px;
-    background: url(../../assets/wisdom-water/volumn-100.png) no-repeat;
-    background-size: 100%;
-  }
-
-  .volume100-hover {
-    width: 150px;
-    height: 150px;
-    background: url(../../assets/wisdom-water/volumn-100-hover.png) no-repeat;
-    background-size: 100%;
-  }
 </style>
 

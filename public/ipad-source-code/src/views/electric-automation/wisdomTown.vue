@@ -85,28 +85,26 @@
 </script>
 <style scoped>
   .el-row {
-    margin-top: 30px;
+    margin-top: 1%;
   }
 
   .square-button {
-    margin: 60px auto;
-    width: 80px;
-    height: 80px;
+    margin: 30% auto;
+    width: 60%;
   }
 
   .button {
-    font-size: x-large;
+    font-size: 2.5vw;
     margin: 0 auto;
     width: 100%;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 8%;
+    padding-bottom: 8%;
   }
 
   .button-container {
-    margin: 30px;
-    padding: 50px 50px;
+    padding: 5% 5%;
     background: url(../../assets/wisdom-water/border.png) no-repeat;
     background-size: 100% 100%;
-    height: 100%;
+    height: 80%;
   }
 </style>

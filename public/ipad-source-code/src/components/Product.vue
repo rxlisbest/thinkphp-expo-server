@@ -50,28 +50,30 @@
 </script>
 <style scoped>
   .el-col {
-    padding-top: 30px;
+    padding-top: 2%;
   }
 
   .module {
     text-align: center;
     width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 20%;
+    padding-bottom: 10%;
     background: url(../assets/set-up/module-bg.png) no-repeat;
     background-size: 100% 100%;
   }
 
   .module-name {
-    padding-top: 20px;
-    font-size: large;
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 5%;
+    font-size: 2vw;
     color: #FFFFFF;
-    padding-left: 30px;
-    padding-right: 30px;
-    height: 50px;
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 5%;
     overflow-x: hidden;
     overflow-y: hidden;
-    word-wrap: break-word;
+    min-height: 8vw;
   }
 
   .module-logo {

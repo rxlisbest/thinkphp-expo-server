@@ -40,15 +40,16 @@
   .module {
     text-align: center;
     width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 6%;
+    padding-bottom: 6%;
     background: url(../assets/components/cross-module-bg.png) no-repeat;
     background-size: 100% 100%;
   }
 
   .module-name {
     /*font-size: large;*/
-    padding-top: 20px;
+    font-size: 1.6vw;
+    padding-top: 6%;
     color: #FFFFFF;
   }
 

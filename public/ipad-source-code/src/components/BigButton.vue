@@ -34,7 +34,9 @@
   .big-button {
     text-align: center;
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
+    height: 0;
+    padding-bottom: 60%;
     background: url(../assets/big.png) no-repeat;
     background-size: 100% 100%;
     color: #FFFFFF;
@@ -43,7 +45,9 @@
   .big-button-hover {
     text-align: center;
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
+    height: 0;
+    padding-bottom: 60%;
     background: url(../assets/big-hover.png) no-repeat;
     background-size: 100% 100%;
     color: #FFFFFF;

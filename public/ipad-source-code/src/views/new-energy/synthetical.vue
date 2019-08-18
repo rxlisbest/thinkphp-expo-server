@@ -50,10 +50,6 @@
   }
 </script>
 <style scoped>
-  .grid-content bg-purple {
-    margin-top: 30px;
-  }
-
   .map {
     width: 100%;
     padding-bottom: 55%;
@@ -63,13 +59,14 @@
   }
 
   .button {
+    font-size: 1.5vw;
     margin: 0 auto;
     width: 80%;
-    padding: 20px 20px;
+    padding: 20% 12%;
     color: #d2fcff;
   }
 
   .button-row {
-    margin-top: 30px;
+    margin-top: 3%;
   }
 </style>

@@ -2,11 +2,13 @@
   <el-container>
     <el-header>
       <el-row>
-        <el-col :span="7">
+        <el-col :span="5">
           <div class="back" @click="back"></div>
         </el-col>
         <el-col :span="8">
-          <div class="title"></div>
+          <div class="title">
+            <img :src="require('../assets/set-up/title.png')">
+          </div>
         </el-col>
       </el-row>
     </el-header>
@@ -57,27 +59,48 @@
 </script>
 
 <style scoped>
+  .el-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .el-row {
+    widht: 100%;
+    height: 100%;
+  }
+
+  .el-col {
+    height: 100%;
+  }
+
   .el-header {
-    border-bottom: 1px solid #eee;
-    padding-top: 40px;
-    padding-left: 44px;
+    padding-top: 3%;
+    padding-left: 5%;
     text-align: left;
-    height: 80px !important;
+    height: 10% !important;
+    width: 100%;
     border: 0px;
   }
 
+  .el-main {
+    width: 100%;
+    height: 90%;
+    padding: 5% 5%;
+  }
+
   .back {
-    height: 25px;
-    width: 80px;
+    margin-top: 3%;
+    height: 50%;
+    width: 36%;
     background: url(../assets/back.png) no-repeat;
     background-size: 100% 100%;
   }
 
   .title {
-    width: 400px;
-    height: 25px;
-    margin: 0px auto;
-    background: url(../assets/set-up/title.png) no-repeat;
-    background-size: 100% 100%;
+    height: 68%;
+  }
+
+  .title img {
+    height: 100%;
   }
 </style>
