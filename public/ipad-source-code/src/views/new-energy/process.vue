@@ -47,29 +47,24 @@
   }
 </script>
 <style scoped>
-  .grid-content bg-purple {
-    margin-top: 30px;
-  }
-
   .el-col {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5%;
+    margin-bottom: 5%;
   }
 
   .process-container {
-    margin-top: 12%;
-    padding-top: 23px;
-    padding-bottom: 23px;
+    margin-top: 5%;
+    padding-top: 4%;
+    padding-bottom: 4%;
     background: url(../../assets/new-energy/process-bg.png) no-repeat;
     background-size: 100% 100%;
-    height: 100%;
   }
 
   .button {
-    font-size: large;
+    font-size: 1.5vw;
     margin: 0 auto;
     width: 100%;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 12%;
+    padding-bottom: 12%;
   }
 </style>
