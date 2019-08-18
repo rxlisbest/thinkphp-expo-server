@@ -62,10 +62,11 @@
 
   .button {
     font-size: 1.6vw;
-    height: 100%;
+    height: 90%;
     margin: 0 auto;
-    width: 100%;
-    padding: 2% 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 10%;
     color: #d2fcff;
   }
   .el-col {
