@@ -41,14 +41,14 @@
 </script>
 <style scoped>
   .el-row {
-    margin-top: 250px;
+    margin-top: 20%;
   }
 
   .button {
-    font-size: x-large;
+    font-size: 2.5vw;
     margin: 0 auto;
     width: 100%;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 10%;
+    padding-bottom: 10%;
   }
 </style>
