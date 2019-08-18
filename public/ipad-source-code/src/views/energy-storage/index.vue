@@ -1,22 +1,27 @@
 <template>
   <layout>
     <template slot="body">
-      <el-row :gutter="20">
-        <el-col :span="22" :offset="1">
+      <el-row :gutter="20" class="map-row">
+        <el-col :span="22" :offset="1" class="map-col">
           <div class="map">
-            <el-row :gutter="20">
+            <el-row :gutter="20" v-if="solution && solution == 'peak-valley'">
               <el-col :span="6" offset="1">
-                <expo-button :name="'正泰用户储能电池RESS'" class="button" @click="send('ress')"></expo-button>
+                <expo-button :name="'正泰用户储能电池RESS'" class="button" @click="playVideo('ress')"></expo-button>
               </el-col>
             </el-row>
-            <el-row :gutter="20">
+            <el-row :gutter="20" v-if="solution && solution == 'peak-valley'">
               <el-col :span="6" offset="1">
-                <expo-button :name="'正泰商用储能系统'" class="button" @click="send('commercial')"></expo-button>
+                <expo-button :name="'正泰商用储能系统'" class="button" @click="playVideo('commercial')"></expo-button>
               </el-col>
             </el-row>
-            <el-row :gutter="20">
+            <el-row :gutter="20" v-if="solution">
               <el-col :span="6" offset="1">
-                <expo-button :name="'正泰MW储能系统'" class="button" @click="send('mw')"></expo-button>
+                <expo-button :name="'正泰MW储能系统'" class="button" @click="playVideo('mw')"></expo-button>
+              </el-col>
+            </el-row>
+            <el-row :gutter="20" v-if="solution">
+              <el-col :span="6" offset="1">
+                <expo-button :name="'返回'" class="button" @click="send('back')"></expo-button>
               </el-col>
             </el-row>
             <el-row :gutter="20">
@@ -24,20 +29,23 @@
                 <expo-button :name="'退出'" class="button height-button-line" @click="send('exit')"></expo-button>
               </el-col>
               <el-col :span="3">
-                <expo-button :name="'发电侧辅助解决方案'" class="height-button" @click="send('generation-assist')"></expo-button>
+                <expo-button :name="'发电侧辅助解决方案'" class="height-button"
+                             @click="clickSolution('generation-assist')"></expo-button>
               </el-col>
               <el-col :span="3">
-                <expo-button :name="'微电网解决方案'" class="height-button" @click="send('micro-power-grid')"></expo-button>
+                <expo-button :name="'微电网解决方案'" class="height-button"
+                             @click="clickSolution('micro-power-grid')"></expo-button>
               </el-col>
               <el-col :span="4">
                 <expo-button :name="'发电侧新能源消纳解决方案'" class="height-button"
-                             @click="send('generation-new-energy')"></expo-button>
+                             @click="clickSolution('generation-new-energy')"></expo-button>
               </el-col>
               <el-col :span="3">
-                <expo-button :name="'电网侧解决方案'" class="height-button" @click="send('power-grid')"></expo-button>
+                <expo-button :name="'电网侧解决方案'" class="height-button" @click="clickSolution('power-grid')"></expo-button>
               </el-col>
               <el-col :span="3">
-                <expo-button :name="'发电侧辅助解决方案'" class="height-button" @click="send('generation-assist')"></expo-button>
+                <expo-button :name="'用户侧削峰填谷解决方案'" class="height-button"
+                             @click="clickSolution('peak-valley')"></expo-button>
               </el-col>
             </el-row>
           </div>
@@ -78,7 +86,8 @@
     data() {
       return {
         no: 15,
-        ws: {}
+        ws: {},
+        solution: ''
       }
     },
     created() {
@@ -91,11 +100,26 @@
         sendData.command = command
         sendData.param = param
         let res = await send(sendData)
+      },
+      playVideo(video) {
+        let videoValue = this.solution + '-' + video
+        this.send('playVideo', {'video': videoValue})
+      },
+      clickSolution(solution) {
+        this.solution = solution
+        this.send(solution)
       }
     }
   }
 </script>
 <style scoped>
+  /*.map-row {*/
+  /*  height: 80%;*/
+  /*}*/
+
+  .map-col {
+    height: 100%;
+  }
 
   .button {
     font-size: 1.5vw;
