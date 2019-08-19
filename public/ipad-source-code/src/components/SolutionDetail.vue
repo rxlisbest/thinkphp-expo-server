@@ -58,8 +58,7 @@
       return {}
     },
     created() {
-      this.send('product', this.key)
-      console.log(this.info.img)
+      this.send('product', this.index)
       this.info.img = require('@/' + this.info.img)
       // this.info.img = require(this.info.img)
     },
