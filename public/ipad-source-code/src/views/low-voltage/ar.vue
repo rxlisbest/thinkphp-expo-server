@@ -34,7 +34,7 @@
     },
     methods: {
       goOut() {
-        window.location.href = ArConfig.url + '?serviceUrl=' + Base64.encode(this.domain) + '&module=LowVoltage'
+        window.open(ArConfig.url + '?serviceUrl=' + Base64.encode(this.domain) + '&module=LowVoltage')
       }
     }
   }
