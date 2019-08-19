@@ -115,6 +115,6 @@
 
   .product-img {
     width: 100%;
-    max-height: 10%;
+    max-height: 35vw;
   }
 </style>

@@ -32,7 +32,7 @@
       <div class="roam">
         <el-row>
           <el-col :span="12">
-            <div class="roam-tab" @click="to('electric-automation-220kvTop')"></div>
+            <div class="roam-tab" @click="to('electric-automation-220kvTop')">&nbsp;</div>
           </el-col>
           <el-col :span="12">
             <div class="roam-tab"></div>
@@ -92,6 +92,8 @@
       }
     },
     created() {
+    },
+    mounted(){
       this.ws = new WebSocket("ws://" + location.hostname + ":2346");
     },
     methods: {

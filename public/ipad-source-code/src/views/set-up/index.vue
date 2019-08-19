@@ -135,6 +135,10 @@
       }
     },
     created() {
+      let bindedModule = localStorage.getItem('module')
+      if (bindedModule) {
+        this.to(bindedModule)
+      }
     },
     methods: {
       to(name) {

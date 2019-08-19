@@ -1,5 +1,5 @@
 <template>
-  <layout :back-name="'set-up-index'" :title="'新华'">
+  <layout :back-name="'set-up-index'" :title="'新华'" :bind-module="'new-china-index'">
     <template slot="body">
       <el-row :gutter="20">
         <el-col :span="22" :offset="1">

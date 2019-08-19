@@ -1,5 +1,5 @@
 <template>
-  <layout :back-name="backName">
+  <layout :back-name="backName" :bind-module="bindModule">
     <template slot="body">
       <div class="button-container">
         <el-row>
@@ -56,6 +56,10 @@
         default: 0
       },
       title: {
+        type: String,
+        default: ''
+      },
+      bindModule: {
         type: String,
         default: ''
       }

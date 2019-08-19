@@ -1,5 +1,5 @@
 <template>
-  <canvas :id="moveId" width="400" height="400"></canvas>
+  <canvas :id="moveId" width="200" height="200"></canvas>
 </template>
 
 <script>
@@ -134,7 +134,9 @@
                         y: parseFloat(jy).toFixed(6)
                       }
                     }
-                    ws.send(JSON.stringify(d));
+                    if (ws.readyStatus == 1) {
+                      ws.send(JSON.stringify(d))
+                    }
                   }
                 }
                 if (event.touches[effectiveFinger] == null) {
@@ -150,7 +152,9 @@
                         y: parseFloat(jy).toFixed(6)
                       }
                     }
-                    ws.send(JSON.stringify(d));
+                    if (ws.readyStatus == 1) {
+                      ws.send(JSON.stringify(d))
+                    }
                   }
 
                   // let d = {

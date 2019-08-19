@@ -35,7 +35,7 @@
             <div class="roam-tab"></div>
           </el-col>
           <el-col :span="12">
-            <div class="roam-tab" @click="to('electric-automation-220kv')"></div>
+            <div class="roam-tab" @click="to('electric-automation-220kv')">&nbsp;</div>
           </el-col>
         </el-row>
         <el-row :gutter="20">
@@ -116,7 +116,7 @@
     width: 100%;
     height: 70%;
     /*padding-top: 80px;*/
-    background: url(../../assets/electric-automation/roam-bg.png) no-repeat;
+    background: url(../../assets/electric-automation/roam-top-bg.png) no-repeat;
     background-size: 100% 100%;
   }
 

@@ -77,12 +77,13 @@
 <style scoped>
   .product-name {
     color: #FFFFFF;
-    font-size: 5em;
+    font-size: 3vw;
     background: linear-gradient(to bottom, white, #baecff);
     -webkit-background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
     text-fill-color: transparent;
+    overflow: hidden;
   }
 
   .el-col {
@@ -97,7 +98,7 @@
   }
 
   .button {
-    font-size: x-large;
+    font-size: 2vw;
     margin: 0 auto;
     width: 70%;
     padding-top: 5%;

@@ -1,5 +1,5 @@
 <template>
-  <layout :back-name="'set-up-index'" :title="'新能源'">
+  <layout :back-name="'set-up-index'" :title="'新能源'" :bind-module="'new-energy-index'">
     <template slot="body">
       <el-row :gutter="30">
         <el-col :span="10" :offset="2">

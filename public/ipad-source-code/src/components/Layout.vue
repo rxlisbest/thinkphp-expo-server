@@ -3,7 +3,7 @@
     <el-header>
       <el-row>
         <el-col :span="5">
-          <div class="back" @click="back"></div>
+          <div class="back" @click="back" v-if="!bindedModule && bindModule || !bindedModule || !bindModule"></div>
         </el-col>
         <el-col :span="13">
           <div class="title">
@@ -11,16 +11,32 @@
 <!--            <img :src="require('../assets/set-up/title.png')">-->
           </div>
         </el-col>
+        <el-col :span="3" :offset="3" v-if="bindModule">
+          <el-button type="warning" icon="el-icon-connection" circle @click="bind"  v-if="!bindedModule"></el-button>
+          <el-button type="danger" icon="el-icon-connection" circle @click="unbind"  v-if="bindedModule"></el-button>
+        </el-col>
       </el-row>
     </el-header>
     <el-main>
       <slot name="body"></slot>
+      <el-dialog title="解除绑定" :visible.sync="formDialog">
+        <el-form :model="form">
+          <el-form-item label="密码">
+            <el-input v-model="form.password" autocomplete="off" show-password></el-input>
+          </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+          <el-button @click="formDialog = false">取 消</el-button>
+          <el-button type="primary" @click="unbindSubmit">确 定</el-button>
+        </div>
+      </el-dialog>
     </el-main>
   </el-container>
 </template>
 
 <script>
   import {send} from '@/api/send'
+  import BindConfig from '../config/bind'
 
   const backCommandDefault = function () {
     return {}
@@ -30,7 +46,13 @@
     name: 'Layout',
     components: {},
     data() {
-      return {}
+      return {
+        bindedModule: '',
+        form: {
+          password: ''
+        },
+        formDialog: false
+      }
     },
     props: {
       backCommand: {
@@ -44,9 +66,14 @@
       title: {
         type: String,
         default: '国际工业与能源物联网创新发展大会'
+      },
+      bindModule: {
+        type: String,
+        default: ''
       }
     },
     mounted() {
+      this.bindedModule = localStorage.getItem('module')
     },
     methods: {
       async back() {
@@ -58,6 +85,44 @@
         } else {
           this.$router.go(-1)
         }
+      },
+      bind() {
+        this.$confirm('确定绑定此模块?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          localStorage.setItem('module', this.bindModule)
+          this.bindedModule = localStorage.getItem('module')
+          this.$message({
+            type: 'success',
+            message: '绑定成功'
+          })
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '取消绑定'
+          })
+        })
+      },
+      unbind() {
+        this.formDialog = true
+      },
+      unbindSubmit() {
+        if (this.form.password == BindConfig.password) {
+          localStorage.removeItem('module')
+          this.$message({
+            type: 'success',
+            message: '解绑成功'
+          })
+          this.formDialog = false
+        } else {
+          this.$message({
+            type: 'error',
+            message: '密码错误'
+          })
+        }
+        this.bindedModule = localStorage.getItem('module')
       }
     }
   }

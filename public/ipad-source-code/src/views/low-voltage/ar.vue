@@ -1,5 +1,5 @@
 <template>
-  <layout :title="'低压智能配电AR'" :back-name="'set-up-index'">
+  <layout :title="'低压智能配电AR'" :back-name="'set-up-index'" :bind-module="'low-voltage-ar'">
     <template slot="body">
       <el-row :gutter="20">
         <el-col :span="6" :offset="9">
