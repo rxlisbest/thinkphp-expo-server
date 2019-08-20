@@ -4,6 +4,7 @@
       <el-row :gutter="20">
         <el-col :span="6" :offset="9">
           <div class="grid-content bg-purple">
+            <a href=""></a>
             <expo-button class="button" :name="'开始识别'" @click="goOut()"></expo-button>
           </div>
         </el-col>
@@ -34,7 +35,7 @@
     },
     methods: {
       goOut() {
-        window.location.href = ArConfig.url + '?serviceUrl=' + Base64.encode(this.domain) + '&module=ElectricAutomation'
+        window.open(ArConfig.url + '?serviceUrl=' + Base64.encode(this.domain) + '&module=ElectricAutomation', '_blank')
       }
     }
   }
