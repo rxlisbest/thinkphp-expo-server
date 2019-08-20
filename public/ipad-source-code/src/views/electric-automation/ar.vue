@@ -4,8 +4,9 @@
       <el-row :gutter="20">
         <el-col :span="6" :offset="9">
           <div class="grid-content bg-purple">
-            <a href=""></a>
-            <expo-button class="button" :name="'开始识别'" @click="goOut()"></expo-button>
+            <a :href="domain" target="_blank">
+              <expo-button class="button" :name="'开始识别'"></expo-button>
+            </a>
           </div>
         </el-col>
       </el-row>
@@ -17,7 +18,7 @@
   import Layout from '../../components/Layout'
   import ExpoButton from '../../components/ExpoButton'
   import ArConfig from '../../config/ar'
-  import { Base64 } from 'js-base64'
+  import {Base64} from 'js-base64'
 
   export default {
     name: 'electric-automation-ar',
@@ -32,11 +33,9 @@
     },
     created() {
       this.domain = window.location.href.replace('ar', 'productDetail')
+      this.domain = ArConfig.url + '?serviceUrl=' + Base64.encode(this.domain) + '&module=ElectricAutomation'
     },
     methods: {
-      goOut() {
-        window.open(ArConfig.url + '?serviceUrl=' + Base64.encode(this.domain) + '&module=ElectricAutomation', '_blank')
-      }
     }
   }
 </script>
