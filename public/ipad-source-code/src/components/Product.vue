@@ -6,7 +6,7 @@
           <router-link :to="{'name': view + '-productDetail', 'query': {'key': k}}">
             <div class="module">
               <div class="module-logo">
-                <img :src="v.img">
+                <img :src="require('@/' + v.img)">
               </div>
               <div class="module-name">
                 <p>{{ v.name }}</p>
@@ -45,9 +45,6 @@
       return {}
     },
     created() {
-      this.list.forEach((v, k) => {
-        this.list[k].img = require('@/' + v.img)
-      })
     },
     mounted() {
     },

@@ -5,7 +5,7 @@
         <el-row>
           <el-col :span="12" :offset="6">
             <div class="product-img-div">
-              <img class="product-img" :src="info.img">
+              <img class="product-img" :src="require('@/' + info.img)">
             </div>
           </el-col>
         </el-row>
@@ -58,8 +58,6 @@
     },
     created() {
       this.send('product', this.index)
-      this.info.img = require('@/' + this.info.img)
-      // this.info.img = require(this.info.img)
     },
     methods: {
       async send(command, value, param) {
