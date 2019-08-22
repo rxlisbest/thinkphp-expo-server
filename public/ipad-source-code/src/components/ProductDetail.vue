@@ -10,12 +10,12 @@
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="12" :offset="6">
+          <el-col :span="24">
             <div class="product-name">{{ info.name }}</div>
           </el-col>
         </el-row>
         <el-row :gutter="0">
-          <el-col :span="12" v-for="(v, k) in info.video.small">
+          <el-col :span="8" v-for="(v, k) in info.video.small">
             <expo-button class="button" :name="v" @click="send('product', index, {'video': k})"></expo-button>
           </el-col>
         </el-row>
