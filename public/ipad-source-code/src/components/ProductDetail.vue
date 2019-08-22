@@ -4,7 +4,9 @@
       <div class="button-container">
         <el-row>
           <el-col :span="12" :offset="6">
-            <img class="product-img" :src="info.img">
+            <div class="product-img-div">
+              <img class="product-img" :src="info.img">
+            </div>
           </el-col>
         </el-row>
         <el-row>
@@ -55,8 +57,7 @@
       return {}
     },
     created() {
-      this.send('product', this.key)
-      console.log(this.info.img)
+      this.send('product', this.index)
       this.info.img = require('@/' + this.info.img)
       // this.info.img = require(this.info.img)
     },
@@ -104,9 +105,14 @@
     padding-top: 5%;
     padding-bottom: 5%;
   }
-
+  .product-img-div {
+    margin: 0 auto;
+    width: 36vw;
+    height: 36vw;
+  }
   .product-img {
-    width: 100%;
-    max-height: 30%;
+    max-width: 36vw;
+    max-height: 36vw;
+    width: expression(this.width > '36vw' ? "36vw" : this.width);
   }
 </style>

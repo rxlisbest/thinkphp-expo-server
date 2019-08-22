@@ -5,7 +5,9 @@
         <el-col :span="6" v-for="(v, k) in list">
           <router-link :to="{'name': view + '-productDetail', 'query': {'key': k}}">
             <div class="module">
-              <div class="module-logo"></div>
+              <div class="module-logo">
+                <img :src="require('@/' + v.img)">
+              </div>
               <div class="module-name">
                 <p>{{ v.name }}</p>
               </div>
@@ -40,8 +42,7 @@
       }
     },
     data() {
-      return {
-      }
+      return {}
     },
     created() {
     },
@@ -74,19 +75,23 @@
     color: #FFFFFF;
     padding-left: 5%;
     padding-right: 5%;
-    height: 5%;
     overflow-x: hidden;
     overflow-y: hidden;
-    min-height: 8vw;
+    min-height: 8.7vw;
   }
 
   .module-logo {
     margin: 0px auto;
-    width: 80%;
-    height: 0;
-    padding-bottom: 60%;
-    background: url(../assets/electric-automation/wisdomTown.png) no-repeat;
+    width: 12vw;
+    height: 12vw;
+    /*background: url(../assets/electric-automation/wisdomTown.png) no-repeat;*/
     background-size: 100%;
+  }
+
+  .module-logo img {
+    max-width: 12vw;
+    max-height: 12vw;
+    width: expression(this.width > '12vw' ? "12vw" : this.width);
   }
 
   .module-name p {
