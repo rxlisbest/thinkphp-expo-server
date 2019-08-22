@@ -9,7 +9,9 @@
         </el-row>
         <el-row class="row-img">
           <el-col :span="18" :offset="3">
-            <img class="product-img" :src="info.img">
+            <div class="product-img-div">
+              <img class="product-img" :src="require('@/' + info.img)">
+            </div>
           </el-col>
         </el-row>
         <el-row class="row-button" :gutter="0">
@@ -59,7 +61,6 @@
     },
     created() {
       this.send('product', this.index)
-      this.info.img = require('@/' + this.info.img)
       // this.info.img = require(this.info.img)
     },
     methods: {
@@ -113,8 +114,15 @@
     padding-bottom: 5%;
   }
 
+  .product-img-div {
+    margin: 0 auto;
+    width: 36vw;
+    height: 36vw;
+  }
+
   .product-img {
-    width: 100%;
-    max-height: 35vw;
+    max-width: 36vw;
+    max-height: 36vw;
+    width: expression(this.width > '36vw' ? "36vw" : this.width);
   }
 </style>

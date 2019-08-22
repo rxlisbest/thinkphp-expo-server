@@ -74,11 +74,17 @@
   }
 
   .module-logo {
-    margin: 0px auto;
-    width: 80%;
+    margin: 2vw auto;
+    width: 15vw;
+    height: 20vw;
+    display: table;
   }
 
   .module-logo img {
-    width: 100%;
+    max-width: 15vw;
+    max-height: 15vw;
+    width: expression(this.width > '15vw' ? "15vw" : this.width);
+    display: table-cell;
+    vertical-align: middle;
   }
 </style>

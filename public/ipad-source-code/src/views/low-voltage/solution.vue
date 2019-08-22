@@ -5,7 +5,7 @@
         <el-col :span="8" v-for="(v, k) in list">
           <div class="grid-content bg-purple">
             <router-link :to="{'name': 'low-voltage-solutionDetail', 'query': {'key': k}}">
-              <module :title-part1="v.name.substring(0, 6)"  :title-part2="v.name.substring(6)" :image="'assets/electric-automation/product.png'"></module>
+              <module :title-part1="v.name.substring(0, 6)"  :title-part2="v.name.substring(6)" :image="v.img"></module>
             </router-link>
           </div>
         </el-col>

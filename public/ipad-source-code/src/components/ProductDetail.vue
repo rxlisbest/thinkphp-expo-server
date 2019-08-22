@@ -103,11 +103,13 @@
     padding-top: 5%;
     padding-bottom: 5%;
   }
+
   .product-img-div {
     margin: 0 auto;
     width: 36vw;
     height: 36vw;
   }
+
   .product-img {
     max-width: 36vw;
     max-height: 36vw;

@@ -3,10 +3,10 @@
     <template slot="body">
       <el-row :gutter="20">
         <el-col :span="8" :offset="4">
-          <module :path="'low-voltage-product'" :title-part1="'产品'" :image="'assets/electric-automation/product.png'"></module>
+          <module :path="'low-voltage-product'" :title-part1="'产品'" :image="'assets/low-voltage/product.png'"></module>
         </el-col>
         <el-col :span="8">
-          <module :path="'low-voltage-solution'" :title-part1="'解决方案'" :image="'assets/electric-automation/product.png'"></module>
+          <module :path="'low-voltage-solution'" :title-part1="'解决方案'" :image="'assets/low-voltage/solution.png'"></module>
         </el-col>
       </el-row>
     </template>

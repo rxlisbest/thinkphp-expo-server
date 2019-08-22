@@ -1,7 +1,7 @@
 export default [
   {
     "name": "充电桩解决方案",
-    "img": "images/electric-automation/test.jpeg",
+    "img": "assets/low-voltage/charge.png",
     "video": {
       "main": "145kVGIS.mp4",
       "small": ["视频1", "视频2", "视频3"]
@@ -9,7 +9,7 @@ export default [
   },
   {
     "name": "暖通行业应用解决方案",
-    "img": "images/electric-automation/test.jpeg",
+    "img": "assets/low-voltage/warm.png",
     "video": {
       "main": "145kVGIS.mp4",
       "small": ["视频1", "视频2", "视频3"]
@@ -17,7 +17,7 @@ export default [
   },
   {
     "name": "石油石化解决方案",
-    "img": "images/electric-automation/test.jpeg",
+    "img": "assets/low-voltage/oil.png",
     "video": {
       "main": "145kVGIS.mp4",
       "small": ["视频1", "视频2", "视频3"]
