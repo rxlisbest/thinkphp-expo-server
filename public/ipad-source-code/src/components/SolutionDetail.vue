@@ -1,5 +1,5 @@
 <template>
-  <layout :back-name="backName" :backCommand="{'no': no, 'command': 'product'}">
+  <layout :back-name="backName" :backCommand="{'no': no, 'command': 'solution'}">
     <template slot="body">
       <div class="button-container">
         <el-row>
