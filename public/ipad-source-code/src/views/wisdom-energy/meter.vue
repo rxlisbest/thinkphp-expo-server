@@ -5,7 +5,7 @@
         <el-col :span="8" v-for="(v, k) in list">
           <div class="grid-content bg-purple">
             <router-link :to="{'name': 'wisdom-energy-meterDetail', 'query': {'key': k}}">
-              <cross-module :image="'assets/electric-automation/product.png'" :title="v.name"></cross-module>
+              <cross-module :image="v.img" :title="v.name"></cross-module>
             </router-link>
           </div>
         </el-col>

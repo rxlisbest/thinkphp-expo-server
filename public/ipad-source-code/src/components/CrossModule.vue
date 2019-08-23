@@ -64,10 +64,16 @@
 
   .module-logo {
     margin: 0px auto;
-    width: 80%;
+    width: 10vw;
+    height: 10vw;
+    display: table;
   }
 
   .module-logo img {
-    width: 100%;
+    max-width: 10vw;
+    max-height: 10vw;
+    width: expression(this.width > '10vw' ? "10vw" : this.width);
+    display: table-cell;
+    vertical-align: middle;
   }
 </style>
