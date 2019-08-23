@@ -1,5 +1,5 @@
 <template>
-  <layout :title="'低压智能配电'" :back-name="'low-voltage-index'">
+  <layout :title="'低压智能配电'" :backCommand="{'no': no, 'command': 'index'}" :back-name="'low-voltage-index'">
     <template slot="body">
       <el-row :gutter="20">
         <el-col :span="8" v-for="(v, k) in list">
@@ -27,6 +27,7 @@
     },
     data() {
       return {
+        no: 6,
         list: LowVoltageSolution
       }
     },
