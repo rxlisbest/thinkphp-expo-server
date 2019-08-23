@@ -84,6 +84,7 @@
   body {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+    font-weight: bold;
   }
 
   #app {

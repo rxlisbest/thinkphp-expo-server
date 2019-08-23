@@ -288,9 +288,9 @@
 
   .module-name {
     width: 100%;
-    padding-top: 10%;
+    padding-top: 40%;
     height: 20%;
-    font-size: 2vw;
+    font-size: 1.5vw;
     color: #FFFFFF;
   }
 </style>

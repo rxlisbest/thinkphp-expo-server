@@ -60,7 +60,7 @@
     margin: 0 auto;
     width: 80%;
     padding-top: 5%;
-    font-size: 3vw;
+    font-size: 2.3vw;
     color: #FFFFFF;
   }
 
@@ -74,16 +74,16 @@
   }
 
   .module-logo {
-    margin: 2vw auto;
-    width: 15vw;
-    height: 20vw;
+    margin: 8vw auto;
+    width: 12vw;
+    height: 16vw;
     display: table;
   }
 
   .module-logo img {
-    max-width: 15vw;
-    max-height: 15vw;
-    width: expression(this.width > '15vw' ? "15vw" : this.width);
+    max-width: 12vw;
+    max-height: 12vw;
+    width: expression(this.width > '12vw' ? "12vw" : this.width);
     display: table-cell;
     vertical-align: middle;
   }

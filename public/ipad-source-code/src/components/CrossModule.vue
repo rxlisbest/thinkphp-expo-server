@@ -7,7 +7,9 @@
         </div>
       </el-col>
       <el-col :span="10">
-        <div class="module-name">{{ title }}</div>
+        <div class="module-name">
+          <span>{{ title }}</span>
+        </div>
       </el-col>
     </el-row>
   </div>
@@ -48,32 +50,31 @@
 
   .module-name {
     /*font-size: large;*/
+    display: flex;
     font-size: 1.6vw;
     padding-top: 6%;
+    height: 13vw;
     color: #FFFFFF;
+    align-items: center;/*副轴居中*/
   }
 
-  .module-name p {
-    margin: 0px;
-    background: linear-gradient(to bottom, white, #baecff);
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
+  .module-name span {
+    vertical-align:middle;
   }
 
   .module-logo {
-    margin: 0px auto;
-    width: 10vw;
-    height: 10vw;
-    display: table;
+    display: flex;
+    margin: 1vw auto;
+    width: 13vw;
+    height: 13vw;
+    align-items: center;/*副轴居中*/
   }
 
   .module-logo img {
+    margin: 0px auto;
     max-width: 10vw;
     max-height: 10vw;
     width: expression(this.width > '10vw' ? "10vw" : this.width);
-    display: table-cell;
-    vertical-align: middle;
+    vertical-align:middle;
   }
 </style>
