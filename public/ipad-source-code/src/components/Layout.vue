@@ -11,7 +11,7 @@
 <!--            <img :src="require('../assets/set-up/title.png')">-->
           </div>
         </el-col>
-        <el-col :span="3" :offset="3" v-if="bindModule">
+        <el-col class="bind" :span="3" :offset="3" v-if="bindModule">
           <el-button type="warning" icon="el-icon-connection" circle @click="bind"  v-if="!bindedModule"></el-button>
           <el-button type="danger" icon="el-icon-connection" circle @click="unbind"  v-if="bindedModule"></el-button>
         </el-col>
@@ -180,5 +180,9 @@
 
   .title img {
     /*height: 100%;*/
+  }
+
+  .bind {
+    text-align: center;
   }
 </style>
