@@ -1,10 +1,10 @@
 <template>
-  <solution-detail :back-name="'wisdom-energy-meter'" :no="no" :index="key" :info="info"></solution-detail>
+  <product-detail :back-name="'wisdom-energy-meter'" :no="no" :index="key" :info="info"></product-detail>
 </template>
 
 <script>
   import Layout from '@/components/Layout'
-  import SolutionDetail from '@/components/SolutionDetail'
+  import ProductDetail from '@/components/ProductDetail'
   import WisdomEnergyMeter from "@/data/WisdomEnergyMeter"
   import {send} from '@/api/send'
 
@@ -12,7 +12,7 @@
     name: 'wisdom-energy-meterDetail',
     components: {
       Layout,
-      SolutionDetail
+      ProductDetail
     },
     data() {
       return {
