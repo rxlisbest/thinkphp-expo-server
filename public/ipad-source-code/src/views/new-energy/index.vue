@@ -5,28 +5,28 @@
         <el-col :span="10" :offset="2">
           <div class="grid-content bg-purple">
             <router-link :to="{'name': 'new-energy-one'}">
-              <cross-module-col :image="'assets/electric-automation/product.png'" :title="'全球光伏足迹'"></cross-module-col>
+              <cross-module-col :image="'assets/new-energy/one.png'" :title="'全球光伏足迹'"></cross-module-col>
             </router-link>
           </div>
         </el-col>
         <el-col :span="10">
           <div class="grid-content bg-purple">
             <router-link :to="{'name': 'new-energy-digitalize'}">
-              <cross-module-col :image="'assets/electric-automation/product.png'" :title="'数字化触控系统'"></cross-module-col>
+              <cross-module-col :image="'assets/new-energy/digitalize.png'" :title="'数字化触控系统'"></cross-module-col>
             </router-link>
           </div>
         </el-col>
         <el-col :span="10" :offset="2">
           <div class="grid-content bg-purple">
             <router-link :to="{'name': 'new-energy-process'}">
-              <cross-module-col :image="'assets/electric-automation/product.png'" :title="'工艺流程'"></cross-module-col>
+              <cross-module-col :image="'assets/new-energy/process.png'" :title="'工艺流程'"></cross-module-col>
             </router-link>
           </div>
         </el-col>
         <el-col :span="10">
           <div class="grid-content bg-purple">
             <router-link :to="{'name': 'new-energy-synthetical'}">
-              <cross-module-col :image="'assets/electric-automation/product.png'" :title="'综合能源服务'"></cross-module-col>
+              <cross-module-col :image="'assets/new-energy/synthetical.png'" :title="'综合能源服务'"></cross-module-col>
             </router-link>
           </div>
         </el-col>

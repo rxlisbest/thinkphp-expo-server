@@ -32,7 +32,7 @@
     width: 100%;
     height: 0;
     padding-bottom: 100%;
-    background: url(../assets/wisdom-water/volumn-0.png) no-repeat;
+    background: url(../assets/wisdom-water/volumn-100.png) no-repeat;
     background-size: 100%;
   }
 
@@ -40,7 +40,7 @@
     width: 100%;
     height: 0;
     padding-bottom: 100%;
-    background: url(../assets/wisdom-water/volumn-0-hover.png) no-repeat;
+    background: url(../assets/wisdom-water/volumn-100-hover.png) no-repeat;
     background-size: 100%;
   }
 </style>

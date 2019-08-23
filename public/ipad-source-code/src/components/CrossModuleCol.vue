@@ -61,10 +61,16 @@
 
   .module-logo {
     margin: 0px auto;
-    width: 50%;
+    width: 15vw;
+    height: 15vw;
+    display: table;
   }
 
   .module-logo img {
-    width: 100%;
+    max-width: 15vw;
+    max-height: 15vw;
+    width: expression(this.width > '15vw' ? "15vw" : this.width);
+    display: table-cell;
+    vertical-align: middle;
   }
 </style>
