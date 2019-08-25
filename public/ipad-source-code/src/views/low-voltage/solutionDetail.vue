@@ -1,5 +1,5 @@
 <template>
-  <solution-detail :back-name="'low-voltage-solution'" :no="no" :index="key" :info="info"></solution-detail>
+  <solution-detail :back-name="'low-voltage-index'" :no="no" :index="key" :info="info"></solution-detail>
 </template>
 
 <script>
