@@ -60,17 +60,18 @@
   }
 
   .module-logo {
+    display: flex;
     margin: 0px auto;
-    width: 15vw;
-    height: 15vw;
-    display: table;
+    width: 16vw;
+    height: 16vw;
+    align-items: center;/*副轴居中*/
   }
 
   .module-logo img {
-    max-width: 15vw;
-    max-height: 15vw;
-    width: expression(this.width > '15vw' ? "15vw" : this.width);
-    display: table-cell;
+    margin: 0px auto;
+    max-width: 12vw;
+    max-height: 12vw;
+    width: expression(this.width > '12vw' ? "12vw" : this.width);
     vertical-align: middle;
   }
 </style>

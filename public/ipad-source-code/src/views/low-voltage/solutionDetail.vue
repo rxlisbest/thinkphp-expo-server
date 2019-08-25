@@ -13,14 +13,16 @@
     },
     data() {
       return {
-        no: 6,
+        no: 0,
         key: 0,
         info: {}
       }
     },
     created() {
       let key = this.$route.query.key
+      let no = this.$route.query.no
       this.key = key
+      this.no = no
       this.info = LowVoltageSolution[key]
     },
     methods: {

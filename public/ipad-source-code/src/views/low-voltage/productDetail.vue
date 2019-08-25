@@ -1,15 +1,15 @@
 <template>
-  <product-detail :back-name="'low-voltage-product'" :no="no" :index="key" :info="info"></product-detail>
+  <muti-product-detail :back-name="'low-voltage-product'" :no="no" :index="Number(key)" :info="info"></muti-product-detail>
 </template>
 
 <script>
-  import ProductDetail from '@/components/ProductDetail'
+  import MutiProductDetail from '@/components/MutiProductDetail'
   import LowVoltage from "@/data/LowVoltage"
 
   export default {
     name: 'low-voltage-productDetail',
     components: {
-      ProductDetail
+      MutiProductDetail
     },
     data() {
       return {

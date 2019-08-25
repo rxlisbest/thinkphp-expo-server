@@ -2,16 +2,33 @@
   <layout :back-name="backName" :backCommand="{'no': no, 'command': 'product'}">
     <template slot="body">
       <div class="button-container">
-        <el-row>
+        <el-row v-if="info.children != undefined && info.children.length > 1">
+          <el-col :span="3" :offset="3" v-if="info.children != undefined && info.children.length > 1">
+            <div class="left" @click="left"></div>
+          </el-col>
+          <el-col :span="12">
+            <el-carousel :autoplay="false" ref="muti-product-detail-carousel" @change="changeItem">
+              <el-carousel-item v-for="v in info.children">
+                <div class="product-img-div">
+                  <img class="product-img" :src="require('@/' + v.img)">
+                </div>
+              </el-carousel-item>
+            </el-carousel>
+          </el-col>
+          <el-col :span="3">
+            <div class="right" @click="right"></div>
+          </el-col>
+        </el-row>
+        <el-row v-else>
           <el-col :span="12" :offset="6">
             <div class="product-img-div">
-              <img class="product-img" :src="require('@/' + info.img)">
+              <img class="product-img" :src="require('@/' + child.img)">
             </div>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="24">
-            <div class="product-name">{{ info.name }}</div>
+            <div class="product-name">{{ child.name }}</div>
           </el-col>
         </el-row>
         <!--        <el-row :gutter="0">-->
@@ -53,7 +70,7 @@
   import {send} from '@/api/send'
 
   export default {
-    name: 'ProductDetail',
+    name: 'MutiProductDetail',
     components: {
       Layout,
       ExpoButton,
@@ -82,10 +99,18 @@
       }
     },
     data() {
-      return {}
+      return {
+        child: {}
+      }
     },
     created() {
-      this.send('product', this.index)
+      console.log(this.info)
+      if (this.info.children != undefined && this.info.children.length > 1) {
+        this.child = this.info.children[0]
+      } else {
+        this.child = this.info
+      }
+      this.send('product', this.child.index)
     },
     methods: {
       async send(command, value, param) {
@@ -97,6 +122,16 @@
           sendData.param = param
         }
         let res = await send(sendData)
+      },
+      left() {
+        this.$refs['muti-product-detail-carousel'].prev()
+      },
+      right() {
+        this.$refs['muti-product-detail-carousel'].next()
+      },
+      changeItem(index) {
+        this.child = this.info.children[index]
+        this.send('product', this.child.index)
       }
     }
   }
@@ -148,6 +183,24 @@
     vertical-align: middle;
   }
 
+  .left {
+    margin: 5vw auto;
+    width: 70%;
+    height: 0;
+    padding-bottom: 160%;
+    background: url(../assets/components/left.png) no-repeat;
+    background-size: 100%;
+  }
+
+  .right {
+    margin: 5vw auto;
+    width: 70%;
+    height: 0;
+    padding-bottom: 160%;
+    background: url(../assets/components/right.png) no-repeat;
+    background-size: 100%;
+  }
+
   .pause {
     width: 100%;
   }
@@ -166,5 +219,10 @@
 
   .volume100 {
     width: 100%;
+  }
+
+  .el-carousel__button {
+    width: 10px !important;
+    height: 10px !important;
   }
 </style>

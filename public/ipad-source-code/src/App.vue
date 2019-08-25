@@ -122,4 +122,14 @@
   a {
     text-decoration: none;
   }
+  /* 移动端禁止长按选中效果 */
+  * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent; /* 防止ios 出现点击div 出现选中效果*/
+  }
 </style>

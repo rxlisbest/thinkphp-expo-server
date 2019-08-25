@@ -1,6 +1,7 @@
 export default [
   {
     "name": "充电桩解决方案",
+    "no": 60,
     "img": "assets/low-voltage/charge.png",
     "video": {
       "main": "145kVGIS.mp4",
@@ -9,6 +10,7 @@ export default [
   },
   {
     "name": "暖通行业应用解决方案",
+    "no": 61,
     "img": "assets/low-voltage/warm.png",
     "video": {
       "main": "145kVGIS.mp4",
@@ -17,6 +19,7 @@ export default [
   },
   {
     "name": "石油石化解决方案",
+    "no": 62,
     "img": "assets/low-voltage/oil.png",
     "video": {
       "main": "145kVGIS.mp4",
