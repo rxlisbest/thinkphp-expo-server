@@ -1,15 +1,18 @@
 <template>
-  <solution-detail :back-name="'low-voltage-index'" :no="no" :index="key" :info="info"></solution-detail>
+  <solution-detail v-if="info.type == 'SolutionDetail'" :back-name="'low-voltage-index'" :no="no" :index="key" :info="info"></solution-detail>
+  <video-play v-else :back-name="'low-voltage-index'" :no="no" :title="info.name"></video-play>
 </template>
 
 <script>
   import SolutionDetail from '@/components/SolutionDetail'
   import LowVoltageSolution from "@/data/LowVoltageSolution"
+  import VideoPlay from '../../components/VideoPlay'
 
   export default {
     name: 'low-voltage-productDetail',
     components: {
-      SolutionDetail
+      SolutionDetail,
+      VideoPlay
     },
     data() {
       return {

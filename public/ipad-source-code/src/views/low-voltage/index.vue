@@ -1,16 +1,16 @@
 <template>
   <layout :title="'低压智能配电'" :back-name="'set-up-index'" :bind-module="'low-voltage-index'">
     <template slot="body">
-      <el-row :gutter="20">
-        <el-col :span="6">
-          <module :path="'low-voltage-product'" :title-part1="'产品'" :image="'assets/low-voltage/product.png'"></module>
+      <el-row :gutter="30">
+        <el-col :span="10" :offset="2">
+          <router-link :to="{'name': 'low-voltage-product'}">
+            <cross-module-col :image="'assets/low-voltage/product.png'" :title="'产品'"></cross-module-col>
+          </router-link>
         </el-col>
-        <el-col :span="6" v-for="(v, k) in list">
-          <div class="grid-content bg-purple">
-            <router-link :to="{'name': 'low-voltage-solutionDetail', 'query': {'key': k, 'no': v.no}}">
-              <module :title-part1="v.name.substring(0, 6)" :title-part2="v.name.substring(6)" :image="v.img"></module>
-            </router-link>
-          </div>
+        <el-col :span="10" :offset="k%2 == 0 ? 0 : 2" v-for="(v, k) in list">
+          <router-link :to="{'name': 'low-voltage-solutionDetail', 'query': {'key': k, 'no': v.no}}">
+            <cross-module-col :image="v.img" :title="v.name"></cross-module-col>
+          </router-link>
         </el-col>
         <!--        <el-col :span="8">-->
         <!--          <module :path="'low-voltage-solution'" :title-part1="'解决方案'" :image="'assets/low-voltage/solution.png'"></module>-->
@@ -22,14 +22,14 @@
 
 <script>
   import Layout from '../../components/Layout'
-  import Module from '../../components/Module'
+  import CrossModuleCol from '../../components/CrossModuleCol'
   import LowVoltageSolution from "@/data/LowVoltageSolution";
 
   export default {
     name: 'low-voltage-index',
     components: {
       Layout,
-      Module
+      CrossModuleCol
     },
     data() {
       return {
@@ -42,7 +42,7 @@
   }
 </script>
 <style scoped>
-  .el-row {
-    margin-top: 30px;
+  .el-col {
+    margin-top: 2%;
   }
 </style>

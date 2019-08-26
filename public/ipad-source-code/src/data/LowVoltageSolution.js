@@ -1,7 +1,8 @@
 export default [
   {
-    "name": "充电桩解决方案",
+    "name": "充电桩行业解决方案",
     "no": 60,
+    "type": 'SolutionDetail',
     "img": "assets/low-voltage/charge.png",
     "video": {
       "main": "145kVGIS.mp4",
@@ -9,18 +10,20 @@ export default [
     }
   },
   {
-    "name": "暖通行业应用解决方案",
+    "name": "电力行业解决方案",
     "no": 61,
-    "img": "assets/low-voltage/warm.png",
+    "type": 'SolutionDetail',
+    "img": "assets/low-voltage/power.png",
     "video": {
       "main": "145kVGIS.mp4",
       "small": ["视频1", "视频2", "视频3"]
     }
   },
   {
-    "name": "石油石化解决方案",
+    "name": "工业行业解决方案",
     "no": 62,
-    "img": "assets/low-voltage/oil.png",
+    "type": 'VideoPlay',
+    "img": "assets/low-voltage/industry.png",
     "video": {
       "main": "145kVGIS.mp4",
       "small": ["视频1", "视频2", "视频3"]
