@@ -13,7 +13,7 @@
     },
     data() {
       return {
-        no: 1,
+        no: [100, 101],
         key: 0,
         info: {}
       }

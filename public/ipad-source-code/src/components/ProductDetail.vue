@@ -22,19 +22,19 @@
 
         <el-row :gutter="20">
           <el-col class="small-col" :span="4" :offset="2">
-            <expo-stop-button class="stop" @click="send('stop', 0)"></expo-stop-button>
+            <expo-stop-button class="stop" @click="mutiSend('stop', 0)"></expo-stop-button>
           </el-col>
           <el-col class="small-col" :span="4">
-            <expo-pause-button class="pause" @click="send('pause', 0)"></expo-pause-button>
+            <expo-pause-button class="pause" @click="mutiSend('pause', 0)"></expo-pause-button>
           </el-col>
           <el-col :span="4">
-            <expo-play-button class="play" @click="send('play', 0)"></expo-play-button>
+            <expo-play-button class="play" @click="mutiSend('play', 0)"></expo-play-button>
           </el-col>
           <el-col class="small-col" :span="4">
-            <expo-volumn0-button class="volumn0" @click="send('volume', 0)"></expo-volumn0-button>
+            <expo-volumn0-button class="volumn0" @click="mutiSend('volume', 0)"></expo-volumn0-button>
           </el-col>
           <el-col class="small-col" :span="4">
-            <expo-volumn100-button class="volumn100" @click="send('volume', 100)"></expo-volumn100-button>
+            <expo-volumn100-button class="volumn100" @click="mutiSend('volume', 100)"></expo-volumn100-button>
           </el-col>
         </el-row>
       </div>
@@ -44,7 +44,6 @@
 
 <script>
   import Layout from '@/components/Layout'
-  import ExpoButton from '@/components/ExpoButton'
   import ExpoStopButton from '../components/ExpoStopButton'
   import ExpoPauseButton from '../components/ExpoPauseButton'
   import ExpoPlayButton from '../components/ExpoPlayButton'
@@ -56,7 +55,6 @@
     name: 'ProductDetail',
     components: {
       Layout,
-      ExpoButton,
       ExpoStopButton,
       ExpoPauseButton,
       ExpoPlayButton,
@@ -68,35 +66,43 @@
         type: String,
         default: undefined
       },
-      no: {
-        type: Number,
-        default: 0
-      },
+      no: {},
       index: {
         type: Number,
         default: 0
       },
       info: {
         type: Object,
-        default: {}
+        default: undefined
       }
     },
     data() {
       return {}
     },
     created() {
-      this.send('product', this.index)
+      this.mutiSend('product', this.index)
     },
     methods: {
-      async send(command, value, param) {
+      async send(no, command, value, param) {
         let sendData = {}
-        sendData.no = this.no
+        sendData.no = no
         sendData.command = command
         sendData.value = value
         if (param != undefined) {
           sendData.param = param
         }
         let res = await send(sendData)
+      },
+      mutiSend(command, value, param) {
+        if (typeof this.no == 'object') {
+          for (let i in this.no) {
+            let no = this.no[i]
+            this.send(no, command, value, param)
+          }
+        } else {
+          let no = this.no
+          this.send(no, command, value, param)
+        }
       }
     }
   }
