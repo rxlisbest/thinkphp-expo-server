@@ -70,7 +70,7 @@
               简介
             </el-col>
             <el-col :span="2" v-for="i in 9">
-              <el-button type="warning" icon="el-icon-coordinate" circle @click="send('cameraMove', {'value': i + 1})"></el-button>
+              <el-button type="warning" icon="el-icon-coordinate" circle @click="send('cameraMove', {'value': i})"></el-button>
             </el-col>
           </el-row>
           <el-row :gutter="10" v-if="module == 'simulation' || module == 'main'">
@@ -78,7 +78,7 @@
               详情
             </el-col>
             <el-col :span="2" v-for="i in 9">
-              <el-button type="primary" icon="el-icon-document" circle @click="send('cameraMoveBtnPress', {'value': i + 1})"></el-button>
+              <el-button type="primary" icon="el-icon-document" circle @click="send('cameraMoveBtnPress', {'value': i})"></el-button>
             </el-col>
           </el-row>
           <el-row :gutter="10" v-if="module == 'structure' || module == 'simulation'">
