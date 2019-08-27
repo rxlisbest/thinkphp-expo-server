@@ -73,7 +73,7 @@
               <el-button type="warning" icon="el-icon-coordinate" circle @click="send('cameraMove', {'value': i + 1})"></el-button>
             </el-col>
           </el-row>
-          <el-row :gutter="10" v-if="module == 'simulation'">
+          <el-row :gutter="10" v-if="module == 'simulation' || module == 'main'">
             <el-col :span="3">
               详情
             </el-col>
