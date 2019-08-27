@@ -70,7 +70,8 @@
               简介
             </el-col>
             <el-col :span="2" v-for="i in 9">
-              <el-button type="warning" icon="el-icon-coordinate" circle @click="send('cameraMove', {'value': i})"></el-button>
+              <el-button type="warning" icon="el-icon-coordinate" circle
+                         @click="send('cameraMove', {'value': i})"></el-button>
             </el-col>
           </el-row>
           <el-row :gutter="10" v-if="module == 'simulation' || module == 'main'">
@@ -78,7 +79,11 @@
               详情
             </el-col>
             <el-col :span="2" v-for="i in 9">
-              <el-button type="primary" icon="el-icon-document" circle @click="send('cameraMoveBtnPress', {'value': i})"></el-button>
+              <el-button type="primary" icon="el-icon-document" circle
+                         @click="send('cameraMoveBtnPress', {'value': i})"></el-button>
+            </el-col>
+            <el-col :span="2">
+              <el-button type="danger" icon="el-icon-close" circle @click="send('closeCameraMoveBtnPress')"></el-button>
             </el-col>
           </el-row>
           <el-row :gutter="10" v-if="module == 'structure' || module == 'simulation'">
@@ -209,15 +214,15 @@
         no: 3,
         ws: {},
         module: 'main',
-        H5: 0,
-        H6: 0,
-        H7: 0,
-        H8: 0,
-        H9: 0,
-        BH5: 0,
-        BH6: 0,
-        BH7: 0,
-        BH8: 0
+        H5: "1",
+        H6: "1",
+        H7: "1",
+        H8: "1",
+        H9: "1",
+        BH5: "1",
+        BH6: "1",
+        BH7: "1",
+        BH8: "1"
       }
     },
     watch: {
