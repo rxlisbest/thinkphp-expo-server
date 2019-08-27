@@ -41,6 +41,9 @@
   const backCommandDefault = function () {
     return {}
   }
+  const backCommandArrayDefault = function () {
+    return []
+  }
 
   export default {
     name: 'Layout',
@@ -59,6 +62,10 @@
         type: Object,
         default: backCommandDefault
       },
+      backCommandArray: {
+        type: Array,
+        default: backCommandArrayDefault
+      },
       backName: {
         type: String,
         default: undefined
@@ -76,9 +83,18 @@
       this.bindedModule = localStorage.getItem('module')
     },
     methods: {
-      async back() {
+      async send(data) {
+        let res = await send(data)
+      },
+      back() {
         if (this.backCommand.no != undefined) {
-          let res = await send(this.backCommand)
+          this.send(this.backCommand)
+        }
+        for (let i in this.backCommandArray) {
+          let backCommand = this.backCommandArray[i]
+          if (backCommand.no != undefined) {
+            this.send(backCommand)
+          }
         }
         if (this.backName !== undefined) {
           this.$router.push({name: this.backName})

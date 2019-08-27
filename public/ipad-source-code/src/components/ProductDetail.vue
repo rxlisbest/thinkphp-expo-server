@@ -1,5 +1,5 @@
 <template>
-  <layout :back-name="backName" :backCommand="{'no': no, 'command': 'product'}">
+  <layout :back-name="backName" :backCommandArray="backCommandArray">
     <template slot="body">
       <div class="button-container">
         <el-row>
@@ -77,10 +77,13 @@
       }
     },
     data() {
-      return {}
+      return {
+        backCommandArray: []
+      }
     },
     created() {
       this.mutiSend('product', this.index)
+      this.setBackCommandArray()
     },
     methods: {
       async send(no, command, value, param) {
@@ -103,6 +106,19 @@
           let no = this.no
           this.send(no, command, value, param)
         }
+      },
+      setBackCommandArray() {
+        let backCommandArray = []
+        if (typeof this.no == 'object') {
+          for (let i in this.no) {
+            let no = this.no[i]
+            backCommandArray.push({no: no, command: 'product'})
+          }
+        } else {
+          let no = this.no
+          backCommandArray.push({no: no, command: 'product'})
+        }
+        this.backCommandArray = backCommandArray
       }
     }
   }
