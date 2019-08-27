@@ -53,6 +53,12 @@
             <el-col :span="4">
               <expo-button :name="'视频五'" class="button" @click="send('video', {'value':4})"></expo-button>
             </el-col>
+            <el-col :span="2">
+              <play-button class="play-button" @click="send('play')"></play-button>
+            </el-col>
+            <el-col :span="2">
+              <pause-button class="play-button" @click="send('pause')"></pause-button>
+            </el-col>
           </el-row>
           <el-row :gutter="10" v-if="module == 'structure' || module == 'simulation' || module == 'main'">
             <el-col :span="2" :offset="3">H5</el-col>
@@ -197,6 +203,8 @@
   import SmallButton from '../../components/SmallButton'
   import BigButton from '../../components/BigButton'
   import ExpoButton from '../../components/ExpoButton'
+  import PlayButton from '../../components/PlayButton'
+  import PauseButton from '../../components/PauseButton'
   import Dish from '../../components/Dish'
   import {send} from '@/api/send'
 
@@ -207,6 +215,8 @@
       SmallButton,
       BigButton,
       ExpoButton,
+      PlayButton,
+      PauseButton,
       Dish
     },
     data() {
@@ -303,5 +313,10 @@
 
   .button-top {
     height: 25vw;
+  }
+
+  .play-button {
+    width: 6vw;
+    height: 6vw;
   }
 </style>
