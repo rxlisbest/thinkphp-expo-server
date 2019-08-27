@@ -55,7 +55,7 @@
             </el-col>
           </el-row>
           <el-row :gutter="10" v-if="module == 'structure' || module == 'simulation'">
-            <el-col :span="2">H5</el-col>
+            <el-col :span="2" :offset="3">H5</el-col>
             <el-col :span="2">H6</el-col>
             <el-col :span="2">H7</el-col>
             <el-col :span="2">H8</el-col>
@@ -66,35 +66,25 @@
             <el-col :span="2">BH8</el-col>
           </el-row>
           <el-row :gutter="10" v-if="module == 'simulation'">
-            <el-col :span="2">
-              <el-button type="primary" icon="el-icon-set-up" circle @click="send('product', {'no': 'H5'})"></el-button>
+            <el-col :span="3">
+              简介
             </el-col>
-            <el-col :span="2">
-              <el-button type="primary" icon="el-icon-set-up" circle @click="send('product', {'no': 'H6'})"></el-button>
+            <el-col :span="2" v-for="i in 9">
+              <el-button type="warning" icon="el-icon-coordinate" circle @click="send('cameraMove', {'value': i + 1})"></el-button>
             </el-col>
-            <el-col :span="2">
-              <el-button type="primary" icon="el-icon-set-up" circle @click="send('product', {'no': 'H7'})"></el-button>
+          </el-row>
+          <el-row :gutter="10" v-if="module == 'simulation'">
+            <el-col :span="3">
+              详情
             </el-col>
-            <el-col :span="2">
-              <el-button type="primary" icon="el-icon-set-up" circle @click="send('product', {'no': 'H8'})"></el-button>
-            </el-col>
-            <el-col :span="2">
-              <el-button type="primary" icon="el-icon-set-up" circle @click="send('product', {'no': 'H9'})"></el-button>
-            </el-col>
-            <el-col :span="2">
-              <el-button type="primary" icon="el-icon-set-up" circle @click="send('product', {'no': 'BH5'})"></el-button>
-            </el-col>
-            <el-col :span="2">
-              <el-button type="primary" icon="el-icon-set-up" circle @click="send('product', {'no': 'BH6'})"></el-button>
-            </el-col>
-            <el-col :span="2">
-              <el-button type="primary" icon="el-icon-set-up" circle @click="send('product', {'no': 'BH7'})"></el-button>
-            </el-col>
-            <el-col :span="2">
-              <el-button type="primary" icon="el-icon-set-up" circle @click="send('product', {'no': 'BH8'})"></el-button>
+            <el-col :span="2" v-for="i in 9">
+              <el-button type="primary" icon="el-icon-document" circle @click="send('cameraMoveBtnPress', {'value': i + 1})"></el-button>
             </el-col>
           </el-row>
           <el-row :gutter="10" v-if="module == 'structure' || module == 'simulation'">
+            <el-col :span="3">
+              开关
+            </el-col>
             <el-col :span="2">
               <el-switch
                 v-model="H5"
@@ -232,31 +222,31 @@
     },
     watch: {
       H5(value) {
-        this.send('switch', {'no': 'H5', 'value': value})
+        this.send('switch', {'no': '1', 'value': value})
       },
       H6(value) {
-        this.send('switch', {'no': 'H6', 'value': value})
+        this.send('switch', {'no': '2', 'value': value})
       },
       H7(value) {
-        this.send('switch', {'no': 'H7', 'value': value})
+        this.send('switch', {'no': '3', 'value': value})
       },
       H8(value) {
-        this.send('switch', {'no': 'H8', 'value': value})
+        this.send('switch', {'no': '4', 'value': value})
       },
       H9(value) {
-        this.send('switch', {'no': 'H9', 'value': value})
+        this.send('switch', {'no': '5', 'value': value})
       },
       BH5(value) {
-        this.send('switch', {'no': 'BH5', 'value': value})
+        this.send('switch', {'no': '6', 'value': value})
       },
       BH6(value) {
-        this.send('switch', {'no': 'BH6', 'value': value})
+        this.send('switch', {'no': '7', 'value': value})
       },
       BH7(value) {
-        this.send('switch', {'no': 'BH7', 'value': value})
+        this.send('switch', {'no': '8', 'value': value})
       },
       BH8(value) {
-        this.send('switch', {'no': 'BH8', 'value': value})
+        this.send('switch', {'no': '9', 'value': value})
       }
     },
     created() {
