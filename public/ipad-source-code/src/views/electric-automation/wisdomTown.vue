@@ -54,7 +54,7 @@
               <expo-button :name="'视频五'" class="button" @click="send('video', {'value':4})"></expo-button>
             </el-col>
           </el-row>
-          <el-row :gutter="10" v-if="module == 'structure' || module == 'simulation'">
+          <el-row :gutter="10" v-if="module == 'structure' || module == 'simulation' || module == 'main'">
             <el-col :span="2" :offset="3">H5</el-col>
             <el-col :span="2">H6</el-col>
             <el-col :span="2">H7</el-col>
@@ -65,7 +65,7 @@
             <el-col :span="2">BH7</el-col>
             <el-col :span="2">BH8</el-col>
           </el-row>
-          <el-row :gutter="10" v-if="module == 'simulation'">
+          <el-row :gutter="10" v-if="module == 'main'">
             <el-col :span="3">
               简介
             </el-col>

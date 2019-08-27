@@ -118,8 +118,7 @@
                 break;
               case "touchend": //手指离开的时候
                 for (var i = 0; i < event.touches.length; i = i + 1) {
-                  if (Math.sqrt(Math.pow(event.touches[i].clientX - centerX - touchX, 2) +
-                    Math.pow(event.touches[i].clientY - centerY - touchY, 2)) <=
+                  if (Math.sqrt(Math.pow(event.touches[i].clientX - centerX - touchX, 2) + Math.pow(event.touches[i].clientY - centerY - touchY, 2)) <=
                     josize / 2 - jisize / 2) {
                     continue;
                   } else {
@@ -134,7 +133,7 @@
                         y: parseFloat(jy).toFixed(6)
                       }
                     }
-                    if (ws.readyStatus == 1) {
+                    if (ws.readyState == 1) {
                       ws.send(JSON.stringify(d))
                     }
                   }
@@ -152,7 +151,7 @@
                         y: parseFloat(jy).toFixed(6)
                       }
                     }
-                    if (ws.readyStatus == 1) {
+                    if (ws.readyState == 1) {
                       ws.send(JSON.stringify(d))
                     }
                   }
@@ -204,7 +203,10 @@
                       }
                     }
                     // console.log(d)
-                    ws.send(JSON.stringify(d));
+                    if (ws.readyState == 1) {
+                      ws.send(JSON.stringify(d))
+                    }
+                    // ws.send(JSON.stringify(d));
                     // console.log(jx / (centerY - jisize / 2), jy / (centerY - jisize / 2))
                     // event.preventDefault(); //防止页面滑动，取消掉默认的事件
                   }
