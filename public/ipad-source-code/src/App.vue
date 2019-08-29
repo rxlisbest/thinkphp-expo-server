@@ -9,6 +9,10 @@
     name: 'app',
     components: {},
     mounted() {
+      window['body_move'] = function (e) {
+        e.preventDefault() // 阻止默认的处理方式(阻止下拉滑动的效果)
+      }
+      document.body.addEventListener('touchmove', window['body_move'], {passive: false}) // passive 参数不能省略，用来兼容ios和android
 
       // document.body.addEventListener('touchmove', function (e) {
       //   e.preventDefault() // 阻止默认的处理方式(阻止下拉滑动的效果)
@@ -76,6 +80,9 @@
       //     }
       //   }, {passive: false}) //passive防止阻止默认事件不生效
       // }
+    },
+    destroyed() {
+      document.body.removeEventListener('touchmove', window['body_move'], {passive: false}) // passive 参数不能省略，用来兼容ios和android
     }
   }
 </script>
@@ -122,6 +129,7 @@
   a {
     text-decoration: none;
   }
+
   /* 移动端禁止长按选中效果 */
   * {
     -webkit-touch-callout: none;

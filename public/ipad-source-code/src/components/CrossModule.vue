@@ -42,8 +42,8 @@
   .module {
     text-align: center;
     width: 100%;
-    padding-top: 6%;
-    padding-bottom: 6%;
+    padding-top: 4%;
+    padding-bottom: 4%;
     background: url(../assets/components/cross-module-bg.png) no-repeat;
     background-size: 100% 100%;
   }
