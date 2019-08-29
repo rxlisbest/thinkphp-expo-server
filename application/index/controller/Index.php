@@ -30,8 +30,18 @@ class Index extends Controller
         }
         $o = clone $this;
         Message::send($get['no'], function ($data) use ($o) {
-            $o->success('success', null, json_decode($data, true));
+            header('content-type:application/json;charset=utf-8');
+            $result = [
+                'code' => 1,
+                'msg' => 'success',
+                'data' => json_decode($data, true),
+                'url' => '',
+                'wait' => 3,
+            ];
+            echo json_encode($result);
             exit();
+//            $o->success('success', null, json_decode($data, true));
+//            return false;
         });
     }
 
