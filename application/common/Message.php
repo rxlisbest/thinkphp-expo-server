@@ -30,7 +30,6 @@ class Message extends Facade
 
             if ($job) { // 队列中有消息，发送消息
                 $data = $job->getData();
-                $pheanstalk->delete($job);
             } else { // 队列中无消息，发送心跳包
                 $data = [
                     'command' => 'heart',
@@ -42,6 +41,11 @@ class Message extends Facade
             $result = $callback($data); // 调用回调函数
             if ($result === false) { // 如果返回值是false，则退出循环
                 break;
+            } else {
+                // 如果是成功发送命令，则删除job
+                if ($job) {
+                    $pheanstalk->delete($job);
+                }
             }
         }
     }
