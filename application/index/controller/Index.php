@@ -31,7 +31,7 @@ class Index extends Controller
         $o = clone $this;
         Message::send($get['no'], function ($data) use ($o) {
             $o->success('success', null, json_decode($data, true));
-            return false;
+            exit();
         });
     }
 
