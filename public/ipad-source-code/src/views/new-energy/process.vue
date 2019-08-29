@@ -4,7 +4,7 @@
       <div class="process-container">
         <el-row :gutter="20">
           <el-col :span="4" v-for="(v, k) in list" :offset="k%5==0 && k/5==0 ? 2: (k%5==0 ? 2 : 0)">
-            <expo-button :name="v.name" class="button" @click="send('video', k)"></expo-button>
+            <expo-button :name="v.name" class="button" @click="send('video', v.index)"></expo-button>
           </el-col>
         </el-row>
       </div>
