@@ -1,7 +1,7 @@
 export default [
   {
     "name": "充电桩行业解决方案",
-    "no": 60,
+    "no": 6,
     "type": 'SolutionDetail',
     "img": "assets/low-voltage/charge.png",
     "video": {
@@ -11,7 +11,7 @@ export default [
   },
   {
     "name": "电力行业解决方案",
-    "no": 61,
+    "no": 6,
     "type": 'SolutionDetail',
     "img": "assets/low-voltage/power.png",
     "video": {
@@ -21,7 +21,7 @@ export default [
   },
   {
     "name": "工业行业解决方案",
-    "no": 62,
+    "no": 6,
     "type": 'VideoPlay',
     "img": "assets/low-voltage/industry.png",
     "video": {
