@@ -1,5 +1,5 @@
 <template>
-  <div class="simulation">
+  <div class="structure">
     <el-row>
       <el-col :span="6">
         <div class="tab" @click="changeTab('main')"></div>
@@ -14,49 +14,36 @@
         <div class="tab" @click="changeTab('introduction')"></div>
       </el-col>
     </el-row>
+    <el-row :gutter="20">
+      <el-col :span="6" :offset="3">
+        <expo-button :name="'主接线图'" class="module-button"></expo-button>
+      </el-col>
+      <el-col :span="6">
+        <expo-button :name="'产品拓扑图'" class="module-button"></expo-button>
+      </el-col>
+      <el-col :span="6">
+        <expo-button :name="'系统架构图'" class="module-button"></expo-button>
+      </el-col>
+    </el-row>
     <el-row>
-      <el-col :span="14" :offset="1">
-        <el-row :gutter="25" class="build-row">
-          <el-col :span="8" v-for="v in list">
+      <el-col :span="18" :offset="3">
+        <el-row :gutter="30" class="build-row">
+          <el-col :span="8" v-for="(v, k) in list">
             <div class="build">
               <el-row>
                 <el-col :span="24">
                   <div class="build-title">{{ v.name }}</div>
                 </el-col>
               </el-row>
-              <el-row>
-                <el-col :span="12" class="build-intro">介绍</el-col>
-                <el-col :span="12" class="build-intro">控制</el-col>
-              </el-row>
-              <el-row>
-                <el-col :span="10" :offset="1">
-                  <expo-button :name="'开启'" class="build-button"></expo-button>
+              <el-row :gutter="10">
+                <el-col :span="12">
+                  <expo-button :name="'闭合'" @click="switchClick(k, true)" :hover="list[k].switch" class="build-button"></expo-button>
                 </el-col>
-                <el-col :span="10" :offset="2">
-                  <expo-button :name="'闭合'" class="build-button"></expo-button>
-                </el-col>
-              </el-row>
-              <el-row>
-                <el-col :span="10" :offset="1">
-                  <expo-button :name="'关闭'" class="build-button"></expo-button>
-                </el-col>
-                <el-col :span="10" :offset="2">
-                  <expo-button :name="'分开'" class="build-button"></expo-button>
+                <el-col :span="12">
+                  <expo-button :name="'分开'" @click="switchClick(k, false)" :hover="!list[k].switch" class="build-button"></expo-button>
                 </el-col>
               </el-row>
             </div>
-          </el-col>
-        </el-row>
-      </el-col>
-      <el-col :span="8" :offset="1">
-        <el-row>
-          <el-col :span="18" :offset="3">
-            <expo-button :name="'返回'" class="back"></expo-button>
-          </el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="18" :offset="3">
-            <dish :no="no" :moveId="'move'" :ws="ws"></dish>
           </el-col>
         </el-row>
       </el-col>
@@ -69,9 +56,13 @@
   import Dish from '../components/Dish'
   import {send} from '@/api/send'
   import WisdomTownSmulation from "../data/WisdomTownSimulation"
+  for(let i in WisdomTownSmulation) {
+    WisdomTownSmulation[i].switch = true
+  }
+  console.log(WisdomTownSmulation)
 
   export default {
-    name: 'WisdomTownSimulation',
+    name: 'WisdomTownStructure',
     components: {
       ExpoButton,
       Dish
@@ -80,16 +71,12 @@
       no: {
         type: Number,
         default: 0
-      },
-      ws: {
-        type: WebSocket,
-        default: {}
       }
     },
     data() {
       return {
         tab: 'main',
-        list: WisdomTownSmulation
+        list: WisdomTownSmulation,
       }
     },
     watch: {},
@@ -106,13 +93,16 @@
       changeTab(tab) {
         this.tab = tab
         this.$emit('changeTab', tab)
+      },
+      switchClick(index, value) {
+        this.list[index].switch = value
       }
     }
   }
 </script>
 <style scoped>
-  .simulation {
-    background: url(../assets/electric-automation/wisdom-town-2-bg.png) no-repeat;
+  .structure {
+    background: url(../assets/electric-automation/wisdom-town-3-bg.png) no-repeat;
     background-size: 100% 100%;
     height: 100%;
   }
@@ -122,8 +112,9 @@
   }
 
   .build {
-    padding: 0.5vw;
-    width: 100%;
+    margin-top: 3vw;
+    padding: 1vw;
+    width: 90%;
     border: 0.1vw solid #77d3ff;
   }
 
@@ -148,7 +139,8 @@
   }
 
   .build-button {
-    font-size: 1vw;
+    color: #d2fcff;
+    font-size: 1.6vw;
     padding-top: 0.8vw;
     padding-bottom: 0.8vw;
   }
@@ -157,7 +149,9 @@
     margin-top: 1.2vw;
   }
 
-  .back {
+  .module-button {
+    color: #d2fcff;
+    font-size: 2.5vw;
     margin-top: 1.2vw;
     padding-top: 2vw;
     padding-bottom: 2vw;

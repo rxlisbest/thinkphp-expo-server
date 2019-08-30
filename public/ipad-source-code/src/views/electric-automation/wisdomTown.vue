@@ -3,38 +3,7 @@
     <template slot="body">
       <wisdom-town-main :no="no" :ws="ws" v-if="tab == 'main'" @changeTab="changeTab"></wisdom-town-main>
       <wisdom-town-simulation :no="no" :ws="ws" v-if="tab == 'simulation'" @changeTab="changeTab"></wisdom-town-simulation>
-      <div class="simulation" v-if="tab == 'simulation'">
-        <el-row>
-          <el-col :span="6">
-            <div class="tab" @click="changeTab('main')"></div>
-          </el-col>
-          <el-col :span="6">
-            <div class="tab" @click="changeTab('simulation')"></div>
-          </el-col>
-          <el-col :span="6">
-            <div class="tab" @click="changeTab('structure')"></div>
-          </el-col>
-          <el-col :span="6">
-            <div class="tab" @click="changeTab('introduction')"></div>
-          </el-col>
-        </el-row>
-      </div>
-      <div class="structure" v-if="tab == 'structure'">
-        <el-row>
-          <el-col :span="6">
-            <div class="tab" @click="changeTab('main')"></div>
-          </el-col>
-          <el-col :span="6">
-            <div class="tab" @click="changeTab('simulation')"></div>
-          </el-col>
-          <el-col :span="6">
-            <div class="tab" @click="changeTab('structure')"></div>
-          </el-col>
-          <el-col :span="6">
-            <div class="tab" @click="changeTab('introduction')"></div>
-          </el-col>
-        </el-row>
-      </div>
+      <wisdom-town-structure :no="no" v-if="tab == 'structure'" @changeTab="changeTab"></wisdom-town-structure>
       <div class="introduction" v-if="tab == 'introduction'">
         <el-row>
           <el-col :span="6">
@@ -64,6 +33,7 @@
   import PauseButton from '../../components/PauseButton'
   import WisdomTownMain from '../../components/WisdomTownMain'
   import WisdomTownSimulation from '../../components/WisdomTownSimulation'
+  import WisdomTownStructure from '../../components/WisdomTownStructure'
   import {send} from '@/api/send'
 
   export default {
@@ -76,7 +46,8 @@
       PlayButton,
       PauseButton,
       WisdomTownMain,
-      WisdomTownSimulation
+      WisdomTownSimulation,
+      WisdomTownStructure
     },
     data() {
       return {
