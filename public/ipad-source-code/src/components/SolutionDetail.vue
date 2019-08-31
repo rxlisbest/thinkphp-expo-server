@@ -10,7 +10,7 @@
         <el-row class="row-img">
           <el-col :span="18" :offset="3">
             <div class="product-img-div">
-              <img class="product-img" :src="require('@/' + info.img)">
+              <img class="product-img" :src="info.imgDetail !== undefined ? require('@/' + info.imgDetail) : require('@/' + info.img)">
             </div>
           </el-col>
         </el-row>
@@ -116,12 +116,12 @@
 
   .product-img-div {
     margin: 0 auto;
-    width: 36vw;
+    width: 60vw;
     height: 36vw;
   }
 
   .product-img {
-    max-width: 36vw;
+    max-width: 60vw;
     max-height: 36vw;
     width: expression(this.width > '36vw' ? "36vw" : this.width);
   }
