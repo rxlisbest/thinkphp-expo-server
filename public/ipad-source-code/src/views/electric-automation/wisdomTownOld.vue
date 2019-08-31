@@ -209,7 +209,7 @@
   import {send} from '@/api/send'
 
   export default {
-    name: 'electric-automation-wisdomTown',
+    name: 'electric-automation-wisdomTownOld',
     components: {
       Layout,
       SmallButton,

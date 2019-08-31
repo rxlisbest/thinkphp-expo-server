@@ -57,9 +57,8 @@
         let res = await send(sendData)
       },
       changeTab(tab) {
-        console.log(tab)
         this.tab = tab
-        // this.send(tab)
+        this.send(tab)
       }
     }
   }

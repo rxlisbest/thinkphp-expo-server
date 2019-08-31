@@ -14,21 +14,21 @@
         <div class="tab" @click="changeTab('introduction')"></div>
       </el-col>
     </el-row>
-    <el-row :gutter="20">
-      <el-col :span="12" :offset="3">
+    <el-row :gutter="20" class="top-row">
+      <el-col :span="14" :offset="1">
         <el-row v-for="v in list">
           <el-col :span="24">
-            <expo-button :name="v.name" class="module-button"></expo-button>
+            <expo-button :name="v.name" class="module-button" @click="send('video', {'value': v.value})"></expo-button>
           </el-col>
         </el-row>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="8">
         <el-row>
-          <el-col :span="12">
-            <expo-pause-button class="pause" @click="send('pause', 0)"></expo-pause-button>
+          <el-col :span="8" :offset="4">
+            <expo-pause-button @click="send('pause')"></expo-pause-button>
           </el-col>
-          <el-col :span="12">
-            <expo-play-button class="play" @click="send('play', 0)"></expo-play-button>
+          <el-col :span="8">
+            <normal-play-button @click="send('play')"></normal-play-button>
           </el-col>
         </el-row>
       </el-col>
@@ -40,7 +40,7 @@
   import ExpoButton from '../components/ExpoButton'
   import Dish from '../components/Dish'
   import ExpoPauseButton from '../components/ExpoPauseButton'
-  import ExpoPlayButton from '../components/ExpoPlayButton'
+  import NormalPlayButton from '../components/NormalPlayButton'
   import {send} from '@/api/send'
   import WisdomTownIntroduction from "../data/WisdomTownIntroduction"
 
@@ -50,7 +50,7 @@
       ExpoButton,
       Dish,
       ExpoPauseButton,
-      ExpoPlayButton,
+      NormalPlayButton,
     },
     props: {
       no: {
@@ -97,7 +97,11 @@
     color: #d2fcff;
     font-size: 2.2vw;
     margin-top: 1.2vw;
-    padding-top: 2vw;
-    padding-bottom: 2vw;
+    padding-top: 2.4vw;
+    padding-bottom: 2.4vw;
+  }
+
+  .top-row {
+    margin-top: 3vw;
   }
 </style>

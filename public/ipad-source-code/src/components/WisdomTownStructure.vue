@@ -14,15 +14,15 @@
         <div class="tab" @click="changeTab('introduction')"></div>
       </el-col>
     </el-row>
-    <el-row :gutter="20">
+    <el-row :gutter="20" class="top-row">
       <el-col :span="6" :offset="3">
-        <expo-button :name="'主接线图'" class="module-button"></expo-button>
+        <expo-button :name="'主接线图'" class="module-button" @click="send('image', {'value': 0})"></expo-button>
       </el-col>
       <el-col :span="6">
-        <expo-button :name="'产品拓扑图'" class="module-button"></expo-button>
+        <expo-button :name="'产品拓扑图'" class="module-button" @click="send('image', {'value': 1})"></expo-button>
       </el-col>
       <el-col :span="6">
-        <expo-button :name="'系统架构图'" class="module-button"></expo-button>
+        <expo-button :name="'系统架构图'" class="module-button" @click="send('image', {'value': 2})"></expo-button>
       </el-col>
     </el-row>
     <el-row>
@@ -37,10 +37,10 @@
               </el-row>
               <el-row :gutter="10">
                 <el-col :span="12">
-                  <expo-button :name="'闭合'" @click="switchClick(k, true)" :hover="list[k].switch" class="build-button"></expo-button>
+                  <expo-button :name="'闭合'" @click="switchClick(k, 1)" :hover="list[k].switch ? true: false" class="build-button"></expo-button>
                 </el-col>
                 <el-col :span="12">
-                  <expo-button :name="'分开'" @click="switchClick(k, false)" :hover="!list[k].switch" class="build-button"></expo-button>
+                  <expo-button :name="'分开'" @click="switchClick(k, 0)" :hover="list[k].switch ? false : true" class="build-button"></expo-button>
                 </el-col>
               </el-row>
             </div>
@@ -57,9 +57,8 @@
   import {send} from '@/api/send'
   import WisdomTownSmulation from "../data/WisdomTownSimulation"
   for(let i in WisdomTownSmulation) {
-    WisdomTownSmulation[i].switch = true
+    WisdomTownSmulation[i].switch = 1
   }
-  console.log(WisdomTownSmulation)
 
   export default {
     name: 'WisdomTownStructure',
@@ -75,7 +74,6 @@
     },
     data() {
       return {
-        tab: 'main',
         list: WisdomTownSmulation,
       }
     },
@@ -96,6 +94,7 @@
       },
       switchClick(index, value) {
         this.list[index].switch = value
+        this.send('switch', {'no': index, 'value': value})
       }
     }
   }
@@ -155,5 +154,9 @@
     margin-top: 1.2vw;
     padding-top: 2vw;
     padding-bottom: 2vw;
+  }
+
+  .top-row {
+    margin-top: 3vw;
   }
 </style>

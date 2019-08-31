@@ -50,6 +50,11 @@ export default new Router({
             name: 'electric-automation-wisdomTown',
             component: require('@/views/electric-automation/wisdomTown').default
         },
+        {
+            path: '/electric-automation/wisdomTownOld',
+            name: 'electric-automation-wisdomTownOld',
+            component: require('@/views/electric-automation/wisdomTownOld').default
+        },
         // 智慧水务
         {
             path: '/wisdom-water',

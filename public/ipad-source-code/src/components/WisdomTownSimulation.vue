@@ -14,10 +14,10 @@
         <div class="tab" @click="changeTab('introduction')"></div>
       </el-col>
     </el-row>
-    <el-row>
+    <el-row class="top-row">
       <el-col :span="14" :offset="1">
         <el-row :gutter="25" class="build-row">
-          <el-col :span="8" v-for="v in list">
+          <el-col :span="8" class="build-col" v-for="(v, k) in list">
             <div class="build">
               <el-row>
                 <el-col :span="24">
@@ -30,18 +30,21 @@
               </el-row>
               <el-row>
                 <el-col :span="10" :offset="1">
-                  <expo-button :name="'开启'" class="build-button"></expo-button>
+                  <expo-button :name="'开启'" class="build-button"
+                               @click="send('cameraMoveBtnPress', {'value': v.value})"></expo-button>
                 </el-col>
                 <el-col :span="10" :offset="2">
-                  <expo-button :name="'闭合'" class="build-button"></expo-button>
+                  <expo-button :name="'闭合'" @click="switchClick(k, 1)" :hover="list[k].switch ? true: false"
+                               class="build-button"></expo-button>
                 </el-col>
               </el-row>
               <el-row>
                 <el-col :span="10" :offset="1">
-                  <expo-button :name="'关闭'" class="build-button"></expo-button>
+                  <expo-button :name="'关闭'" class="build-button" @click="send('closeCameraMoveBtnPress')"></expo-button>
                 </el-col>
                 <el-col :span="10" :offset="2">
-                  <expo-button :name="'分开'" class="build-button"></expo-button>
+                  <expo-button :name="'分开'" @click="switchClick(k, 0)" :hover="list[k].switch ? false : true"
+                               class="build-button"></expo-button>
                 </el-col>
               </el-row>
             </div>
@@ -49,12 +52,12 @@
         </el-row>
       </el-col>
       <el-col :span="8" :offset="1">
-        <el-row>
+        <el-row class="back-row">
           <el-col :span="18" :offset="3">
             <expo-button :name="'返回'" class="back"></expo-button>
           </el-col>
         </el-row>
-        <el-row>
+        <el-row class="dish-row">
           <el-col :span="18" :offset="3">
             <dish :no="no" :moveId="'move'" :ws="ws"></dish>
           </el-col>
@@ -69,6 +72,10 @@
   import Dish from '../components/Dish'
   import {send} from '@/api/send'
   import WisdomTownSmulation from "../data/WisdomTownSimulation"
+
+  for (let i in WisdomTownSmulation) {
+    WisdomTownSmulation[i].switch = 1
+  }
 
   export default {
     name: 'WisdomTownSimulation',
@@ -106,6 +113,10 @@
       changeTab(tab) {
         this.tab = tab
         this.$emit('changeTab', tab)
+      },
+      switchClick(index, value) {
+        this.list[index].switch = value
+        this.send('switch', {'no': index, 'value': value})
       }
     }
   }
@@ -157,9 +168,25 @@
     margin-top: 1.2vw;
   }
 
+  .build-col {
+    margin-top: 1vw;
+  }
+
   .back {
     margin-top: 1.2vw;
     padding-top: 2vw;
     padding-bottom: 2vw;
+  }
+
+  .top-row {
+    margin-top: 3vw;
+  }
+
+  .back-row {
+    margin-top: 0.8vw;
+  }
+
+  .dish-row {
+    margin-top: 10vw;
   }
 </style>
