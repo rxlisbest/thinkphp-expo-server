@@ -7,9 +7,8 @@
         </el-col>
       </el-row>
       <el-row class="button-row" :gutter="20">
-        <el-col :span="2">&nbsp;</el-col>
-        <el-col :span="4" v-for="(v, k) in list">
-          <expo-button class="button" :name="v.name" @click="send('video', k)"></expo-button>
+        <el-col :span="5" v-for="(v, k) in list" :offset="k == 0 ? 2 : 0">
+          <expo-button class="button" :name="v.name" @click="send('video', v.value)"></expo-button>
         </el-col>
       </el-row>
     </template>
@@ -60,10 +59,10 @@
   }
 
   .button {
-    font-size: 1.5vw;
+    font-size: 1.4vw;
     margin: 0 auto;
-    width: 70%;
-    padding: 20% 18%;
+    width: 100%;
+    padding: 20% 6%;
     color: #d2fcff;
   }
 
