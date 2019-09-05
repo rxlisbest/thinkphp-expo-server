@@ -53,7 +53,7 @@
       <el-col :span="8" :offset="1">
         <el-row class="back-row">
           <el-col :span="18" :offset="3">
-            <expo-button :name="'返回'" class="back"></expo-button>
+            <expo-button :name="'返回'" class="back" @click="send('back')"></expo-button>
           </el-col>
         </el-row>
         <el-row class="dish-row">

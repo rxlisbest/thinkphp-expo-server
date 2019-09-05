@@ -9,7 +9,7 @@ export default [
   },
   {
     "name": "市政设施",
-    "value": 3
+    "value": 5
   },
   {
     "name": "教育机构",
@@ -17,7 +17,7 @@ export default [
   },
   {
     "name": "体育场",
-    "value": 5
+    "value": 3
   },
   {
     "name": "居民社区",
@@ -25,14 +25,14 @@ export default [
   },
   {
     "name": "轻工业",
-    "value": 7
-  },
-  {
-    "name": "冶金化工",
     "value": 8
   },
   {
-    "name": "智慧园区",
+    "name": "冶金化工",
     "value": 9
+  },
+  {
+    "name": "智慧园区",
+    "value": 7
   }
 ]
