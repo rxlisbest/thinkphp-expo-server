@@ -6,7 +6,7 @@
           <module :path="'electric-automation-product'" :title-part1="'产品'" :image="'assets/electric-automation/product.png'"></module>
         </el-col>
         <el-col :span="8">
-          <module :path="'electric-automation-220kv'" :title-part1="'220kv变电站'" :title-part2="'仿真系统'" :image="'assets/electric-automation/220kv.png'"></module>
+          <module :path="'electric-automation-power'" :title-part1="'220kv变电站'" :title-part2="'仿真系统'" :image="'assets/electric-automation/220kv.png'"></module>
         </el-col>
         <el-col :span="8">
           <module :path="'electric-automation-wisdomTown'" :title-part1="'配电自动化'" :title-part2="'智慧小镇'" :image="'assets/electric-automation/wisdomTown.png'"></module>

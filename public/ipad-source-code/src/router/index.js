@@ -31,6 +31,11 @@ export default new Router({
             component: require('@/views/electric-automation/productDetail').default
         },
         {
+            path: '/electric-automation/power',
+            name: 'electric-automation-power',
+            component: require('@/views/electric-automation/power').default
+        },
+        {
             path: '/electric-automation/220kv',
             name: 'electric-automation-220kv',
             component: require('@/views/electric-automation/220kv').default
