@@ -46,7 +46,7 @@
     },
     watch: {},
     created() {
-      this.ws = new WebSocket("ws://" + location.hostname + ":2346")
+      this.connectWS()
     },
     methods: {
       async send(command, param) {
@@ -59,6 +59,14 @@
       changeTab(tab) {
         this.tab = tab
         this.send(tab)
+      },
+      connectWS() {
+        this.ws = new WebSocket("ws://" + location.hostname + ":2346")
+        setInterval(() => {
+          if (this.ws.readyState == 3) {
+            this.ws = new WebSocket("ws://" + location.hostname + ":2346")
+          }
+        }, 3000)
       }
     }
   }
