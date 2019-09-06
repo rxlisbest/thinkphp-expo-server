@@ -52,7 +52,7 @@
 <style scoped>
   .map {
     width: 100%;
-    padding-bottom: 55%;
+    padding-bottom: 50%;
     height: 0;
     background: url(../../assets/new-energy/synthetical-bg.png) no-repeat;
     background-size: 100% 100%;

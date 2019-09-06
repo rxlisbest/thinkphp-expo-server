@@ -56,7 +56,7 @@
 
   .map {
     width: 100%;
-    padding-bottom: 50%;
+    padding-bottom: 55%;
     height: 0;
     background: url(../../assets/new-energy/synthetical-bg.png) no-repeat;
     background-size: 100% 100%;
