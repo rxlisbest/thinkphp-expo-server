@@ -59,14 +59,14 @@
   }
 
   .button {
-    font-size: 1.5vw;
+    font-size: 1vw;
     margin: 0 auto;
-    width: 80%;
+    width: 90%;
     padding: 20% 12%;
     color: #d2fcff;
   }
 
   .button-row {
-    margin-top: 3%;
+    margin-top: 1%;
   }
 </style>
