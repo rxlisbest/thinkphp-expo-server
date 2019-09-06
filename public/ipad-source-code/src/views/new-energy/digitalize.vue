@@ -7,7 +7,7 @@
         </el-col>
       </el-row>
       <el-row class="button-row" :gutter="20">
-        <el-col :span="4" v-for="(v, k) in list" :offset="k == 0 ? 2 : (k == 5 ? 4 : 0)">
+        <el-col :span="4" v-for="(v, k) in list" :offset="k == 0 ? 2 : 0">
           <expo-button class="button" :name="v.name" @click="send('video', k)"></expo-button>
         </el-col>
       </el-row>
