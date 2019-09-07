@@ -109,11 +109,12 @@
     data() {
       return {
         no: 15,
-        ws: {},
+        ws: undefined,
         solution: ''
       }
     },
     created() {
+      console.log(this.$route.name)
       this.connectWS()
     },
     methods: {
@@ -132,10 +133,12 @@
         this.send(solution)
       },
       connectWS() {
-        this.ws = new WebSocket("ws://" + location.hostname + ":2346")
-        setInterval(() => {
-          if (this.ws.readyState == 3) {
-            this.ws = new WebSocket("ws://" + location.hostname + ":2346")
+        if (this.ws == undefined || this.ws.readyState !== undefined && this.ws.readyState == 3) {
+          this.ws = new WebSocket("ws://" + location.hostname + ":2346")
+        }
+        setTimeout(() => {
+          if (this.$route.name == 'energy-storage-index') {
+            this.connectWS()
           }
         }, WebsocketConfig.reconnect)
       }

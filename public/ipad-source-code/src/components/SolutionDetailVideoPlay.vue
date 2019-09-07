@@ -87,6 +87,17 @@
           sendData.param = param
         }
         let res = await send(sendData)
+      },
+      mutiSend(command, value, param) {
+        if (typeof this.no == 'object') {
+          for (let i in this.no) {
+            let no = this.no[i]
+            this.send(no, command, value, param)
+          }
+        } else {
+          let no = this.no
+          this.send(no, command, value, param)
+        }
       }
     }
   }

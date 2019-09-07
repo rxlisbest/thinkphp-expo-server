@@ -41,7 +41,8 @@
         </el-col>
       </el-row>
 
-      <power-one-dish :no="no" :ws="ws" v-if="tab == 'zhxj' && secondTab == 'normal'"></power-one-dish>
+      <component :is="tab == 'zhxj' && secondTab == 'normal' ? 'PowerOneDish' : ''" :no="no" :ws="ws"></component>
+<!--      <power-one-dish :no="no" :ws="ws" v-if="tab == 'zhxj' && secondTab == 'normal'"></power-one-dish>-->
       <power-two-dish :no="no" :ws="ws" v-if="tab == 'zhxj' && secondTab == 'overall'"></power-two-dish>
 
       <el-row v-if="tab == 'xltsd'">
@@ -158,8 +159,8 @@
           </el-row>
         </el-col>
       </el-row>
-
-      <power-one-dish :no="no" :ws="ws" v-if="tab == 'sbsmgl'"></power-one-dish>
+      <component :is="tab == 'sbsmgl' ? 'PowerOneDish' : ''" :no="no" :ws="ws" v-if="tab == 'sbsmgl'"></component>
+<!--      <power-one-dish :no="no" :ws="ws" v-if="tab == 'sbsmgl'"></power-one-dish>-->
     </template>
   </layout>
 </template>
@@ -193,7 +194,7 @@
     data() {
       return {
         no: 2,
-        ws: {},
+        ws: undefined,
         tab: 'main',
         secondTab: 'normal'
       }
@@ -223,10 +224,12 @@
         this.send(tab)
       },
       connectWS() {
-        this.ws = new WebSocket("ws://" + location.hostname + ":2346")
-        setInterval(() => {
-          if (this.ws.readyState == 3) {
-            this.ws = new WebSocket("ws://" + location.hostname + ":2346")
+        if (this.ws == undefined || this.ws.readyState !== undefined && this.ws.readyState == 3) {
+          this.ws = new WebSocket("ws://" + location.hostname + ":2346")
+        }
+        setTimeout(() => {
+          if (this.$route.name == 'electric-automation-power') {
+            this.connectWS()
           }
         }, WebsocketConfig.reconnect)
       }

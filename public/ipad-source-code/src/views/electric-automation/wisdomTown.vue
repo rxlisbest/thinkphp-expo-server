@@ -62,10 +62,12 @@
         this.send(tab)
       },
       connectWS() {
-        this.ws = new WebSocket("ws://" + location.hostname + ":2346")
-        setInterval(() => {
-          if (this.ws.readyState == 3) {
-            this.ws = new WebSocket("ws://" + location.hostname + ":2346")
+        if (this.ws == undefined || this.ws.readyState !== undefined && this.ws.readyState == 3) {
+          this.ws = new WebSocket("ws://" + location.hostname + ":2346")
+        }
+        setTimeout(() => {
+          if (this.$route.name == 'electric-automation-wisdomTown') {
+            this.connectWS()
           }
         }, WebsocketConfig.reconnect)
       }
