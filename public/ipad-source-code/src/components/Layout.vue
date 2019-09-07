@@ -19,7 +19,7 @@
     </el-header>
     <el-main>
       <slot name="body"></slot>
-      <el-dialog title="解除绑定" :visible.sync="formDialog">
+      <el-dialog title="解除绑定" :visible.sync="formDialog" :modal="false">
         <el-form :model="form">
           <el-form-item label="密码">
             <el-input v-model="form.password" autocomplete="off" show-password></el-input>

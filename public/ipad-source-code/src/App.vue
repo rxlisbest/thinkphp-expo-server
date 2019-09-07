@@ -10,7 +10,7 @@
     components: {},
     mounted() {
       window['body_move'] = function (e) {
-        // e.preventDefault() // 阻止默认的处理方式(阻止下拉滑动的效果)
+        e.preventDefault() // 阻止默认的处理方式(阻止下拉滑动的效果)
       }
       document.body.addEventListener('touchmove', window['body_move'], {passive: false}) // passive 参数不能省略，用来兼容ios和android
 
@@ -132,12 +132,12 @@
 
   /* 移动端禁止长按选中效果 */
   * {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
+    /*-webkit-touch-callout: none;*/
+    /*-webkit-user-select: none;*/
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
+    /*user-select: none;*/
     -webkit-tap-highlight-color: transparent; /* 防止ios 出现点击div 出现选中效果*/
   }
 </style>
