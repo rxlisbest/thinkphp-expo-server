@@ -91,6 +91,7 @@
   import PauseButton from '../../components/PauseButton'
   import XButton from '../../components/XButton'
   import Dish from '../../components/Dish'
+  import WebsocketConfig from '../../config/websocket'
   import {send} from '@/api/send'
 
   export default {
@@ -113,7 +114,7 @@
       }
     },
     created() {
-      this.ws = new WebSocket("ws://" + location.hostname + ":2346");
+      this.connectWS()
     },
     methods: {
       async send(command, param) {
@@ -129,6 +130,14 @@
       clickSolution(solution) {
         this.solution = solution
         this.send(solution)
+      },
+      connectWS() {
+        this.ws = new WebSocket("ws://" + location.hostname + ":2346")
+        setInterval(() => {
+          if (this.ws.readyState == 3) {
+            this.ws = new WebSocket("ws://" + location.hostname + ":2346")
+          }
+        }, WebsocketConfig.reconnect)
       }
     }
   }

@@ -174,6 +174,7 @@
   import PowerTwoDish from '../../components/PowerTwoDish'
   import ExpoPauseButton from '../../components/ExpoPauseButton'
   import NormalPlayButton from '../../components/NormalPlayButton'
+  import WebsocketConfig from '../../config/websocket'
   import {send} from '@/api/send'
 
   export default {
@@ -227,7 +228,7 @@
           if (this.ws.readyState == 3) {
             this.ws = new WebSocket("ws://" + location.hostname + ":2346")
           }
-        }, 3000)
+        }, WebsocketConfig.reconnect)
       }
     }
   }

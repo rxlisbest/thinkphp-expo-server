@@ -21,6 +21,7 @@
   import WisdomTownSimulation from '../../components/WisdomTownSimulation'
   import WisdomTownStructure from '../../components/WisdomTownStructure'
   import WisdomTownIntroduction from '../../components/WisdomTownIntroduction'
+  import WebsocketConfig from '../../config/websocket'
   import {send} from '@/api/send'
 
   export default {
@@ -66,7 +67,7 @@
           if (this.ws.readyState == 3) {
             this.ws = new WebSocket("ws://" + location.hostname + ":2346")
           }
-        }, 3000)
+        }, WebsocketConfig.reconnect)
       }
     }
   }

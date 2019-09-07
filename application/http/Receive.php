@@ -8,7 +8,7 @@ use think\worker\Server;
 class Receive extends Server
 {
     protected $protocol = 'websocket';
-    protected $option = ['count' => 4];
+    protected $option = ['count' => 6];
 
     public function onWebSocketConnect($connection)
     {
