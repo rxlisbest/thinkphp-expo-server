@@ -19,18 +19,18 @@
     </el-header>
     <el-main>
       <slot name="body"></slot>
-      <el-dialog title="解除绑定" :visible.sync="formDialog">
-        <el-form :model="form">
-          <el-form-item label="密码">
-            <el-input v-model="form.password" autocomplete="off" show-password></el-input>
-          </el-form-item>
-        </el-form>
-        <div slot="footer" class="dialog-footer">
-          <el-button @click="formDialog = false">取 消</el-button>
-          <el-button type="primary" @click="unbindSubmit">确 定</el-button>
-        </div>
-      </el-dialog>
     </el-main>
+    <el-dialog title="解除绑定" :visible.sync="formDialog">
+      <el-form :model="form">
+        <el-form-item label="密码">
+          <el-input v-model="form.password" autocomplete="off"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="formDialog = false">取 消</el-button>
+        <el-button type="primary" @click="unbindSubmit">确 定</el-button>
+      </div>
+    </el-dialog>
   </el-container>
 </template>
 
