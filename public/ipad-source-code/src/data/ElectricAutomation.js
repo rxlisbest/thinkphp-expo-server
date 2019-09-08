@@ -1,5 +1,41 @@
 export default [
   {
+    "name": "400kV并联电抗器",
+    "arName": "400kV并联电抗器",
+    "img": 'images/electric-automation/400kV并联电抗器.png',
+    "video": {
+      "main": "145kVGIS.mp4",
+      "small": ["视频1", "视频2", "视频3"]
+    }
+  },
+  {
+    "name": "1100kV变压器",
+    "arName": "1100kV变压器",
+    "img": 'images/electric-automation/1100kV变压器.png',
+    "video": {
+      "main": "145kVGIS.mp4",
+      "small": ["视频1", "视频2", "视频3"]
+    }
+  },
+  {
+    "name": "500kV变压器",
+    "arName": "500kV变压器",
+    "img": 'images/electric-automation/500kV变压器.png',
+    "video": {
+      "main": "145kVGIS.mp4",
+      "small": ["视频1", "视频2", "视频3"]
+    }
+  },
+  {
+    "name": "780MVA、220kV超大容量变压器",
+    "arName": "780MVA、220kV超大容量变压器",
+    "img": 'images/electric-automation/780MVA、220kV超大容量变压器.png',
+    "video": {
+      "main": "145kVGIS.mp4",
+      "small": ["视频1", "视频2", "视频3"]
+    }
+  },
+  {
     "name": "145kVGIS",
     "arName": "145kVGIS",
     "img": 'images/electric-automation/145kVGIS.png',
@@ -27,45 +63,9 @@ export default [
     }
   },
   {
-    "name": "500kV变压器",
-    "arName": "500kV变压器",
-    "img": 'images/electric-automation/500kV变压器.png',
-    "video": {
-      "main": "145kVGIS.mp4",
-      "small": ["视频1", "视频2", "视频3"]
-    }
-  },
-  {
-    "name": "1100kV变压器",
-    "arName": "1100kV变压器",
-    "img": 'images/electric-automation/1100kV变压器.png',
-    "video": {
-      "main": "145kVGIS.mp4",
-      "small": ["视频1", "视频2", "视频3"]
-    }
-  },
-  {
-    "name": "400kV并联电抗器",
-    "arName": "400kV并联电抗器",
-    "img": 'images/electric-automation/400kV并联电抗器.png',
-    "video": {
-      "main": "145kVGIS.mp4",
-      "small": ["视频1", "视频2", "视频3"]
-    }
-  },
-  {
     "name": "110kV/220kV高压电缆",
     "arName": "110kV/220kV高压电缆",
     "img": 'images/electric-automation/110kV 220kV高压电缆.png',
-    "video": {
-      "main": "145kVGIS.mp4",
-      "small": ["视频1", "视频2", "视频3"]
-    }
-  },
-  {
-    "name": "780MVA、220kV超大容量变压器",
-    "arName": "780MVA、220kV超大容量变压器",
-    "img": 'images/electric-automation/780MVA、220kV超大容量变压器.png',
     "video": {
       "main": "145kVGIS.mp4",
       "small": ["视频1", "视频2", "视频3"]
