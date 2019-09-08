@@ -40,8 +40,21 @@
           <expo-button :hover="secondTab == 'overall'" :name="'全面巡检'" class="button" @click="changeSecondTab('overall')"></expo-button>
         </el-col>
       </el-row>
-
-      <component :is="tab == 'zhxj' && secondTab == 'normal' ? 'PowerOneDish' : ''" :no="no" :ws="ws"></component>
+      <el-row v-if="tab == 'zhxj' && secondTab == 'normal'">
+        <el-col :span="8" :offset="2">
+          <el-row>
+            <el-col :span="8" :offset="4">
+              <expo-pause-button @click="send('pause')"></expo-pause-button>
+            </el-col>
+            <el-col :span="8">
+              <normal-play-button @click="send('play')"></normal-play-button>
+            </el-col>
+          </el-row>
+        </el-col>
+        <el-col :span="8">
+          <component :is="tab == 'zhxj' && secondTab == 'normal' ? 'PowerOneDish' : ''" :no="no" :ws="ws"></component>
+        </el-col>
+      </el-row>
 <!--      <power-one-dish :no="no" :ws="ws" v-if="tab == 'zhxj' && secondTab == 'normal'"></power-one-dish>-->
       <power-two-dish :no="no" :ws="ws" v-if="tab == 'zhxj' && secondTab == 'overall'"></power-two-dish>
 
