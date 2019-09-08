@@ -44,10 +44,10 @@
         <el-col :span="8" :offset="2">
           <el-row>
             <el-col :span="8" :offset="4">
-              <expo-pause-button @click="send('pause')"></expo-pause-button>
+              <expo-pause-button @click="send('pauseMove')"></expo-pause-button>
             </el-col>
             <el-col :span="8">
-              <normal-play-button @click="send('play')"></normal-play-button>
+              <normal-play-button @click="send('playMove')"></normal-play-button>
             </el-col>
           </el-row>
         </el-col>
@@ -172,7 +172,7 @@
           </el-row>
         </el-col>
       </el-row>
-      <component :is="tab == 'sbsmgl' ? 'PowerOneDish' : ''" :no="no" :ws="ws" v-if="tab == 'sbsmgl'"></component>
+      <component class="sbsmgl" :is="tab == 'sbsmgl' ? 'PowerOneDish' : ''" :no="no" :ws="ws" v-if="tab == 'sbsmgl'"></component>
 <!--      <power-one-dish :no="no" :ws="ws" v-if="tab == 'sbsmgl'"></power-one-dish>-->
     </template>
   </layout>
@@ -276,5 +276,9 @@
     margin-top: 0.8vw;
     padding-top: 1.8vw;
     padding-bottom: 1.8vw;
+  }
+
+  .sbsmgl {
+    margin-top: 3vw;
   }
 </style>
