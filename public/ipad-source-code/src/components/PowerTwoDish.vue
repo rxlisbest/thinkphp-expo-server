@@ -1,7 +1,7 @@
 <template>
     <el-row>
       <el-col :span="8">
-        <dish :no="no" :moveId="'leftMove'" :ws="ws"></dish>
+        <dish :no="no" :moveId="'nononoMove'" :ws="ws"></dish>
       </el-col>
       <el-col :span="8" :offset="8">
         <dish :no="no" :moveId="'rightMove'" :ws="ws"></dish>
