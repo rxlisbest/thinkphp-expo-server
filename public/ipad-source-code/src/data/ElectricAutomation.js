@@ -36,9 +36,9 @@ export default [
     }
   },
   {
-    "name": "145kVGIS",
-    "arName": "145kVGIS",
-    "img": 'images/electric-automation/145kVGIS.png',
+    "name": "145kVHGIS",
+    "arName": "145kVHGIS",
+    "img": 'images/electric-automation/145kVHGIS.png',
     "video": {
       "main": "145kVGIS.mp4",
       "small": ["视频1", "视频2", "视频3"]
@@ -54,9 +54,9 @@ export default [
     }
   },
   {
-    "name": "145kVHGIS",
-    "arName": "145kVHGIS",
-    "img": 'images/electric-automation/145kVHGIS.png',
+    "name": "145kVGIS",
+    "arName": "145kVGIS",
+    "img": 'images/electric-automation/145kVGIS.png',
     "video": {
       "main": "145kVGIS.mp4",
       "small": ["视频1", "视频2", "视频3"]
