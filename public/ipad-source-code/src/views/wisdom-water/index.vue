@@ -1,14 +1,14 @@
 <template>
-  <video-play :back-name="'set-up-index'" :no="no" :title="title" :bind-module="'electric-automation-index'"></video-play>
+  <wisdom-water-video-play :back-name="'set-up-index'" :no="no" :title="title" :bind-module="'electric-automation-index'"></wisdom-water-video-play>
 </template>
 
 <script>
-  import VideoPlay from '../../components/VideoPlay'
+  import WisdomWaterVideoPlay from '../../components/WisdomWaterVideoPlay'
 
   export default {
     name: 'wisdom-water-index',
     components: {
-      VideoPlay
+      WisdomWaterVideoPlay
     },
     data() {
       return {
