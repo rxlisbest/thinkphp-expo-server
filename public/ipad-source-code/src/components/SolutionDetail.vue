@@ -15,7 +15,7 @@
             &nbsp;
           </el-col>
           <el-col :span="6" v-for="(v, k) in info.video.small">
-            <expo-button class="button" :name="v" @click="send('product', (parseInt(k) + 1))"></expo-button>
+            <expo-button class="button" :name="v" @click="send('product', k)"></expo-button>
           </el-col>
         </el-row>
       </div>
