@@ -14,7 +14,7 @@
           <el-col :span="3">
             &nbsp;
           </el-col>
-          <el-col :span="6" v-for="(v, k) in info.video.small">
+          <el-col :span="6" v-for="(v, k) in info.video.small" v-if="!(no == 61 && k == 1)">
             <expo-button class="button" :name="v" @click="send('product', k)"></expo-button>
           </el-col>
         </el-row>
