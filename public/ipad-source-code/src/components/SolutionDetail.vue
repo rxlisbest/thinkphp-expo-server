@@ -5,7 +5,8 @@
         <el-row class="row-img">
           <el-col :span="18" :offset="3">
             <div class="product-img-div">
-              <img class="product-img" :src="info.imgDetail !== undefined ? require('@/' + info.imgDetail) : require('@/' + info.img)">
+              <img class="product-img"
+                   :src="info.imgDetail !== undefined ? require('@/' + info.imgDetail) : require('@/' + info.img)">
             </div>
           </el-col>
         </el-row>
@@ -14,7 +15,7 @@
             &nbsp;
           </el-col>
           <el-col :span="6" v-for="(v, k) in info.video.small">
-            <expo-button class="button" :name="v" @click="send('product', index + 1)"></expo-button>
+            <expo-button class="button" :name="v" @click="send('product', (parseInt(k) + 1))"></expo-button>
           </el-col>
         </el-row>
       </div>
@@ -55,7 +56,7 @@
       return {}
     },
     created() {
-      this.send('product', this.index)
+      // this.send('product')
       // this.info.img = require(this.info.img)
     },
     methods: {
