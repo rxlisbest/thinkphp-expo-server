@@ -129,8 +129,10 @@
         this.send('playVideo', {'type': this.solution, 'video': video})
       },
       clickSolution(solution) {
-        this.solution = solution
         this.send(solution)
+        setTimeout(() => {
+          this.solution = solution
+        }, 2000)
       },
       connectWS() {
         if (this.ws == undefined || this.ws.readyState !== undefined && this.ws.readyState == 3) {
