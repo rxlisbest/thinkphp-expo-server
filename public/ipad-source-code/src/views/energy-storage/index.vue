@@ -75,7 +75,7 @@
           <big-button class="square-button" @click="send('size', {'value':+0.1})"></big-button>
         </el-col>
         <el-col :span="8">
-          <dish :no="no" :moveId="'move'" :ws="ws"></dish>
+          <dish v-if="moveDisplay" :no="no" :moveId="'move'" :ws="ws"></dish>
         </el-col>
       </el-row>
     </template>
@@ -110,11 +110,11 @@
       return {
         no: 15,
         ws: undefined,
-        solution: ''
+        solution: '',
+        moveDisplay: true
       }
     },
     created() {
-      console.log(this.$route.name)
       this.connectWS()
     },
     methods: {
@@ -137,6 +137,10 @@
       connectWS() {
         if (this.ws == undefined || this.ws.readyState !== undefined && this.ws.readyState == 3) {
           this.ws = new WebSocket("ws://" + location.hostname + ":2346")
+          this.moveDisplay = false
+          setTimeout(() => {
+            this.moveDisplay = true
+          }, 0)
         }
         setTimeout(() => {
           if (this.$route.name == 'energy-storage-index') {
