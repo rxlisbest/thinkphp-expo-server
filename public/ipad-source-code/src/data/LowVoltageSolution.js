@@ -7,7 +7,7 @@ export default [
     "imgDetail": "assets/low-voltage/charge-detail.png",
     "video": {
       "main": "145kVGIS.mp4",
-      "small": ["视频1", "视频2", "视频3"]
+      "small": ["智能光伏路灯充电桩解决方案", "智慧光伏储能充电站解决方案", "交直流一体充电桩解决方案"]
     }
   },
   {
@@ -18,7 +18,7 @@ export default [
     "imgDetail": "assets/low-voltage/power-detail.png",
     "video": {
       "main": "145kVGIS.mp4",
-      "small": ["视频1", "视频2", "视频3"]
+      "small": ["电力城网低压配电系统整体解决方案", "配电物联网智能台区解决方案", "电力农网低压配电系统整体解决方案"]
     }
   },
   {

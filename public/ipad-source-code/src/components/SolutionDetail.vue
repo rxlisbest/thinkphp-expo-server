@@ -14,7 +14,7 @@
           <el-col :span="3">
             &nbsp;
           </el-col>
-          <el-col :span="6" v-for="(v, k) in info.video.small" v-if="!(no == 61 && k == 1)">
+          <el-col :span="6" v-for="(v, k) in info.video.small">
             <expo-button class="button" :name="v" @click="send('product', k)"></expo-button>
           </el-col>
         </el-row>
@@ -104,10 +104,13 @@
   }
 
   .button {
+    width: 80%;
     font-size: 2vw;
     margin: 0 auto;
     padding-top: 5%;
     padding-bottom: 5%;
+    padding-left: 2vw;
+    padding-right: 2vw;
   }
 
   .product-img-div {
