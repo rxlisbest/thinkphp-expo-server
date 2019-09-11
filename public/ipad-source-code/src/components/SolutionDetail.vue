@@ -11,11 +11,14 @@
           </el-col>
         </el-row>
         <el-row class="row-button" :gutter="0">
-          <el-col :span="3">
-            &nbsp;
-          </el-col>
           <el-col :span="6" v-for="(v, k) in info.video.small">
             <expo-button class="button" :name="v" @click="send('product', k)"></expo-button>
+          </el-col>
+          <el-col :span="3">
+            <expo-button class="circle-button" :name="'开启循环'" @click="send('circle', 1)"></expo-button>
+          </el-col>
+          <el-col :span="3">
+            <expo-button class="circle-button" :name="'关闭循环'" @click="send('circle', 0)"></expo-button>
           </el-col>
         </el-row>
       </div>
@@ -111,6 +114,16 @@
     padding-bottom: 5%;
     padding-left: 2vw;
     padding-right: 2vw;
+  }
+
+  .circle-button {
+    width: 80%;
+    font-size: 1.3vw;
+    margin: 0 auto;
+    padding-top: 27%;
+    padding-bottom: 27%;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
   }
 
   .product-img-div {
