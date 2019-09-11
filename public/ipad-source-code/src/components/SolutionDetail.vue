@@ -15,10 +15,10 @@
             <expo-button class="button" :name="v" @click="send('product', k)"></expo-button>
           </el-col>
           <el-col :span="3">
-            <expo-button class="circle-button" :name="'开启循环'" @click="send('circle', 1)"></expo-button>
+            <expo-button class="circle-button" :name="'首页'" @click="send('circle', 0)"></expo-button>
           </el-col>
           <el-col :span="3">
-            <expo-button class="circle-button" :name="'关闭循环'" @click="send('circle', 0)"></expo-button>
+            <expo-button class="circle-button" :name="'循环播放'" @click="send('circle', 1)"></expo-button>
           </el-col>
         </el-row>
       </div>
