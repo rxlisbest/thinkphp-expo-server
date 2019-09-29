@@ -4,6 +4,7 @@
 namespace app\common;
 
 use think\Facade;
+use think\facade\Cache;
 use think\facade\Config;
 
 class Message extends Facade
@@ -21,14 +22,18 @@ class Message extends Facade
     {
         $beanstalkd = Config::get('beanstalkd.');
         $pheanstalk = BeansTalkd::getInstance(); // 连接队列服务
+
+        $clientId = uniqid();
+        var_dump("client_${no}");
+        Cache::set("client", $clientId);
+        $watch = $pheanstalk
+            ->watch($beanstalkd['tube_prefix'] . $no)
+            ->ignore('default');
         while (true) {
-            $watch = $pheanstalk
-                ->watch($beanstalkd['tube_prefix'] . $no)
-                ->ignore('default');
+            $job = $watch->reserveWithTimeout(60);  // 设置过期时间
 
-            $job = $watch->reserveWithTimeout(3);  // 设置过期时间
-
-            if ($job) { // 队列中有消息，发送消息
+            $currentClientId = Cache::get("client");
+            if ($job && $clientId == $currentClientId) { // 队列中有消息，发送消息
                 $data = $job->getData();
                 $pheanstalk->delete($job);
             } else { // 队列中无消息，发送心跳包
@@ -39,6 +44,8 @@ class Message extends Facade
                 $data['no'] = $no;
                 $data = json_encode($data);
             }
+
+            var_dump($currentClientId);exit;
             $result = $callback($data); // 调用回调函数
             if ($result === false) { // 如果返回值是false，则退出循环
                 break;

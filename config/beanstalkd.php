@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'host' => '127.0.0.1',
+    'host' => '39.96.71.175',
     'port' => '11300',
     'tube_prefix' => 'expo_'
 ];
