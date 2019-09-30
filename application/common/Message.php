@@ -18,18 +18,30 @@ class Message extends Facade
      * @author: Roy<ruixl@soocedu.com>
      * @time: 2019-08-06 13:36
      */
-    public static function send($no, \Closure $callback)
+    public static function send($no, \Closure $callback, $index = 0)
     {
         $beanstalkd = Config::get('beanstalkd.');
         $pheanstalk = BeansTalkd::getInstance(); // 连接队列服务
 
         $clientId = uniqid();
-        Cache::set("client", $clientId);
+        Cache::set("client", $clientId); // 设置标识，以后打开终端为主
         $watch = $pheanstalk
             ->watch($beanstalkd['tube_prefix'] . $no)
             ->ignore('default');
+
+        if (!$index) {
+            while (true) {
+                $job = $watch->reserve();
+                if ($job) { // 队列中有消息，清除
+                    $pheanstalk->delete($job);
+                } else {
+                    break;
+                }
+            }
+        }
+
         while (true) {
-            $job = $watch->reserveWithTimeout(15);  // 设置过期时间
+            $job = $watch->reserveWithTimeout(3);  // 设置过期时间
 
             $currentClientId = Cache::get("client");
             if ($job && $clientId == $currentClientId) { // 队列中有消息，发送消息

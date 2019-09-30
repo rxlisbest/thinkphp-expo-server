@@ -29,6 +29,9 @@ class Index extends Controller
     public function receive(Request $request)
     {
         $get = $request->get();
+        if (!isset($get['index'])) {
+            $get['index'] = 1;
+        }
         $validate = new SendValidate();
         if (!$validate->scene('receive')->check($get)) {
             $this->error($validate->getError());
@@ -47,7 +50,7 @@ class Index extends Controller
             exit();
 //            $o->success('success', null, json_decode($data, true));
 //            return false;
-        });
+        }, $get['index']);
     }
 
     /**
