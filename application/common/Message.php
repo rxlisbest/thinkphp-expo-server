@@ -24,13 +24,12 @@ class Message extends Facade
         $pheanstalk = BeansTalkd::getInstance(); // 连接队列服务
 
         $clientId = uniqid();
-        var_dump("client_${no}");
         Cache::set("client", $clientId);
         $watch = $pheanstalk
             ->watch($beanstalkd['tube_prefix'] . $no)
             ->ignore('default');
         while (true) {
-            $job = $watch->reserveWithTimeout(60);  // 设置过期时间
+            $job = $watch->reserveWithTimeout(15);  // 设置过期时间
 
             $currentClientId = Cache::get("client");
             if ($job && $clientId == $currentClientId) { // 队列中有消息，发送消息
@@ -45,7 +44,6 @@ class Message extends Facade
                 $data = json_encode($data);
             }
 
-            var_dump($currentClientId);exit;
             $result = $callback($data); // 调用回调函数
             if ($result === false) { // 如果返回值是false，则退出循环
                 break;
